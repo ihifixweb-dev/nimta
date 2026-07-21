@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Archivo, Fraunces } from 'next/font/google';
 import AnnounceBar from '@/components/AnnounceBar';
 import Footer from '@/components/Footer';
@@ -18,6 +18,11 @@ const archivo = Archivo({
   variable: '--font-archivo',
   display: 'swap',
 });
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   title: {
