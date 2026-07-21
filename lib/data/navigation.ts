@@ -29,7 +29,7 @@ export type AnnounceBar = {
 
 export const announceBar: AnnounceBar = {
   headline: 'Admissions Now Open',
-  detail: 'January 2026 Cohort · Scholarships available for children of serving personnel',
+  detail: 'July 2026 Cohort · Scholarships available for children of serving personnel',
   ctaLabel: 'Begin your application',
   ctaHref: '/apply',
 };

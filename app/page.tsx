@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CtaBand from '@/components/CtaBand';
+import HeroSlideshow from '@/components/HeroSlideshow';
 import ImgSlot from '@/components/ImgSlot';
 import Reveal from '@/components/Reveal';
 import ScholarshipTiers from '@/components/ScholarshipTiers';
@@ -9,6 +10,7 @@ import {
   departments,
   guidanceCard,
   heroFacts,
+  heroSlides,
   homeNewsTeaser,
   testimonials,
 } from '@/lib/data/home';
@@ -28,7 +30,7 @@ export default function HomePage() {
             <div>
               <div className="hero-open-badge">
                 <span className="hero-open-dot" />
-                <span>Admissions Now Open · 2026 Session</span>
+                <span>Admissions Now Open · July 2026 Session</span>
               </div>
               <h1 className="hero-h">
                 Excellence is a skill.
@@ -61,12 +63,7 @@ export default function HomePage() {
             </div>
             <div className="hero-visual">
               <div className="hero-img">
-                <ImgSlot
-                  label="Hero Image: Students at Work"
-                  src={images.heroStudents}
-                  alt="NIMTA students training in a technology lab"
-                  priority
-                />
+                <HeroSlideshow slides={heroSlides} />
               </div>
               <div className="hero-card">
                 <b>SSCE</b>
@@ -99,7 +96,7 @@ export default function HomePage() {
               <div className="about-cred">
                 <b>Est. 2010</b>
                 <span>
-                  NBTE approved since 2014. Sixteen years of training people
+                  NBTE approved. Sixteen years of training people
                   properly.
                 </span>
               </div>
@@ -141,8 +138,8 @@ export default function HomePage() {
             <div>
               <div className="kicker">A Message From the President</div>
               <h2 className="h-major">
-                &ldquo;We will not lower the standard to make you comfortable. We
-                will raise you until you meet it.&rdquo;
+                &ldquo;We do not lower our standards to accommodate doubt. We
+                raise our students until the standard becomes their nature.&rdquo;
               </h2>
               <p className="lede" style={{ margin: '22px 0 28px' }}>
                 Dr Safiyyah Hassan Shaibu, President of NAOWA, has a message for

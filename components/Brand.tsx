@@ -7,6 +7,7 @@ type BrandProps = {
   asLink?: boolean;
   name?: string;
   subtitle?: string;
+  logoSrc?: string;
 };
 
 export default function Brand({
@@ -14,12 +15,13 @@ export default function Brand({
   asLink = true,
   name = 'NIMTA',
   subtitle = 'NAOWA Institute of Management & Technology',
+  logoSrc = images.logo,
 }: BrandProps) {
   const content = (
     <>
       <div className="brand-logo">
         <Image
-          src={images.logo}
+          src={logoSrc}
           alt="NAOWA Institute of Management and Technology, Abuja"
           width={52}
           height={52}

@@ -26,7 +26,7 @@ export const newsArticles: NewsArticle[] = [
   {
     category: 'Announcement',
     date: 'Placeholder Date',
-    title: 'Admissions open for the January cohort: what you need to know',
+    title: 'Admissions open for the July cohort: what you need to know',
     excerpt:
       'Key dates, document requirements, and how to secure your place before the cohort fills. Placeholder summary text for the first featured post.',
     imageType: 'News Image',

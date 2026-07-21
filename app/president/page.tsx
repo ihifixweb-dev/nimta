@@ -10,12 +10,14 @@ export const metadata: Metadata = {
 };
 
 const letterParagraphs = [
-  'Every great life I have ever witnessed began the same way: with a person who decided to take themselves seriously. Not loudly. Not perfectly. Just seriously. If you are reading this page, I believe that decision is already stirring somewhere in you. I want you to know that this institute was built for exactly that moment.',
-  'Let me tell you plainly what NIMTA is, because I would rather you come with your eyes open. This is not a place you pass through to collect a certificate. This is a place you come to be built. Your facilitators are professionals who hold themselves to a high standard, and they will hold you to the same one. You will be stretched. You will be corrected. There will be days the work humbles you. I make no apology for any of it, because I have lived long enough to know a simple truth: nobody has ever grown inside their comfort.',
-  'So come with your whole heart. Come ready to practise, to repeat, to fail small and try again, because that is how mastery is actually formed. Excellence here is not a word we hang on the wall. It is the ordinary, daily standard of this house, and something remarkable happens to people who live inside a standard like that: it becomes theirs. By the time you graduate, excellence will no longer be something you admire in others. It will be something people recognise in you.',
-  'And in return, I make you this promise on behalf of every facilitator, every staff member, and every woman of this Association: we will not waste your time. Every hour you give this institute will be turned into skill you keep for the rest of your life. You will leave here with far more than a certificate. You will leave with proof of what you can do, and with the quiet, unshakeable confidence of a person who earned their place.',
-  'You should also know our story. This institute was founded by the Nigerian Army Officers\' Wives Association, and service runs deep in everything we do. That is why we set aside scholarships for the children of those who wear this nation\'s uniform. It is our thank-you to families who have given more than most people will ever know. But hear me clearly: our doors are open to every young Nigerian with an SSCE result and the will to work. Whoever you are, wherever you come from, if you are ready to become excellent at something, you belong here.',
-  'The world is not short of people with potential. It is short of people who did something with it. Come and become one of them. I look forward to shaking your hand on your graduation day.',
+  'It is my distinct privilege to welcome you to the NAOWA Institute of Management and Technology, and to address you at what I consider one of the most consequential moments in any life, the moment a person decides what to make of their own potential.',
+  'Permit me to speak plainly about the world you are preparing to enter. It is a world that rewards demonstrable competence above credentials, connections, or circumstance. The modern economy asks a single question of everyone who seeks a place within it, it asks what can you do, and how well can you do it? NIMTA exists to help you achieve that answer that commands respect.',
+  'For over six decades, the Nigerian Army Officers\' Wives Association has stood beside those who serve this nation. In that time, we have observed a truth that now informs everything this Institute does, excellence is not an accident of birth. It is the predictable outcome of rigorous training, sustained discipline, and an environment that refuses to accommodate mediocrity. Ordinary people, held to an extraordinary standard, become extraordinary. This is not sentiment. It is the founding conviction of this institution, and the daily experience of those who train here.',
+  'I will be candid about what this Institute will require of you. Our facilitators are accomplished professionals in the disciplines they teach, and they will hold you to the standards of industry rather than the comforts of the classroom. You will be stretched beyond familiar limits. You will be corrected with precision and assessed with honesty. There will be moments when the work challenges you profoundly. Growth has never occurred within the boundaries of comfort, and we did not build this institution to leave you as we found you.',
+  'In return, this Institute makes you a commitment, and I hold every member of it accountable to that commitment. Every hour you invest here will be converted into enduring capability. You will be trained by practitioners of genuine distinction, you will receive a truthful account of your progress at every stage and you will graduate bearing not merely a certificate, but a body of work, a tangible proof of competence that speaks for itself in any room in the world.',
+  'You should also understand our heritage. This Institute was founded by the Nigerian Army Officers\' Wives Association, and service is woven into its character. In honour of the families who serve this nation, we extend a full scholarship to the children of Nigerian Army officers on their first programme, and a fifty percent scholarship to the children of soldiers and other ranks on their first programme. This is our gratitude, rendered in opportunity. Yet let there be no misunderstanding: NIMTA\'s doors are open to every Nigerian with the requisite qualification and the resolve to work. A place here is earned by ambition, not inherited by association.',
+  'My charge to you is therefore a simple one. Do not wait until you feel ready. Readiness is not a feeling; it is a decision, confirmed daily through disciplined effort. Choose your craft. Commit to it entirely. And allow this institution to do for you what it has done for so many who once stood precisely where you stand today.',
+  'I look forward to the day your name will be called at graduation, when the recognition you receive will owe nothing to fortune, and everything to what you have built.',
 ];
 
 export default function PresidentPage() {
@@ -42,28 +44,37 @@ export default function PresidentPage() {
                 />
               </div>
               <div className="letter-office">
-                <h3>A Message From the President</h3>
-                <p>
+                <h3>
+                  A Message From the President of the
+                  <br />
                   Nigerian Army Officers&apos; Wives Association · NAOWA
-                </p>
+                </h3>
                 <div className="letter-rule" />
               </div>
 
-              <p className="letter-sal">My dear young ones,</p>
+              <p className="letter-sal">
+                To the aspirants of the NIMTA Empowerment Training Scheme,
+              </p>
 
               <p className="letter-p">{letterParagraphs[0]}</p>
               <p className="letter-p">{letterParagraphs[1]}</p>
+              <p className="letter-p">{letterParagraphs[2]}</p>
+              <p className="letter-p">{letterParagraphs[3]}</p>
 
               <p className="letter-p em">
-                We will not lower the standard to make you comfortable. We will
-                raise you until you meet it.
+                We do not lower our standards to accommodate doubt. We raise our
+                students until the standard becomes their nature.
               </p>
 
-              {letterParagraphs.slice(2).map((paragraph) => (
+              {letterParagraphs.slice(4).map((paragraph) => (
                 <p key={paragraph.slice(0, 40)} className="letter-p">
                   {paragraph}
                 </p>
               ))}
+
+              <p className="letter-sal" style={{ marginTop: 32 }}>
+                With every confidence in your success,
+              </p>
 
               <div className="letter-sig">
                 <div>

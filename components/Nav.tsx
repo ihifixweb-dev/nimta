@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import Brand from '@/components/Brand';
 import { navLinks } from '@/lib/data/navigation';
+import { images } from '@/lib/data/images';
 
 export default function Nav() {
   const pathname = usePathname();
@@ -18,7 +19,7 @@ export default function Nav() {
   return (
     <nav id="nav" role="navigation" aria-label="Main">
       <div className="nav-in">
-        <Brand />
+        <Brand logoSrc={images.navLogo} />
         <div className={`nav-l${open ? ' open' : ''}`} id="navL">
           {navLinks.map((link) => (
             <Link

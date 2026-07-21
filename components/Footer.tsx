@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Brand from '@/components/Brand';
+import { images } from '@/lib/data/images';
 import {
   footerBottom,
   footerBrand,
@@ -18,6 +19,7 @@ export default function Footer() {
               asLink={false}
               name={footerBrand.name}
               subtitle={footerBrand.subtitle}
+              logoSrc={images.footerLogo}
             />
             <p className="foot-desc">{footerBrand.description}</p>
             <div className="foot-contact">

@@ -40,7 +40,7 @@ export default function AboutPage() {
         breadcrumb="The Institute"
         kicker="The Institute"
         title="An institution that keeps its word."
-        description="Established in 2010 under the Nigerian Army Officers' Wives Association. Approved by the National Board for Technical Education since 2014. Built on one conviction: that competence, not connection, is what changes a young person's life."
+        description="Established in 2010 under the Nigerian Army Officers' Wives Association. Approved by the National Board for Technical Education. Built on one conviction: that competence, not connection, is what changes a young person's life."
       />
 
       <Reveal className="sec">
@@ -55,7 +55,7 @@ export default function AboutPage() {
               <div className="about-cred">
                 <b>Est. 2010</b>
                 <span>
-                  NBTE approved since 2014. Trusted by military families for
+                  NBTE approved. Trusted by military families for
                   over a decade.
                 </span>
               </div>
@@ -151,7 +151,7 @@ export default function AboutPage() {
                 NIMTA operates under the auspices of the Nigerian Army
                 Officers&apos; Wives Association (NAOWA), an organisation with
                 over six decades of humanitarian service, and holds approval from
-                the National Board for Technical Education (NBTE) since 2014.
+                the National Board for Technical Education (NBTE).
               </p>
               <p
                 style={{
