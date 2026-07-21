@@ -152,7 +152,7 @@ export default function ApplyForm() {
               <polyline points="20 6 9 17 4 12" />
             </svg>
           </div>
-          <h3>We&apos;ve got your application.</h3>
+          <h3>We have your application.</h3>
           <p>
             Thank you for raising your hand. Our admissions team will be in
             touch within five working days with your full application pack, and

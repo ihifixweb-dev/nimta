@@ -51,10 +51,10 @@ export default function CourseList() {
     <>
       <div className="sec-head-row">
         <p className="lede" style={{ fontSize: '0.9rem', maxWidth: 460 }}>
-          Browse the full list, or filter by department. Two things to know:
+          Browse the full list, or filter by department. Two things to know.
           Computer Appreciation is the foundation for every technology programme,
           and Business Development is built into every programme we run, because
-          we don&apos;t just train you to be skilled. We train you to be paid.
+          we do not just train you to be skilled. We train you to be paid.
         </p>
         <div className="filters" role="tablist">
           {departmentFilters.map((tab) => (

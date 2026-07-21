@@ -70,14 +70,14 @@ export default function AdmissionsPage() {
           <div className="sec-head">
             <div className="kicker">Scholarships &amp; Fees</div>
             <h2 className="h-major">
-              Here&apos;s how it works. Nothing hidden.
+              Here is how it works. Nothing hidden.
             </h2>
             <p className="lede" style={{ marginTop: 20 }}>
               NIMTA was founded by the Nigerian Army Officers&apos; Wives
               Association, and giving back to military families is part of who we
               are. If your parent wears or has worn this nation&apos;s uniform,
-              some or all of your training is on us. If not, you&apos;re every
-              bit as welcome, and you&apos;ll get the same facilitators, the
+              some or all of your training is on us. If not, you are every
+              bit as welcome, and you will get the same facilitators, the
               same equipment, and the same standard.
             </p>
           </div>
@@ -95,8 +95,8 @@ export default function AdmissionsPage() {
               <h2 className="h-major">What to have ready.</h2>
               <p className="lede" style={{ marginTop: 20 }}>
                 Getting your documents together early is the single best thing you
-                can do to speed up your admission. Here&apos;s the complete list.
-                There&apos;s nothing beyond what you see here.
+                can do to speed up your admission. Here is the complete list.
+                There is nothing beyond what you see here.
               </p>
             </div>
             <div className="docs-g" style={{ marginTop: 0 }}>
@@ -140,8 +140,8 @@ export default function AdmissionsPage() {
       </section>
 
       <CtaBand
-        title="Documents ready? Then you're closer than you think."
-        description="Send in your application and you'll hear from us within five working days."
+        title="Documents ready? Then you are closer than you think."
+        description="Send in your application and you will hear from us within five working days."
         primaryHref="/apply"
         primaryLabel="Start Your Application"
       />

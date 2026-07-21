@@ -40,7 +40,7 @@ export default function AboutPage() {
         breadcrumb="The Institute"
         kicker="The Institute"
         title="An institution that keeps its word."
-        description="Established in 2010 under the Nigerian Army Officers' Wives Association. Approved by the National Board for Technical Education. Built on one conviction: that competence, not connection, is what changes a young person's life."
+        description="Established in 2010 under the Nigerian Army Officers' Wives Association. Approved by the National Board for Technical Education. Built on one conviction that competence, not connection, is what changes a young person's life."
       />
 
       <Reveal className="sec">
@@ -69,7 +69,7 @@ export default function AboutPage() {
                 For over a decade, NIMTA has trained the sons and daughters of
                 those who serve this country. We do not promise certificates. We
                 promise competence. Every programme here is built the way the
-                Army builds anything worth keeping: with structure, with
+                Army builds anything worth keeping, with structure, with
                 standards, and with an unshakeable focus on the outcome.
               </p>
               <p
@@ -82,18 +82,9 @@ export default function AboutPage() {
                 You will train under working professionals, not career
                 lecturers. You will spend your days doing the work, not copying
                 notes. And you will leave with something no one can take from
-                you: a skill, a portfolio, and the confidence of a person who has
+                you, a skill, a portfolio, and the confidence of a person who has
                 earned both.
               </p>
-              <div className="entry-note">
-                <p>
-                  <strong>Who can apply:</strong> Any young adult who has
-                  completed the Senior Secondary Certificate Examination (SSCE)
-                  or its equivalent. That is the only academic requirement. No
-                  degree. No diploma. Just your result, your commitment, and your
-                  decision to begin.
-                </p>
-              </div>
               <div className="about-marks">
                 {marks.map((mark) => (
                   <span key={mark} className="mark">
@@ -110,7 +101,7 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="sec-head">
             <div className="kicker">How We Train</div>
-            <h2 className="h-major">Three principles. No exceptions.</h2>
+            <h2 className="h-major">We have three principles</h2>
           </div>
           <div className="voices-g">
             {principles.map((principle) => (
@@ -146,7 +137,9 @@ export default function AboutPage() {
           <div className="about-g">
             <div>
               <div className="kicker">Standing &amp; Accreditation</div>
-              <h2 className="h-major">Recognised. Regulated. Respected.</h2>
+              <h2 className="h-major">
+                We are recognised, regulated and respected globally
+              </h2>
               <p className="lede" style={{ margin: '22px 0 18px' }}>
                 NIMTA operates under the auspices of the Nigerian Army
                 Officers&apos; Wives Association (NAOWA), an organisation with

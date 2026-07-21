@@ -32,7 +32,7 @@ export const scholarshipTiers: ScholarshipTier[] = [
     percent: 'Open',
     name: 'Standard Admission',
     description:
-      'No uniform in your family? You\'re just as welcome here. Every naira of your fee goes into the quality of your own training: the facilitators, the equipment, the small class sizes.',
+      'No uniform in your family? You are just as welcome here. Every naira of your fee goes into the quality of your own training, the facilitators, the equipment, the small class sizes.',
     note: 'Standard programme fees apply. Ask the Admissions Office about flexible payment options.',
   },
 ];

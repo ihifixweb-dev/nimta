@@ -41,7 +41,7 @@ export default function HomePage() {
                 genuinely good at what they do. Pick your field. Software,
                 design, fashion, food, beauty, business. We train you properly,
                 push you further than you thought you could go, and make sure you
-                leave with work you&apos;re proud to put your name on.
+                leave with work you are proud to put your name on.
               </p>
               <div className="hero-cta">
                 <Link href="/programmes" className="btn btn-ink">
@@ -101,18 +101,10 @@ export default function HomePage() {
                 Most training centres hand you a manual and a certificate. NIMTA
                 is different, and deliberately so. Here, you spend your days
                 doing the actual work, guided by facilitators who earn their
-                living doing it too. By the time you graduate, you&apos;re not
-                hoping you&apos;re good enough. You know you are, and you can
+                living doing it too. By the time you graduate, you are not
+                hoping you are good enough. You know you are, and you can
                 prove it.
               </p>
-              <div className="entry-note">
-                <p>
-                  <strong>Who can apply:</strong> anyone with an SSCE result and
-                  the will to work. No degree needed. No connections needed. If
-                  you&apos;re ready to take yourself seriously, you&apos;re ready
-                  for NIMTA.
-                </p>
-              </div>
               <div style={{ marginTop: 32 }}>
                 <Link href="/about" className="btn btn-ghost">
                   Get to Know the Institute
@@ -134,8 +126,8 @@ export default function HomePage() {
               </h2>
               <p className="lede" style={{ margin: '22px 0 28px' }}>
                 Dr Safiyyah Hassan Shaibu, President of NAOWA, has a message for
-                everyone thinking about joining this institute. It&apos;s honest,
-                it&apos;s personal, and it will tell you exactly what kind of
+                everyone thinking about joining this institute. It is honest,
+                it is personal, and it will tell you exactly what kind of
                 place this is.
               </p>
               <Link href="/president" className="btn btn-ink">
@@ -161,7 +153,7 @@ export default function HomePage() {
             <div>
               <div className="kicker">What You Can Learn</div>
               <h2 className="h-major">
-                Five departments. One standard: excellent or not yet.
+                Five departments. One standard, excellent or not yet.
               </h2>
             </div>
             <p
@@ -170,7 +162,7 @@ export default function HomePage() {
             >
               Every department is run by people still active in their industry.
               Choose the craft that fits your hands, your mind, and the life
-              you&apos;re building.
+              you are building.
             </p>
           </div>
           <div className="schools-g">
@@ -254,10 +246,10 @@ export default function HomePage() {
               Founded by the Army family. Open to absolutely everyone.
             </h2>
             <p className="lede" style={{ marginTop: 20 }}>
-              Anyone can study at NIMTA. That&apos;s the first thing to know.
-              The second is this: because this institute was founded by the
+              Anyone can study at NIMTA. That is the first thing to know.
+              The second is that because this institute was founded by the
               Nigerian Army Officers&apos; Wives Association, we set something
-              special aside for the children of those who serve. It&apos;s our
+              special aside for the children of those who serve. It is our
               way of saying thank you to the families who have given so much.
             </p>
           </div>
@@ -275,7 +267,7 @@ export default function HomePage() {
           <div className="sec-head">
             <div className="kicker">Graduate Voices</div>
             <h2 className="h-major">
-              Don&apos;t take our word for it. Take theirs.
+              Do not take our word for it. Take theirs.
             </h2>
           </div>
           <div className="voices-g">
@@ -353,7 +345,7 @@ export default function HomePage() {
             Come and learn it properly.
           </>
         }
-        description="The application takes about ten minutes, and there's nothing to pay at this stage."
+        description="The application takes about ten minutes, and there is nothing to pay at this stage."
         primaryHref="/apply"
         primaryLabel="Start Your Application"
       />

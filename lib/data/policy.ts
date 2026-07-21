@@ -47,8 +47,8 @@ export const policySections: PolicySection[] = [
         '2.1 Minimum Academic Qualification. The Scheme is open to any individual who has completed the Senior Secondary Certificate Examination (SSCE) or holds an equivalent qualification. No university degree, HND, or OND is required. Applicants holding higher qualifications remain fully eligible.',
         '2.2 Age. Applicants must be at least 17 years of age at the time of application. There is no upper age limit.',
         '2.3 Nationality. The Scheme is open to Nigerian citizens. Non-citizens may apply at the standard commercial fee and are not eligible for scholarship tiers.',
-        '2.4 Required Documents for All Applicants. Every Applicant must submit: (a) SSCE certificate or statement of result; (b) a valid means of identification; and (c) one recent passport photograph.',
-        '2.5 Additional Required Documents for Tier One Applicants. An Applicant claiming Tier One status must additionally submit all three of the following: (a) a Letter of Introduction from the parent officer\'s unit or command; (b) a clear copy of the parent\'s valid Nigerian Army identity card; and (c) the relevant Part Two Order evidencing the family relationship. An application claiming Tier One status without all three documents will be processed as Tier Three unless the deficiency is remedied within the verification window.',
+        '2.4 Required Documents for All Applicants. Every Applicant must submit (a) SSCE certificate or statement of result, (b) a valid means of identification, and (c) one recent passport photograph.',
+        '2.5 Additional Required Documents for Tier One Applicants. An Applicant claiming Tier One status must additionally submit all three of the following documents, (a) a Letter of Introduction from the parent officer\'s unit or command, (b) a clear copy of the parent\'s valid Nigerian Army identity card, and (c) the relevant Part Two Order evidencing the family relationship. An application claiming Tier One status without all three documents will be processed as Tier Three unless the deficiency is remedied within the verification window.',
         '2.6 Verification of Claims. All eligibility claims, including claims of military affiliation, are subject to verification against official records. Submission of false or forged documents results in immediate disqualification, cancellation of any admission, forfeiture of fees paid, and may be reported to the appropriate military or civil authority.',
       ],
       lists: [],
@@ -59,9 +59,9 @@ export const policySections: PolicySection[] = [
     title: '3. Scholarship Policy and Fee Obligations',
     content: {
       paragraphs: [
-        '3.1 Tier One: Children of Nigerian Army Officers (100%). A verified Tier One Beneficiary is entitled to one (1) full scholarship covering 100% of tuition, on their first application only, for one programme of their choosing. Any subsequent application by a Tier One Beneficiary, whether in the same or a future cohort, attracts the full commercial fee. This rule is permanent and admits no exceptions.',
-        '3.2 Tier Two: Children of Soldiers and Other Ranks (50%). A verified Tier Two Beneficiary is entitled to a 50% scholarship on their first application and a 50% discount on their second application. From the third application onward, the full commercial fee applies.',
-        '3.3 Tier Three: Standard Admission. Tier Three Applicants pay the full commercial fee for every programme in which they enrol. No scholarship applies at any stage.',
+        '3.1 Tier One, Children of Nigerian Army Officers (100%). A verified Tier One Beneficiary is entitled to one (1) full scholarship covering 100% of tuition, on their first application only, for one programme of their choosing. Any subsequent application by a Tier One Beneficiary, whether in the same or a future cohort, attracts the full commercial fee. This rule is permanent and admits no exceptions.',
+        '3.2 Tier Two, Children of Soldiers and Other Ranks (50%). A verified Tier Two Beneficiary is entitled to a 50% scholarship on their first application and a 50% discount on their second application. From the third application onward, the full commercial fee applies.',
+        '3.3 Tier Three, Standard Admission. Tier Three Applicants pay the full commercial fee for every programme in which they enrol. No scholarship applies at any stage.',
         '3.4 Non-Transferability. Scholarship entitlements are personal to the individual and may not be transferred, gifted, or assigned.',
         '3.5 No Cash Value. A scholarship reduces the applicable tuition fee only. It has no cash value and cannot be redeemed for cash or credit.',
         '3.6 False Tier Claims. A Student found to have falsely claimed a scholarship tier must immediately pay the full commercial fee, may be expelled without refund, and may be reported to the relevant authorities.',
@@ -121,7 +121,7 @@ export const policySections: PolicySection[] = [
       paragraphs: [
         '7.1 Students must conduct themselves professionally, respectfully and honestly at all times, on campus, online, and in all communications with NIMTA staff, instructors and fellow Students.',
         '7.2 The following constitute grounds for disciplinary action up to and including expulsion:',
-        '7.3 Disciplinary matters follow due process: written notification, an opportunity to respond, and a decision within 10 working days. Appeals lie to the Director-General within 5 working days of the decision.',
+        '7.3 Disciplinary matters follow due process, including written notification, an opportunity to respond, and a decision within 10 working days. Appeals lie to the Director-General within 5 working days of the decision.',
         '7.4 Students expelled on disciplinary grounds forfeit all fees paid and are ineligible for re-admission for a minimum of two (2) years.',
       ],
       lists: [
@@ -146,20 +146,20 @@ export const policySections: PolicySection[] = [
     title: '8. Fees, Refunds and Payment Terms',
     content: {
       paragraphs: [
-        '8.1 Fees are as published on the official NIMTA website and stated in each Admission Letter. Fees are reviewed annually; changes are announced at least 60 days before the next intake.',
+        '8.1 Fees are as published on the official NIMTA website and stated in each Admission Letter. Fees are reviewed annually, and changes are announced at least 60 days before the next intake.',
         '8.2 Fees are payable only through NIMTA\'s official bank accounts or authorised payment gateway.',
-        '8.3 Refund Schedule:',
+        '8.3 Refund Schedule',
       ],
       lists: [
         {
           type: 'ul',
           afterParagraph: 3,
           items: [
-            'Cancellation 14 or more days before cohort start: 100% refund, less a &#8358;5,000 administrative charge.',
-            'Cancellation 7 to 13 days before cohort start: 50% refund.',
-            'Cancellation within 7 days of start, or after commencement: no refund.',
-            'Programme cancellation by NIMTA: 100% refund within 14 working days.',
-            'Scholarship holders: no cash refund is payable in any scenario in respect of the scholarship-covered portion, as no cash was received for it.',
+            'Cancellation 14 or more days before cohort start, 100% refund, less a &#8358;5,000 administrative charge.',
+            'Cancellation 7 to 13 days before cohort start, 50% refund.',
+            'Cancellation within 7 days of start, or after commencement, no refund.',
+            'Programme cancellation by NIMTA, 100% refund within 14 working days.',
+            'Scholarship holders. No cash refund is payable in any scenario in respect of the scholarship-covered portion, as no cash was received for it.',
           ],
         },
       ],
@@ -172,7 +172,7 @@ export const policySections: PolicySection[] = [
       paragraphs: [
         '9.1 All course materials, curricula, and learning resources are the intellectual property of NIMTA and/or its instructors, and may not be reproduced, distributed or sold without prior written consent.',
         '9.2 Original work created by a Student (portfolios, designs, code, garments, food products) remains the Student\'s intellectual property. NIMTA may, with consent, feature student work for promotional or educational purposes. Consent may be withdrawn in writing at any time.',
-        '9.3 NIMTA may photograph or record training activities for promotional use. Students who do not consent must notify NIMTA in writing at enrolment; this will be recorded and respected.',
+        '9.3 NIMTA may photograph or record training activities for promotional use. Students who do not consent must notify NIMTA in writing at enrolment. This will be recorded and respected.',
       ],
       lists: [],
     },
@@ -183,9 +183,9 @@ export const policySections: PolicySection[] = [
     content: {
       paragraphs: [
         '10.1 NIMTA is the data controller for personal data collected under the Scheme and processes it in accordance with the Nigeria Data Protection Act 2023 (NDPA) and the Nigeria Data Protection Regulation (NDPR).',
-        '10.2 Data collected includes: identity and contact details, educational qualifications, military affiliation documentation, health information where relevant, and payment records.',
-        '10.3 Data is processed to: manage applications and admissions; verify eligibility claims; deliver programmes; issue certificates; communicate with Students; and improve the Scheme.',
-        '10.4 Data may be shared with: the Nigerian Army records office (solely for verification of Tier One documentation); NBTE (for accreditation); and payment processors (for transactions). NIMTA does not sell personal data.',
+        '10.2 Data collected includes identity and contact details, educational qualifications, military affiliation documentation, health information where relevant, and payment records.',
+        '10.3 Data is processed to manage applications and admissions, verify eligibility claims, deliver programmes, issue certificates, communicate with Students, and improve the Scheme.',
+        '10.4 Data may be shared with the Nigerian Army records office (solely for verification of Tier One documentation), NBTE (for accreditation), and payment processors (for transactions). NIMTA does not sell personal data.',
         '10.5 Application records are retained for 7 years. Academic records are retained indefinitely for certificate verification. Financial records are retained for 7 years in line with Nigerian tax law.',
         '10.6 Individuals may request access to, correction of, or deletion of their personal data, subject to legal retention obligations, by contacting the NIMTA Data Officer (Section 15).',
       ],
@@ -212,7 +212,7 @@ export const policySections: PolicySection[] = [
     content: {
       paragraphs: [
         '12.1 NIMTA\'s aggregate liability to any Student or Applicant is limited to the total fees actually paid by that individual to NIMTA.',
-        '12.2 NIMTA is not liable for loss of income, opportunity or business; for any failure to achieve employment or business outcomes after graduation; for third-party acts or omissions; or for Force Majeure events including natural disasters, government action, public health emergencies and civil unrest.',
+        '12.2 NIMTA is not liable for loss of income, opportunity or business, for any failure to achieve employment or business outcomes after graduation, for third-party acts or omissions, or for Force Majeure events including natural disasters, government action, public health emergencies and civil unrest.',
         '12.3 Nothing in this Policy excludes liability for death or personal injury caused by NIMTA\'s negligence, or any liability that cannot be excluded under Nigerian law.',
       ],
       lists: [],
@@ -253,12 +253,12 @@ export const policySections: PolicySection[] = [
           type: 'ul',
           afterParagraph: 0,
           items: [
-            'Admissions Office: admissions@nimta.edu.ng',
-            'Registrar\'s Office: registrar@nimta.edu.ng',
-            'Data Officer: data@nimta.edu.ng',
-            'Telephone: +234 814 128 3720',
-            'Address: NAOWA Institute of Management and Technology, Mambilla Barracks Road, Asokoro, Abuja, FCT, Nigeria',
-            'Office Hours: Monday to Friday, 8:00 AM to 4:00 PM WAT',
+            'Admissions Office, admissions@nimta.edu.ng',
+            'Registrar\'s Office, registrar@nimta.edu.ng',
+            'Data Officer, data@nimta.edu.ng',
+            'Telephone, +234 814 128 3720',
+            'Address, NAOWA Institute of Management and Technology, Mambilla Barracks Road, Asokoro, Abuja, FCT, Nigeria',
+            'Office Hours, Monday to Friday, 8:00 AM to 4:00 PM WAT',
           ],
         },
       ],
@@ -267,4 +267,4 @@ export const policySections: PolicySection[] = [
 ];
 
 export const policyUpdated =
-  'Last Updated: January 2025. This is the current and controlling version of the NIMTA Empowerment Training Scheme Programme Policy and Terms.';
+  'Last Updated January 2025. This is the current and controlling version of the NIMTA Empowerment Training Scheme Programme Policy and Terms.';

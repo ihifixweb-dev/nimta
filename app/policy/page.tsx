@@ -69,7 +69,7 @@ export default function PolicyPage() {
         breadcrumb="Programme Policy"
         kicker="Governance"
         title="Programme Policy & Terms"
-        description="Effective Date: 1 January 2025 · Version 1.2 · Governing Law: Federal Republic of Nigeria · Issued by the NIMTA Registrar's Office"
+        description="Effective Date 1 January 2025 · Version 1.2 · Governing Law, Federal Republic of Nigeria · Issued by the NIMTA Registrar's Office"
       />
 
       <section className="sec">

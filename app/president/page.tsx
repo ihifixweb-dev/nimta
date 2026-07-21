@@ -15,8 +15,8 @@ const letterParagraphs = [
   'For over six decades, the Nigerian Army Officers\' Wives Association has stood beside those who serve this nation. In that time, we have observed a truth that now informs everything this Institute does, excellence is not an accident of birth. It is the predictable outcome of rigorous training, sustained discipline, and an environment that refuses to accommodate mediocrity. Ordinary people, held to an extraordinary standard, become extraordinary. This is not sentiment. It is the founding conviction of this institution, and the daily experience of those who train here.',
   'I will be candid about what this Institute will require of you. Our facilitators are accomplished professionals in the disciplines they teach, and they will hold you to the standards of industry rather than the comforts of the classroom. You will be stretched beyond familiar limits. You will be corrected with precision and assessed with honesty. There will be moments when the work challenges you profoundly. Growth has never occurred within the boundaries of comfort, and we did not build this institution to leave you as we found you.',
   'In return, this Institute makes you a commitment, and I hold every member of it accountable to that commitment. Every hour you invest here will be converted into enduring capability. You will be trained by practitioners of genuine distinction, you will receive a truthful account of your progress at every stage and you will graduate bearing not merely a certificate, but a body of work, a tangible proof of competence that speaks for itself in any room in the world.',
-  'You should also understand our heritage. This Institute was founded by the Nigerian Army Officers\' Wives Association, and service is woven into its character. In honour of the families who serve this nation, we extend a full scholarship to the children of Nigerian Army officers on their first programme, and a fifty percent scholarship to the children of soldiers and other ranks on their first programme. This is our gratitude, rendered in opportunity. Yet let there be no misunderstanding: NIMTA\'s doors are open to every Nigerian with the requisite qualification and the resolve to work. A place here is earned by ambition, not inherited by association.',
-  'My charge to you is therefore a simple one. Do not wait until you feel ready. Readiness is not a feeling; it is a decision, confirmed daily through disciplined effort. Choose your craft. Commit to it entirely. And allow this institution to do for you what it has done for so many who once stood precisely where you stand today.',
+  'You should also understand our heritage. This Institute was founded by the Nigerian Army Officers\' Wives Association, and service is woven into its character. In honour of the families who serve this nation, we extend a full scholarship to the children of Nigerian Army officers on their first programme, and a fifty percent scholarship to the children of soldiers and other ranks on their first programme. This is our gratitude, rendered in opportunity. Yet let there be no misunderstanding. NIMTA\'s doors are open to every Nigerian with the requisite qualification and the resolve to work. A place here is earned by ambition, not inherited by association.',
+  'My charge to you is therefore a simple one. Do not wait until you feel ready. Readiness is not a feeling. It is a decision, confirmed daily through disciplined effort. Choose your craft. Commit to it entirely. And allow this institution to do for you what it has done for so many who once stood precisely where you stand today.',
   'I look forward to the day your name will be called at graduation, when the recognition you receive will owe nothing to fortune, and everything to what you have built.',
 ];
 
@@ -95,11 +95,11 @@ export default function PresidentPage() {
                   </div>
                 </div>
                 <ImgSlot
-                  label="NAOWA Crest"
+                  label="NAOWA Logo"
                   src={images.naowaCrest}
-                  alt="NAOWA institutional crest"
+                  alt="Nigerian Army Officers' Wives Association logo"
                   className="letter-crest-slot"
-                  sizes="110px"
+                  sizes="140px"
                 />
               </div>
             </div>

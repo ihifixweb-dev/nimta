@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const applyPoints = [
   'Nothing to pay at this stage. This is simply you raising your hand.',
-  "If a scholarship applies to you, it's confirmed in writing before you pay anything.",
+  'If a scholarship applies to you, it is confirmed in writing before you pay anything.',
   'An SSCE result is the only academic requirement. You bring the rest.',
 ];
 
@@ -25,14 +25,14 @@ export default function ApplyPage() {
             <h2>
               Start something
               <br />
-              <em>you&apos;ll be proud of.</em>
+              <em>you will be proud of.</em>
             </h2>
             <p>
-              This part is easy. Tell us who you are and what you&apos;d like to
-              learn. It takes about ten minutes, and there&apos;s nothing to pay
+              This part is easy. Tell us who you are and what you would like to
+              learn. It takes about ten minutes, and there is nothing to pay
               right now. Within five working days, our admissions team will send
               you your full application pack, and if a scholarship applies to
-              you, we&apos;ll confirm it in writing.
+              you, we will confirm it in writing.
             </p>
             <div className="apply-points">
               {applyPoints.map((point) => (

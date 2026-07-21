@@ -1,14 +1,14 @@
 /** Central registry of AI-generated site imagery under /public/images */
 export const images = {
   heroStudents: '/images/hero-students.jpg',
-  campusMain: '/images/campus-main.jpg',
+  campusMain: '/images/kml.jpeg',
   campusReception: '/images/campus-reception.jpg',
   presidentPortrait: '/images/president-portrait.png',
   presidentSignature: '/images/president-signature.jpg',
   logo: '/images/logo-nimta.jpeg',
   navLogo: '/images/logs.png',
   footerLogo: '/images/sede.png',
-  naowaCrest: '/images/naowa-crest.jpg',
+  naowaCrest: '/images/NAOWA%20BLACK.png',
   certificatePresentation: '/images/certificate-presentation.jpg',
   deptTechnology: '/images/dept-technology.jpg',
   deptFashion: '/images/dept-fashion.jpg',

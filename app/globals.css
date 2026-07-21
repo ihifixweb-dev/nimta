@@ -54,7 +54,7 @@ img,video{max-width:100%;height:auto}
 .letter-sig-img img,.letter-crest-slot img{width:100%;height:100%;object-fit:contain}
 .letter-sig-img.img-slot--filled,.letter-crest-slot.img-slot--filled{border:none;background:transparent}
 .letter-sig-img.img-slot--filled{width:180px;height:64px;border-bottom:1px solid var(--line)}
-.letter-crest-slot.img-slot--filled{width:110px;height:110px;border:1px dashed var(--line)}
+.letter-crest-slot.img-slot--filled{width:120px;height:140px;border:none}
 .tcard-img .img-slot--filled{border:none;border-bottom:1px solid var(--line)}
 .school-img .img-slot--filled,.news-img .img-slot--filled,.gitem .img-slot--filled{border:none;border-bottom:1px solid var(--line)}
 .hero-img .img-slot--filled{background:transparent;border:1px solid rgba(255,255,255,0.12)}

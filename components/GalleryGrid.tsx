@@ -15,7 +15,7 @@ export default function GalleryGrid() {
     <>
       <div className="sec-head-row">
         <p className="lede" style={{ fontSize: '0.9rem', maxWidth: 420 }}>
-          Filter by category, or browse everything. Recommended: professional
+          Filter by category, or browse everything. Recommended, professional
           photography, landscape 4:3 for spaces and portrait 3:4 for people.
         </p>
         <div className="filters" role="tablist">

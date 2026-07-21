@@ -12,7 +12,7 @@ export const admissionSteps: AdmissionStep[] = [
     summary:
       'About ten minutes. Your details, your category, your chosen programme.',
     description:
-      "The form takes about ten minutes. You tell us who you are, which category you fall under, and which programme you want. That's genuinely all we need to begin, and there's nothing to pay at this stage.",
+      "The form takes about ten minutes. You tell us who you are, which category you fall under, and which programme you want. That is genuinely all we need to begin, and there is nothing to pay at this stage.",
   },
   {
     num: '02',
@@ -50,7 +50,7 @@ export const admissionSteps: AdmissionStep[] = [
     num: '06',
     title: 'Orientation',
     summary:
-      'Two days on campus, or a full digital onboarding pack if you\'re studying online.',
+      'Two days on campus, or a full digital onboarding pack if you are studying online.',
     description:
       'In-person students attend a two-day orientation on campus. Online students receive their learning platform access, class schedule and full resource pack by email.',
   },

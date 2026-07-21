@@ -43,7 +43,7 @@ export const departments: DepartmentCard[] = [
     departmentNum: 'Department 01',
     title: 'Technology',
     description:
-      'Code, design, data, security, and AI. Eight programmes that put you right where the world is heading, starting from your very first computer lesson if that\'s where you are.',
+      'Code, design, data, security, and AI. Eight programmes that put you right where the world is heading, starting from your very first computer lesson if that is where you are.',
     programmeCount: '8 Programmes',
     href: '/programmes#tech',
     category: 'tech',
@@ -91,7 +91,7 @@ export const departments: DepartmentCard[] = [
     departmentNum: 'Department 05',
     title: 'Enterprise',
     description:
-      'The skill that multiplies every other skill. Pricing, selling, registering and running a business that lasts. So important, we\'ve made it part of every single programme.',
+      'The skill that multiplies every other skill. Pricing, selling, registering and running a business that lasts. So important, we have made it part of every single programme.',
     programmeCount: 'Built Into Every Programme',
     href: '/programmes#enterprise',
     category: 'enterprise',
@@ -105,7 +105,7 @@ export const guidanceCard: GuidanceCard = {
   departmentNum: 'Still deciding?',
   title: 'Talk to us first.',
   description:
-    'Tell us what you enjoy and where you want your life to go. We\'ll give you an honest recommendation, even if it means telling you to start smaller.',
+    'Tell us what you enjoy and where you want your life to go. We will give you an honest recommendation, even if it means telling you to start smaller.',
   ctaLabel: 'Get Guidance',
   href: '/apply',
 };
@@ -113,13 +113,13 @@ export const guidanceCard: GuidanceCard = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'I almost didn\'t apply because I thought a place like this wasn\'t for someone like me. I only had my WAEC result. Two months into Digital Marketing, I was running a real campaign for a real business. Today I have three clients who pay me every month. NIMTA didn\'t just teach me a skill. It taught me to stop underrating myself.',
+      'I almost did not apply because I thought a place like this was not for someone like me. I only had my WAEC result. Two months into Digital Marketing, I was running a real campaign for a real business. Today I have three clients who pay me every month. NIMTA did not just teach me a skill. It taught me to stop underrating myself.',
     name: 'Amina O.',
     role: 'Digital Marketing Graduate · Abuja',
   },
   {
     quote:
-      'The scholarship got me through the door, but I\'ll be honest, it\'s the training that changed my life. My facilitator pushed me harder than anyone ever has. When my capsule collection sold out before graduation, I finally understood why. Now I run my own label and I hold my two apprentices to the same standard she held me to.',
+      'The scholarship got me through the door, but I will be honest, it is the training that changed my life. My facilitator pushed me harder than anyone ever has. When my capsule collection sold out before graduation, I finally understood why. Now I run my own label and I hold my two apprentices to the same standard she held me to.',
     name: 'Fatima B.',
     role: 'Fashion Design Graduate · Kaduna',
   },
@@ -135,9 +135,9 @@ export const homeNewsTeaser: HomeNewsTeaser[] = [
   {
     category: 'Announcement',
     date: 'Placeholder Date',
-    title: 'Admissions are open for the July intake. Here\'s what to have ready.',
+    title: 'Admissions are open for the July intake. Here is what to have ready.',
     excerpt:
-      'Key dates, the documents you\'ll need, and how to secure your place early.',
+      'Key dates, the documents you will need, and how to secure your place early.',
     imageType: 'News Image',
     href: '/news',
     image: newsImageMap['News Image'],
@@ -145,7 +145,7 @@ export const homeNewsTeaser: HomeNewsTeaser[] = [
   {
     category: 'Graduation',
     date: 'Placeholder Date',
-    title: 'Graduation day: a new class walks the stage with portfolios in hand',
+    title: 'Graduation day, a new class walks the stage with portfolios in hand',
     excerpt:
       'Highlights, award winners and starter pack presentations from our latest ceremony.',
     imageType: 'Graduation Image',

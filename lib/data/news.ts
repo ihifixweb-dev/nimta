@@ -26,7 +26,7 @@ export const newsArticles: NewsArticle[] = [
   {
     category: 'Announcement',
     date: 'Placeholder Date',
-    title: 'Admissions open for the July cohort: what you need to know',
+    title: 'Admissions open for the July cohort, what you need to know',
     excerpt:
       'Key dates, document requirements, and how to secure your place before the cohort fills. Placeholder summary text for the first featured post.',
     imageType: 'News Image',
@@ -42,7 +42,7 @@ export const newsArticles: NewsArticle[] = [
   {
     category: 'Graduate Story',
     date: 'Placeholder Date',
-    title: 'From SSCE to a paying skill: one graduate\'s ninety-day journey',
+    title: 'From SSCE to a paying skill, one graduate\'s ninety-day journey',
     excerpt:
       'How one NIMTA graduate turned a six-week programme into steady income. Placeholder summary text for the third featured story.',
     imageType: 'Story Image',
@@ -50,7 +50,7 @@ export const newsArticles: NewsArticle[] = [
   {
     category: 'Blog',
     date: 'Placeholder Date',
-    title: 'Blog post slot: title goes here',
+    title: 'Blog post slot, title goes here',
     excerpt:
       'Placeholder summary. Replace with an article on skills, careers, or life at NIMTA written by your content team.',
     imageType: 'Blog Image',
@@ -58,7 +58,7 @@ export const newsArticles: NewsArticle[] = [
   {
     category: 'Event',
     date: 'Placeholder Date',
-    title: 'Event slot: open day, exhibition or workshop title',
+    title: 'Event slot, open day, exhibition or workshop title',
     excerpt:
       'Placeholder summary. Use this slot for upcoming open days, exhibitions, employer visits and community events.',
     imageType: 'Event Image',
@@ -66,7 +66,7 @@ export const newsArticles: NewsArticle[] = [
   {
     category: 'Press',
     date: 'Placeholder Date',
-    title: 'Press slot: media coverage and official statements',
+    title: 'Press slot, media coverage and official statements',
     excerpt:
       'Placeholder summary. Use this slot for press releases, NAOWA statements and media features about the Scheme.',
     imageType: 'Press Image',
