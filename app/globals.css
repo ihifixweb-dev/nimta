@@ -332,7 +332,7 @@ img,video{max-width:100%;height:auto}
 .apply-pt-i{width:26px;height:26px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
 .apply-pt-i svg{width:13px;height:13px;stroke:var(--white);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .apply-pt span{font-size:0.88rem;color:rgba(255,255,255,0.78);line-height:1.7}
-.form-card{background:var(--white);color:var(--ink);padding:52px;box-shadow:var(--sh-lg)}
+.form-card{background:var(--white);color:var(--ink);padding:52px;box-shadow:var(--sh-lg);position:relative}
 @media(max-width:600px){.form-card{padding:32px 24px}}
 .form-card h3{font-family:var(--display);font-size:1.4rem;font-weight:600;margin-bottom:6px}
 .form-card>p{font-size:0.83rem;color:var(--stone);margin-bottom:30px}
@@ -347,8 +347,22 @@ img,video{max-width:100%;height:auto}
 .fld select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7A76' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
 .fnote{font-size:0.76rem;color:var(--stone);line-height:1.7;margin-top:18px;padding:14px 16px;background:var(--paper);border-left:3px solid var(--red)}
 .fnote a{color:var(--ink);font-weight:700}
-.fsubmit{width:100%;padding:17px;background:var(--ink);color:var(--white);border:none;font-family:var(--body);font-size:0.95rem;font-weight:700;letter-spacing:0.04em;cursor:pointer;transition:var(--tr);margin-top:24px}
-.fsubmit:hover{background:var(--red)}
+.fsubmit{width:100%;padding:17px;background:var(--ink);color:var(--white);border:none;font-family:var(--body);font-size:0.95rem;font-weight:700;letter-spacing:0.04em;cursor:pointer;transition:var(--tr);margin-top:24px;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px}
+.fsubmit:hover:not(:disabled){background:var(--red)}
+.fsubmit:disabled{opacity:0.72;cursor:wait}
+.fsubmit-spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,0.35);border-top-color:var(--white);border-radius:50%;animation:form-spin 0.7s linear infinite}
+@keyframes form-spin{to{transform:rotate(360deg)}}
+.form-card--loading .fg,.form-card--loading .fnote,.form-card--loading .fsubmit{opacity:0.55}
+.form-submit-overlay{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.82);pointer-events:none}
+.form-submit-overlay-in{display:flex;align-items:center;gap:12px;padding:14px 20px;background:var(--white);border:1px solid var(--line);box-shadow:var(--sh-lg);font-size:0.88rem;font-weight:600;color:var(--ink)}
+.form-submit-overlay-in .fsubmit-spinner{border-color:rgba(10,10,10,0.18);border-top-color:var(--ink)}
+.form-toast{position:fixed;right:24px;bottom:24px;z-index:5000;max-width:min(420px,calc(100vw - 32px));padding:16px 18px;background:var(--ink);color:var(--white);box-shadow:var(--sh-lg);border-left:4px solid var(--red);transform:translateY(16px);opacity:0;pointer-events:none;transition:opacity 0.25s ease,transform 0.25s ease}
+.form-toast.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.form-toast.success{border-left-color:#1f8a4c}
+.form-toast.error{border-left-color:var(--red)}
+.form-toast strong{display:block;font-size:0.92rem;margin-bottom:4px}
+.form-toast span{display:block;font-size:0.82rem;line-height:1.6;color:rgba(255,255,255,0.82)}
+@media(max-width:600px){.form-toast{right:16px;left:16px;bottom:16px;max-width:none}}
 
 /* CTA BANNER */
 .cta-band{background:var(--ink);color:var(--white);position:relative}
