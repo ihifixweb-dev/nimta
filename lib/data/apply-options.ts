@@ -1,7 +1,7 @@
 export const programmeOptions = {
   categories: [
     'Child of a Nigerian Army Officer (100% Scholarship, First Programme)',
-    'Child of a Soldier or Other Ranks Personnel (50% Scholarship, First Two Programmes)',
+    'Child of a Soldier or Other Ranks Personnel (50% Scholarship, First Programme)',
     'General Applicant (Standard Admission)',
   ],
   programmeGroups: [
@@ -48,12 +48,9 @@ export const programmeOptions = {
       ],
     },
   ],
-  deliveryModes: [
-    'In-Person (Main Campus, Asokoro, Abuja)',
-    'Online (Live Virtual Classes)',
-  ],
+  deliveryMode: 'In-Person (Main Campus, Asokoro, Abuja)',
   qualifications: [
-    'SSCE / WAEC / NECO / NABTEB / GCE',
+    'WAEC / NECO / NABTEB / GCE',
     'OND',
     'HND',
     "Bachelor's Degree",

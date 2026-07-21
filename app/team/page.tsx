@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import ImgSlot from '@/components/ImgSlot';
 import PageHero from '@/components/PageHero';
 import Reveal from '@/components/Reveal';
+import { showTeamPage } from '@/lib/data/navigation';
 import { facilitators, leadership } from '@/lib/data/team';
 
 export const metadata: Metadata = {
@@ -36,6 +38,8 @@ function TeamCard({
 }
 
 export default function TeamPage() {
+  if (!showTeamPage) redirect('/');
+
   return (
     <>
       <PageHero

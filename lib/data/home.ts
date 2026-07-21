@@ -155,7 +155,7 @@ export const homeNewsTeaser: HomeNewsTeaser[] = [
   {
     category: 'Graduate Story',
     date: 'Placeholder Date',
-    title: 'Ninety days from her SSCE result to her first paying client',
+    title: 'Ninety days from her result to her first paying client',
     excerpt:
       'How one graduate turned a six-week programme into steady monthly income.',
     imageType: 'Story Image',

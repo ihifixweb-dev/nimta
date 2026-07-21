@@ -13,7 +13,7 @@ import {
   homeNewsTeaser,
   testimonials,
 } from '@/lib/data/home';
-import { tickerItems } from '@/lib/data/navigation';
+import { showNewsPage, tickerItems } from '@/lib/data/navigation';
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -292,50 +292,52 @@ export default function HomePage() {
         </div>
       </Reveal>
 
-      <Reveal className="sec sec-alt">
-        <div className="wrap">
-          <div className="sec-head-row">
-            <div>
-              <div className="kicker">News &amp; Stories</div>
-              <h2 className="h-major">Life at NIMTA.</h2>
-            </div>
-            <Link
-              href="/news"
-              className="btn btn-ghost"
-              style={{ padding: '12px 26px', fontSize: '0.82rem' }}
-            >
-              View All Posts
-            </Link>
-          </div>
-          <div className="news-g">
-            {homeNewsTeaser.map((article) => (
-              <Link key={article.title} href={article.href} className="news-c">
-                <div className="news-img">
-                  <ImgSlot
-                    label={article.imageType}
-                    src={article.image}
-                    alt={article.title}
-                  />
-                </div>
-                <div className="news-b">
-                  <div className="news-meta">
-                    <span className="news-cat">{article.category}</span>
-                    <span className="news-date">{article.date}</span>
-                  </div>
-                  <div className="news-t">{article.title}</div>
-                  <div className="news-x">{article.excerpt}</div>
-                  <span className="news-more">
-                    Read More{' '}
-                    <svg viewBox="0 0 16 16">
-                      <path d="M3 8h10M9 4l4 4-4 4" />
-                    </svg>
-                  </span>
-                </div>
+      {showNewsPage && (
+        <Reveal className="sec sec-alt">
+          <div className="wrap">
+            <div className="sec-head-row">
+              <div>
+                <div className="kicker">News &amp; Stories</div>
+                <h2 className="h-major">Life at NIMTA.</h2>
+              </div>
+              <Link
+                href="/news"
+                className="btn btn-ghost"
+                style={{ padding: '12px 26px', fontSize: '0.82rem' }}
+              >
+                View All Posts
               </Link>
-            ))}
+            </div>
+            <div className="news-g">
+              {homeNewsTeaser.map((article) => (
+                <Link key={article.title} href={article.href} className="news-c">
+                  <div className="news-img">
+                    <ImgSlot
+                      label={article.imageType}
+                      src={article.image}
+                      alt={article.title}
+                    />
+                  </div>
+                  <div className="news-b">
+                    <div className="news-meta">
+                      <span className="news-cat">{article.category}</span>
+                      <span className="news-date">{article.date}</span>
+                    </div>
+                    <div className="news-t">{article.title}</div>
+                    <div className="news-x">{article.excerpt}</div>
+                    <span className="news-more">
+                      Read More{' '}
+                      <svg viewBox="0 0 16 16">
+                        <path d="M3 8h10M9 4l4 4-4 4" />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      )}
 
       <CtaBand
         title={

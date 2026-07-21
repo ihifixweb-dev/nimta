@@ -13,7 +13,7 @@ const curriculumData: Record<string, CurriculumDetail> = {
   'NIMTA-T00': {
     dur: '4 Weeks',
     fee: '₦100,000',
-    del: 'In-Person (Abuja) | Online (Live + Recorded)',
+    del: 'In-Person (Abuja)',
     tools:
       'Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Email, Web Browsers, File Management',
     mods: [
@@ -35,7 +35,7 @@ const curriculumData: Record<string, CurriculumDetail> = {
   'NIMTA-T01': {
     dur: '6 Months (24 Weeks)',
     fee: '₦450,000',
-    del: 'In-Person (Abuja) | Online (Live + Recorded)',
+    del: 'In-Person (Abuja)',
     tools:
       'VS Code, HTML/CSS/JS, React, Node.js, MongoDB, Git & GitHub, Postman, Vercel, Netlify, Figma',
     mods: [
@@ -59,7 +59,7 @@ const curriculumData: Record<string, CurriculumDetail> = {
   'NIMTA-T02': {
     dur: '3 Months (12 Weeks)',
     fee: '₦320,000',
-    del: 'In-Person (Abuja) | Online (Live + Recorded)',
+    del: 'In-Person (Abuja)',
     tools: 'Figma, FigJam, Maze, Notion, Google Forms, Behance, Canva',
     mods: [
       'Module 1 (Weeks 1-2). Design Thinking Foundations\n  - UI vs UX\n  - Empathize, Define, Ideate, Prototype, Test\n  - User research methods\n  - Competitive analysis',
@@ -83,7 +83,7 @@ const curriculumData: Record<string, CurriculumDetail> = {
 const defaultCurriculum: CurriculumDetail = {
   dur: 'See programme page',
   fee: 'See website',
-  del: 'In-Person and/or Online',
+  del: 'In-Person (Abuja)',
   tools: 'Listed in the programme details on the NIMTA website.',
   mods: [
     'Full module-by-module curriculum available from NIMTA Admissions at admissions@nimta.edu.ng',
@@ -112,7 +112,7 @@ export function generateCurriculum(code: string, name: string): string {
     d.fee +
     '\nDelivery        ' +
     d.del +
-    '\nEntry           SSCE or equivalent. No degree required. No prior experience needed.\n\n' +
+    '\nEntry           Secondary school qualification or equivalent. No degree required. No prior experience needed.\n\n' +
     line +
     '\nTOOLS AND TECHNOLOGIES\n' +
     line +
@@ -146,11 +146,11 @@ export function generateCurriculum(code: string, name: string): string {
     line +
     '\nSCHOLARSHIP TIERS\n' +
     line +
-    '\nTier One. Children of Nigerian Army Officers (1st application) - 100% Scholarship\n             Required documents include Letter of Introduction, Parent\'s ID Card, Part Two Order\nTier Two. Children of Soldiers and Other Ranks (1st and 2nd programme) - 50% Scholarship\nTier Three. General Public - Standard Fee\n\n' +
+    '\nTier One. Children of Nigerian Army Officers (1st application) - 100% Scholarship\n             Required documents include Letter of Introduction, Parent\'s ID Card, Part Two Order\nTier Two. Children of Soldiers and Other Ranks (1st application) - 50% Scholarship\nTier Three. General Public - Standard Fee\n\n' +
     line +
     '\nHOW TO APPLY\n' +
     line +
-    '\n1. Register on the NIMTA website\n2. Submit your documents (SSCE result, ID, passport photo, plus Tier One documents if applicable)\n3. Receive your admission letter within 5 working days\n4. Pay your applicable fee within 7 working days of the offer\n5. Attend orientation and begin your programme\n\nContact admissions@nimta.edu.ng | +234 814 128 3720\n\n' +
+    '\n1. Register on the NIMTA website\n2. Submit your documents (certificate or statement of result, ID, passport photo, plus Tier One documents if applicable)\n3. Receive your admission letter within 5 working days\n4. Pay your applicable fee within 7 working days of the offer\n5. Attend orientation and begin your programme\n\nContact admissions@nimta.edu.ng | +234 814 128 3720\n\n' +
     dline +
     '\nNIMTA reserves the right to update curricula to reflect industry developments.\n' +
     dline +

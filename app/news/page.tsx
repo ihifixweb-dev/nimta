@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import CtaBand from '@/components/CtaBand';
 import NewsGrid from '@/components/NewsGrid';
 import PageHero from '@/components/PageHero';
 import Reveal from '@/components/Reveal';
+import { showNewsPage } from '@/lib/data/navigation';
 import { newsArticles } from '@/lib/data/news';
 
 export const metadata: Metadata = {
@@ -10,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default function NewsPage() {
+  if (!showNewsPage) redirect('/');
+
   return (
     <>
       <PageHero

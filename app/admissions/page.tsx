@@ -55,14 +55,8 @@ export default function AdmissionsPage() {
       <PageHero
         breadcrumb="Admissions"
         kicker="Admissions & Scholarships"
-        title={
-          <>
-            Open to everyone.
-            <br />
-            Generous to the families who serve.
-          </>
-        }
-        description="Admission to NIMTA is honest and straightforward. Anyone with an SSCE result can apply, and every applicant is held to the same standard. And because of who founded this institute, the children of those who serve get a special thank-you."
+        title="Open to everyone."
+        description="Admission to NIMTA is honest and straightforward. Every applicant is held to the same standard. And because of who founded this institute, the children of those who serve get a special thank-you."
       />
 
       <section className="sec" id="tiers">

@@ -32,7 +32,7 @@ export const policySections: PolicySection[] = [
             '"Tier One Beneficiary" means a Student who is the biological or legally adopted child of a serving or retired commissioned officer of the Nigerian Army.',
             '"Tier Two Beneficiary" means a Student who is the biological or legally adopted child of a serving or retired member of the Nigerian uniformed services at any rank other than a commissioned Nigerian Army officer, including soldiers and other ranks of the Nigerian Army, and personnel of the Nigerian Navy, Nigerian Air Force, Nigerian Police Force, and recognised paramilitary services.',
             '"Tier Three" means a Student who does not qualify under Tier One or Tier Two.',
-            '"SSCE" means the Senior Secondary Certificate Examination or an equivalent qualification recognised by WAEC, NECO, or NABTEB.',
+            '"Secondary School Certificate" means a Senior Secondary Certificate Examination result or an equivalent qualification recognised by WAEC, NECO, or NABTEB.',
             '"Part Two Order" means the official Nigerian Army administrative record documenting a serviceman\'s family particulars.',
           ],
         },
@@ -44,10 +44,10 @@ export const policySections: PolicySection[] = [
     title: '2. Eligibility and Entry Requirements',
     content: {
       paragraphs: [
-        '2.1 Minimum Academic Qualification. The Scheme is open to any individual who has completed the Senior Secondary Certificate Examination (SSCE) or holds an equivalent qualification. No university degree, HND, or OND is required. Applicants holding higher qualifications remain fully eligible.',
+        '2.1 Minimum Academic Qualification. The Scheme is open to any individual who has completed secondary school or holds an equivalent qualification. No university degree, HND, or OND is required. Applicants holding higher qualifications remain fully eligible.',
         '2.2 Age. Applicants must be at least 17 years of age at the time of application. There is no upper age limit.',
         '2.3 Nationality. The Scheme is open to Nigerian citizens. Non-citizens may apply at the standard commercial fee and are not eligible for scholarship tiers.',
-        '2.4 Required Documents for All Applicants. Every Applicant must submit (a) SSCE certificate or statement of result, (b) a valid means of identification, and (c) one recent passport photograph.',
+        '2.4 Required Documents for All Applicants. Every Applicant must submit (a) a secondary school certificate or statement of result, (b) a valid means of identification, and (c) one recent passport photograph.',
         '2.5 Additional Required Documents for Tier One Applicants. An Applicant claiming Tier One status must additionally submit all three of the following documents, (a) a Letter of Introduction from the parent officer\'s unit or command, (b) a clear copy of the parent\'s valid Nigerian Army identity card, and (c) the relevant Part Two Order evidencing the family relationship. An application claiming Tier One status without all three documents will be processed as Tier Three unless the deficiency is remedied within the verification window.',
         '2.6 Verification of Claims. All eligibility claims, including claims of military affiliation, are subject to verification against official records. Submission of false or forged documents results in immediate disqualification, cancellation of any admission, forfeiture of fees paid, and may be reported to the appropriate military or civil authority.',
       ],
@@ -60,7 +60,7 @@ export const policySections: PolicySection[] = [
     content: {
       paragraphs: [
         '3.1 Tier One, Children of Nigerian Army Officers (100%). A verified Tier One Beneficiary is entitled to one (1) full scholarship covering 100% of tuition, on their first application only, for one programme of their choosing. Any subsequent application by a Tier One Beneficiary, whether in the same or a future cohort, attracts the full commercial fee. This rule is permanent and admits no exceptions.',
-        '3.2 Tier Two, Children of Soldiers and Other Ranks (50%). A verified Tier Two Beneficiary is entitled to a 50% scholarship on their first application and a 50% discount on their second application. From the third application onward, the full commercial fee applies.',
+        '3.2 Tier Two, Children of Soldiers and Other Ranks (50%). A verified Tier Two Beneficiary is entitled to a 50% scholarship on their first application only. From the second application onward, the full commercial fee applies.',
         '3.3 Tier Three, Standard Admission. Tier Three Applicants pay the full commercial fee for every programme in which they enrol. No scholarship applies at any stage.',
         '3.4 Non-Transferability. Scholarship entitlements are personal to the individual and may not be transferred, gifted, or assigned.',
         '3.5 No Cash Value. A scholarship reduces the applicable tuition fee only. It has no cash value and cannot be redeemed for cash or credit.',
@@ -93,8 +93,7 @@ export const policySections: PolicySection[] = [
         '5.1 A minimum of 80% attendance is required for certification. Students below this threshold must repeat affected modules or the programme, subject to applicable fees.',
         '5.2 Arrival more than 15 minutes after the scheduled start is recorded as partial absence. Three instances of lateness may be recorded as one full absence at the discretion of the Programme Coordinator.',
         '5.3 Medical emergencies, bereavement, and other exceptional circumstances must be reported in writing within 48 hours with supporting documentation, and are reviewed individually by the Welfare Officer.',
-        '5.4 Online Students must attend a minimum of 80% of scheduled live sessions. Recorded replays are supplementary and do not count toward attendance.',
-        '5.5 All projects and assessments must be submitted by their deadlines. Extensions require prior written approval and are granted at NIMTA\'s sole discretion.',
+        '5.4 All projects and assessments must be submitted by their deadlines. Extensions require prior written approval and are granted at NIMTA\'s sole discretion.',
       ],
       lists: [],
     },
@@ -119,7 +118,7 @@ export const policySections: PolicySection[] = [
     title: '7. Student Conduct and Discipline',
     content: {
       paragraphs: [
-        '7.1 Students must conduct themselves professionally, respectfully and honestly at all times, on campus, online, and in all communications with NIMTA staff, instructors and fellow Students.',
+        '7.1 Students must conduct themselves professionally, respectfully and honestly at all times, on campus and in all communications with NIMTA staff, instructors and fellow Students.',
         '7.2 The following constitute grounds for disciplinary action up to and including expulsion:',
         '7.3 Disciplinary matters follow due process, including written notification, an opportunity to respond, and a decision within 10 working days. Appeals lie to the Director-General within 5 working days of the decision.',
         '7.4 Students expelled on disciplinary grounds forfeit all fees paid and are ineligible for re-admission for a minimum of two (2) years.',

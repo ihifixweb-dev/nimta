@@ -35,7 +35,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Technology',
     name: 'Computer Appreciation & Digital Essentials',
     duration: '4 Weeks',
-    delivery: 'In-Person & Online',
+    delivery: 'In-Person Only',
     fee: '₦100,000',
     tags: [{ text: 'Foundation Course', variant: 'ink' }],
     outcomes: [
@@ -60,7 +60,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Technology',
     name: 'Software Development (Full Stack Web)',
     duration: '6 Months',
-    delivery: 'In-Person & Online',
+    delivery: 'In-Person Only',
     fee: '₦450,000',
     tags: [{ text: 'High Demand', variant: 'hi' }],
     outcomes: [
@@ -86,7 +86,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Technology',
     name: 'UI/UX Product Design',
     duration: '3 Months',
-    delivery: 'In-Person & Online',
+    delivery: 'In-Person Only',
     fee: '₦320,000',
     tags: [{ text: 'Portfolio-Led', variant: 'line' }],
     outcomes: [
@@ -111,7 +111,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Technology',
     name: 'Data Analytics & Business Intelligence',
     duration: '3 Months',
-    delivery: 'In-Person & Online',
+    delivery: 'In-Person Only',
     fee: '₦300,000',
     tags: [{ text: 'No Coding Needed', variant: 'ink' }],
     outcomes: [
@@ -137,7 +137,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Technology',
     name: 'Digital Marketing & Social Media Management',
     duration: '2 Months',
-    delivery: 'In-Person & Online',
+    delivery: 'In-Person Only',
     fee: '₦220,000',
     tags: [],
     outcomes: [
@@ -162,7 +162,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Technology',
     name: 'Cybersecurity Fundamentals',
     duration: '3 Months',
-    delivery: 'In-Person & Online',
+    delivery: 'In-Person Only',
     fee: '₦350,000',
     tags: [{ text: 'High Demand', variant: 'hi' }],
     outcomes: [
@@ -187,7 +187,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Technology',
     name: 'AI Tools for Productivity & Business',
     duration: '6 Weeks',
-    delivery: 'In-Person & Online',
+    delivery: 'In-Person Only',
     fee: '₦150,000',
     tags: [{ text: 'Fast Track', variant: 'line' }],
     outcomes: [
@@ -212,7 +212,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Technology',
     name: 'Graphic Design & Visual Communication',
     duration: '3 Months',
-    delivery: 'In-Person & Online',
+    delivery: 'In-Person Only',
     fee: '₦250,000',
     tags: [],
     outcomes: [
@@ -363,7 +363,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Culinary Arts',
     name: 'Event Catering Management & Food Entrepreneurship',
     duration: '2 Months',
-    delivery: 'In-Person & Online',
+    delivery: 'In-Person Only',
     fee: '₦180,000',
     tags: [{ text: 'Business Track', variant: 'line' }],
     outcomes: [
@@ -412,7 +412,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Beauty & Wellness',
     name: 'Professional Make-Up Artistry',
     duration: '6 Weeks',
-    delivery: 'In-Person & Online with Kit',
+    delivery: 'In-Person Only',
     fee: '₦200,000',
     tags: [{ text: 'Kit Included', variant: 'line' }],
     outcomes: [
@@ -436,7 +436,7 @@ export const programmes: Programme[] = [
     departmentLabel: 'Department of Enterprise',
     name: 'Business Development & Entrepreneurship',
     duration: '6 Weeks',
-    delivery: 'In-Person & Online',
+    delivery: 'In-Person Only',
     fee: '₦150,000',
     tags: [{ text: 'Mandatory · All Students', variant: 'ink' }],
     outcomes: [

@@ -4,8 +4,12 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { programmeOptions } from '@/lib/data/apply-options';
 
+const formEndpoint = process.env.NEXT_PUBLIC_NIMTA_FORM_URL ?? '';
+
 export default function ApplyForm() {
   const [showModal, setShowModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -15,8 +19,10 @@ export default function ApplyForm() {
     return () => document.removeEventListener('keydown', onKeyDown);
   }, []);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setSubmitError('');
+
     const form = event.currentTarget;
     let valid = true;
 
@@ -38,8 +44,57 @@ export default function ApplyForm() {
 
     if (!valid) return;
 
-    setShowModal(true);
-    form.reset();
+    if (!formEndpoint) {
+      setSubmitError(
+        'Form endpoint is not configured yet. Please contact admissions@nimta.edu.ng.',
+      );
+      return;
+    }
+
+    const formData = new FormData(form);
+    const payload = {
+      firstName: String(formData.get('firstName') ?? ''),
+      lastName: String(formData.get('lastName') ?? ''),
+      email: String(formData.get('email') ?? ''),
+      phone: String(formData.get('phone') ?? ''),
+      category: String(formData.get('category') ?? ''),
+      programme: String(formData.get('programme') ?? ''),
+      deliveryMode: programmeOptions.deliveryMode,
+      qualification: String(formData.get('qualification') ?? ''),
+      message: String(formData.get('message') ?? ''),
+    };
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(formEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = (await response.json()) as {
+        success?: boolean;
+        message?: string;
+      };
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message ?? 'Unable to submit your application.');
+      }
+
+      setShowModal(true);
+      form.reset();
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : 'Unable to submit your application. Please try again.',
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -54,16 +109,29 @@ export default function ApplyForm() {
           <div className="fg">
             <div className="fld">
               <label htmlFor="fn">First Name *</label>
-              <input id="fn" type="text" placeholder="e.g. Amina" required />
+              <input
+                id="fn"
+                name="firstName"
+                type="text"
+                placeholder="e.g. Amina"
+                required
+              />
             </div>
             <div className="fld">
               <label htmlFor="ln">Last Name *</label>
-              <input id="ln" type="text" placeholder="e.g. Hassan" required />
+              <input
+                id="ln"
+                name="lastName"
+                type="text"
+                placeholder="e.g. Hassan"
+                required
+              />
             </div>
             <div className="fld">
               <label htmlFor="em">Email Address *</label>
               <input
                 id="em"
+                name="email"
                 type="email"
                 placeholder="your@email.com"
                 required
@@ -73,6 +141,7 @@ export default function ApplyForm() {
               <label htmlFor="ph">Phone Number *</label>
               <input
                 id="ph"
+                name="phone"
                 type="tel"
                 placeholder="+234 800 000 0000"
                 required
@@ -80,7 +149,7 @@ export default function ApplyForm() {
             </div>
             <div className="fld full">
               <label htmlFor="cat">Applicant Category *</label>
-              <select id="cat" required defaultValue="">
+              <select id="cat" name="category" required defaultValue="">
                 <option value="">Select your category</option>
                 {programmeOptions.categories.map((option) => (
                   <option key={option}>{option}</option>
@@ -89,7 +158,7 @@ export default function ApplyForm() {
             </div>
             <div className="fld full">
               <label htmlFor="crs">Programme of Interest *</label>
-              <select id="crs" required defaultValue="">
+              <select id="crs" name="programme" required defaultValue="">
                 <option value="">Select a programme</option>
                 {programmeOptions.programmeGroups.map((group) => (
                   <optgroup key={group.label} label={group.label}>
@@ -101,17 +170,8 @@ export default function ApplyForm() {
               </select>
             </div>
             <div className="fld full">
-              <label htmlFor="del">Preferred Delivery Mode *</label>
-              <select id="del" required defaultValue="">
-                <option value="">Select mode</option>
-                {programmeOptions.deliveryModes.map((option) => (
-                  <option key={option}>{option}</option>
-                ))}
-              </select>
-            </div>
-            <div className="fld full">
               <label htmlFor="qual">Highest Qualification *</label>
-              <select id="qual" required defaultValue="">
+              <select id="qual" name="qualification" required defaultValue="">
                 <option value="">Select qualification</option>
                 {programmeOptions.qualifications.map((option) => (
                   <option key={option}>{option}</option>
@@ -124,6 +184,7 @@ export default function ApplyForm() {
               </label>
               <textarea
                 id="msg"
+                name="message"
                 placeholder="Tell us a little about yourself, or ask a question."
               />
             </div>
@@ -134,8 +195,11 @@ export default function ApplyForm() {
             information is processed securely and used only for your
             application.
           </div>
-          <button type="submit" className="fsubmit">
-            Submit My Application
+          {submitError ? (
+            <p style={{ color: '#C8102E', marginBottom: 16 }}>{submitError}</p>
+          ) : null}
+          <button type="submit" className="fsubmit" disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting...' : 'Submit My Application'}
           </button>
         </form>
       </div>

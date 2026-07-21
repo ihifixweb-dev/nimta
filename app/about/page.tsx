@@ -30,7 +30,7 @@ const marks = [
   'Industry Instructors',
   'NBTE Approved',
   'Portfolio by Graduation',
-  'In-Person & Online',
+  'In-Person Only',
 ];
 
 export default function AboutPage() {

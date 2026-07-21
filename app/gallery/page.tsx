@@ -1,13 +1,17 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import CtaBand from '@/components/CtaBand';
 import GalleryGrid from '@/components/GalleryGrid';
 import PageHero from '@/components/PageHero';
+import { showGalleryPage } from '@/lib/data/navigation';
 
 export const metadata: Metadata = {
   title: 'Gallery',
 };
 
 export default function GalleryPage() {
+  if (!showGalleryPage) redirect('/');
+
   return (
     <>
       <PageHero

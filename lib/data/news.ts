@@ -42,7 +42,7 @@ export const newsArticles: NewsArticle[] = [
   {
     category: 'Graduate Story',
     date: 'Placeholder Date',
-    title: 'From SSCE to a paying skill, one graduate\'s ninety-day journey',
+    title: 'From qualification to a paying skill, one graduate\'s ninety-day journey',
     excerpt:
       'How one NIMTA graduate turned a six-week programme into steady income. Placeholder summary text for the third featured story.',
     imageType: 'Story Image',

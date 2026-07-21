@@ -17,7 +17,7 @@ export const admissionDocumentGroups: AdmissionDocumentGroup[] = [
     description: 'These three documents come with every application, whoever you are.',
     documents: [
       {
-        title: 'SSCE Certificate or Statement of Result',
+        title: 'Certificate or Statement of Result',
         description:
           'WAEC, NECO, NABTEB or an equivalent recognised qualification.',
       },

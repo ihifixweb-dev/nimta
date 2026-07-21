@@ -18,9 +18,9 @@ export const admissionSteps: AdmissionStep[] = [
     num: '02',
     title: 'Submit your documents',
     summary:
-      'Upload your SSCE result, ID and photograph, plus scholarship documents if they apply to you.',
+      'Upload your certificate or statement of result, ID and photograph, plus scholarship documents if they apply to you.',
     description:
-      "Upload your SSCE certificate or statement of result, a valid means of identification, and one passport photograph. Children of Army officers also upload their Letter of Introduction, their parent's ID card, and the relevant Part Two Order.",
+      "Upload your certificate or statement of result, a valid means of identification, and one passport photograph. Children of Army officers also upload their Letter of Introduction, their parent's ID card, and the relevant Part Two Order.",
   },
   {
     num: '03',
@@ -50,9 +50,9 @@ export const admissionSteps: AdmissionStep[] = [
     num: '06',
     title: 'Orientation',
     summary:
-      'Two days on campus, or a full digital onboarding pack if you are studying online.',
+      'Two days on campus at orientation.',
     description:
-      'In-person students attend a two-day orientation on campus. Online students receive their learning platform access, class schedule and full resource pack by email.',
+      'Attend a two-day orientation on campus before your programme begins.',
   },
   {
     num: '07',

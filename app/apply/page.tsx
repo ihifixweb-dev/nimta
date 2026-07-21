@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const applyPoints = [
   'Nothing to pay at this stage. This is simply you raising your hand.',
   'If a scholarship applies to you, it is confirmed in writing before you pay anything.',
-  'An SSCE result is the only academic requirement. You bring the rest.',
+  'An academic result is the only requirement. You bring the rest.',
 ];
 
 export default function ApplyPage() {

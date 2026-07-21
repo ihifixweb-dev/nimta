@@ -1,3 +1,16 @@
+/** Toggle when Our People, Gallery, and News are ready to publish */
+export const showTeamPage = false;
+export const showGalleryPage = false;
+export const showNewsPage = false;
+
+const hiddenHrefs = new Set(
+  [
+    !showTeamPage && '/team',
+    !showGalleryPage && '/gallery',
+    !showNewsPage && '/news',
+  ].filter(Boolean) as string[],
+);
+
 export type NavLink = {
   label: string;
   href: string;
@@ -34,7 +47,7 @@ export const announceBar: AnnounceBar = {
   ctaHref: '/apply',
 };
 
-export const navLinks: NavLink[] = [
+const allNavLinks: NavLink[] = [
   { label: 'The Institute', href: '/about' },
   { label: "President's Message", href: '/president' },
   { label: 'Programmes', href: '/programmes' },
@@ -44,6 +57,8 @@ export const navLinks: NavLink[] = [
   { label: 'News', href: '/news' },
   { label: 'Apply Now', href: '/apply', variant: 'apply' },
 ];
+
+export const navLinks = allNavLinks.filter((link) => !hiddenHrefs.has(link.href));
 
 export const departmentFilters: DepartmentFilter[] = [
   { id: 'all', label: 'All' },
@@ -102,7 +117,7 @@ export const footerColumns: FooterColumn[] = [
       { label: 'News & Stories', href: '/news' },
       { label: 'NAOWA', href: 'https://naowa.ng', external: true },
       { label: 'NBTE Accreditation', href: '/about#accreditation' },
-    ],
+    ].filter((link) => !hiddenHrefs.has(link.href)),
   },
 ];
 
@@ -132,7 +147,7 @@ export const footerBottom = {
 
 export const mobileSticky = {
   headline: 'Admissions Now Open',
-  detail: 'SSCE minimum · Scholarships available',
+  detail: 'Scholarships available for children of serving personnel',
   ctaLabel: 'Apply Now',
   ctaHref: '/apply',
 };
