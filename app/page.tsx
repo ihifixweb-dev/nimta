@@ -159,7 +159,8 @@ export default function HomePage() {
                 label="Portrait: Dr Safiyyah Hassan Shaibu"
                 src={images.presidentPortrait}
                 alt="Dr Safiyyah Hassan Shaibu, President of NAOWA"
-                style={{ aspectRatio: '4/5' }}
+                className="president-portrait"
+                sizes="(max-width: 900px) 100vw, 420px"
               />
             </div>
           </div>

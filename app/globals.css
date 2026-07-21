@@ -48,7 +48,9 @@ img,video{max-width:100%;height:auto}
 .img-slot--filled{position:relative;padding:0;border:none;background:var(--mist);width:100%;min-height:0}
 .img-slot--filled span,.img-slot--filled svg{display:none}
 .img-slot-photo{object-fit:cover}
-.letter-photo .img-slot--filled{border-radius:50%;border:1px solid var(--line)}
+.letter-photo .img-slot--filled,.president-portrait.img-slot--filled{border:1px solid var(--line);background:var(--white)}
+.letter-photo .img-slot-photo,.president-portrait .img-slot-photo{object-fit:contain}
+.president-portrait{aspect-ratio:3/4;border:1px solid var(--line);background:var(--white)}
 .letter-sig-img img,.letter-crest-slot img{width:100%;height:100%;object-fit:contain}
 .letter-sig-img.img-slot--filled,.letter-crest-slot.img-slot--filled{border:none;background:transparent}
 .letter-sig-img.img-slot--filled{width:180px;height:64px;border-bottom:1px solid var(--line)}
@@ -163,7 +165,7 @@ img,video{max-width:100%;height:auto}
 .letter-body{padding:72px 80px}
 @media(max-width:700px){.letter-body{padding:44px 28px}}
 .letter-photo{display:flex;justify-content:center;margin-bottom:28px}
-.letter-photo .img-slot{width:132px;height:132px;border-radius:50%}
+.letter-photo .img-slot{width:100%;max-width:300px;aspect-ratio:3/4}
 .letter-photo .img-slot svg{width:34px;height:34px}
 .letter-photo .img-slot span{font-size:0.55rem}
 .letter-office{text-align:center;margin-bottom:44px}

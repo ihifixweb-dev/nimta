@@ -3,7 +3,7 @@ export const images = {
   heroStudents: '/images/hero-students.jpg',
   campusMain: '/images/campus-main.jpg',
   campusReception: '/images/campus-reception.jpg',
-  presidentPortrait: '/images/president-portrait.jpg',
+  presidentPortrait: '/images/president-portrait.png',
   presidentSignature: '/images/president-signature.jpg',
   naowaCrest: '/images/naowa-crest.jpg',
   certificatePresentation: '/images/certificate-presentation.jpg',

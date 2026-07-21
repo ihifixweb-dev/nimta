@@ -37,7 +37,8 @@ export default function PresidentPage() {
                 <ImgSlot
                   label="Portrait"
                   src={images.presidentPortrait}
-                  alt="Dr Safiyyah Hassan Shaibu"
+                  alt="Dr Safiyyah Hassan Shaibu, President of NAOWA"
+                  sizes="(max-width: 768px) 80vw, 300px"
                 />
               </div>
               <div className="letter-office">
