@@ -1,0 +1,74 @@
+/** Central registry of AI-generated site imagery under /public/images */
+export const images = {
+  heroStudents: '/images/hero-students.jpg',
+  campusMain: '/images/campus-main.jpg',
+  campusReception: '/images/campus-reception.jpg',
+  presidentPortrait: '/images/president-portrait.jpg',
+  presidentSignature: '/images/president-signature.jpg',
+  naowaCrest: '/images/naowa-crest.jpg',
+  certificatePresentation: '/images/certificate-presentation.jpg',
+  deptTechnology: '/images/dept-technology.jpg',
+  deptFashion: '/images/dept-fashion.jpg',
+  deptCulinary: '/images/dept-culinary.jpg',
+  deptBeauty: '/images/dept-beauty.jpg',
+  deptEnterprise: '/images/dept-enterprise.jpg',
+  newsAnnouncement: '/images/news-announcement.jpg',
+  newsGraduation: '/images/news-graduation.jpg',
+  newsStory: '/images/news-story.jpg',
+  newsBlog: '/images/news-blog.jpg',
+  newsEvent: '/images/news-event.jpg',
+  newsPress: '/images/news-press.jpg',
+  galleryFashionCollection: '/images/gallery-fashion-collection.jpg',
+  galleryWeddingCake: '/images/gallery-wedding-cake.jpg',
+  galleryAppDemo: '/images/gallery-app-demo.jpg',
+  galleryGraduationCeremony: '/images/gallery-graduation-ceremony.jpg',
+  galleryOpenDay: '/images/gallery-open-day.jpg',
+  teamLeadership: [
+    '/images/team-leadership-1.jpg',
+    '/images/team-leadership-2.jpg',
+    '/images/team-leadership-3.jpg',
+    '/images/team-leadership-4.jpg',
+    '/images/team-leadership-5.jpg',
+    '/images/team-leadership-6.jpg',
+  ],
+  teamFacilitators: [
+    '/images/team-facilitator-1.jpg',
+    '/images/team-facilitator-2.jpg',
+    '/images/team-facilitator-3.jpg',
+    '/images/team-facilitator-4.jpg',
+    '/images/team-facilitator-5.jpg',
+    '/images/team-facilitator-6.jpg',
+  ],
+} as const;
+
+export const newsImageMap = {
+  'News Image': images.newsAnnouncement,
+  'Graduation Image': images.newsGraduation,
+  'Story Image': images.newsStory,
+  'Blog Image': images.newsBlog,
+  'Event Image': images.newsEvent,
+  'Press Image': images.newsPress,
+} as const;
+
+export const galleryImageMap = [
+  images.campusMain,
+  images.campusReception,
+  images.deptTechnology,
+  images.deptFashion,
+  images.deptCulinary,
+  images.deptBeauty,
+  images.galleryFashionCollection,
+  images.galleryWeddingCake,
+  images.galleryAppDemo,
+  images.galleryGraduationCeremony,
+  images.certificatePresentation,
+  images.galleryOpenDay,
+] as const;
+
+export const departmentImageMap = [
+  images.deptTechnology,
+  images.deptFashion,
+  images.deptCulinary,
+  images.deptBeauty,
+  images.deptEnterprise,
+] as const;

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Apply | NIMTA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+/* ═══ NIMTA SHARED STYLES ═══ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Archivo',sans-serif;background:#FFFFFF;color:#0C0C0C;line-height:1.65;overflow-x:hidden;font-size:16px}
+
+:root{
+  --white:#FFFFFF;
+  --paper:#FAFAF8;
+  --mist:#F2F2F0;
+  --line:#E4E4E1;
+  --ink:#0C0C0C;
+  --charcoal:#1C1C1C;
+  --slate:#4A4A4A;
+  --stone:#7A7A76;
+  --red:#C8102E;
+  --red-deep:#9E0B23;
+  --red-tint:#FBEFF1;
+  --display:'Fraunces',serif;
+  --body:'Archivo',sans-serif;
+  --sh-sm:0 1px 4px rgba(12,12,12,0.06);
+  --sh-md:0 8px 28px rgba(12,12,12,0.09);
+  --sh-lg:0 20px 56px rgba(12,12,12,0.14);
+  --tr:0.28s cubic-bezier(0.4,0,0.2,1);
+}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.kicker{font-size:0.7rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.kicker::before{content:'';width:28px;height:1.5px;background:var(--red)}
+.h-major{font-family:var(--display);font-size:clamp(2rem,4.2vw,3.1rem);font-weight:600;line-height:1.12;color:var(--ink);letter-spacing:-0.01em}
+.lede{font-size:1.02rem;color:var(--slate);line-height:1.85;max-width:620px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;font-family:var(--body);font-weight:600;font-size:0.9rem;letter-spacing:0.02em;text-decoration:none;cursor:pointer;transition:var(--tr);border:none}
+.btn-ink{background:var(--ink);color:var(--white)}
+.btn-ink:hover{background:var(--charcoal);transform:translateY(-1px);box-shadow:var(--sh-md)}
+.btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-ghost-w{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.35)}
+.btn-ghost-w:hover{border-color:var(--white)}
+.tag{display:inline-block;padding:4px 12px;border-radius:2px;font-size:0.66rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase}
+.tag-hi{background:var(--mist);color:var(--charcoal)}
+.tag-ink{background:var(--ink);color:var(--white)}
+.tag-line{border:1px solid var(--line);color:var(--slate)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.img-slot{background:var(--mist);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--stone);overflow:hidden;position:relative}
+.img-slot svg{width:40px;height:40px;opacity:0.35;stroke:currentColor;fill:none;stroke-width:1.4}
+.img-slot span{font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;opacity:0.65}
+
+/* ANNOUNCE */
+.announce{background:var(--ink);color:var(--white);text-align:center;padding:10px 16px;font-size:0.78rem;font-weight:500;letter-spacing:0.05em;border-bottom:2px solid var(--red)}
+.announce strong{font-weight:700;text-transform:uppercase;letter-spacing:0.14em}
+.announce a{color:var(--white);text-decoration:underline;text-underline-offset:3px;margin-left:8px}
+
+/* NAV */
+#nav{position:sticky;top:0;z-index:1000;background:rgba(255,255,255,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:78px;max-width:1180px;margin:0 auto;padding:0 32px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.crest{width:46px;height:46px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.crest svg{width:26px;height:26px;fill:var(--white)}
+.crest-red{width:6px;height:46px;background:var(--red);margin-left:-14px}
+.brand-name{font-family:var(--display);font-size:1.3rem;font-weight:700;color:var(--ink);line-height:1;letter-spacing:0.02em}
+.brand-sub{font-size:0.6rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);line-height:1.4}
+.nav-l{display:flex;align-items:center;gap:2px}
+.nav-l a{font-size:0.84rem;font-weight:500;color:var(--slate);text-decoration:none;padding:9px 13px;transition:var(--tr);position:relative}
+.nav-l a:hover{color:var(--ink)}
+.nav-l a.on{color:var(--ink);font-weight:600}
+.nav-l a:not(.nav-apply)::after{content:'';position:absolute;bottom:2px;left:13px;right:13px;height:1.5px;background:var(--ink);transform:scaleX(0);transition:var(--tr);transform-origin:left}
+.nav-l a:not(.nav-apply):hover::after,.nav-l a.on:not(.nav-apply)::after{transform:scaleX(1)}
+.nav-apply{background:var(--ink);color:var(--white)!important;font-weight:600;padding:11px 24px!important;margin-left:10px}
+.nav-apply:hover{background:var(--red)!important}
+.nav-tog{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.nav-tog span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0}
+@media(max-width:1020px){
+  .nav-l{display:none;position:absolute;top:78px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:16px 24px;box-shadow:var(--sh-md)}
+  .nav-l.open{display:flex}
+  .nav-tog{display:block}
+}
+
+/* PAGE HERO (interior pages) */
+.phero{background:var(--ink);color:var(--white);padding:80px 0 72px;position:relative;overflow:hidden}
+.phero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.phero .kicker{color:rgba(255,255,255,0.6)}
+.phero h1{font-family:var(--display);font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:600;line-height:1.1;letter-spacing:-0.012em;margin-bottom:18px}
+.phero p{font-size:1rem;color:rgba(255,255,255,0.65);line-height:1.9;max-width:640px}
+.pcrumb{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:28px}
+.pcrumb a{color:rgba(255,255,255,0.55);text-decoration:none}
+.pcrumb a:hover{color:var(--white)}
+
+/* SECTIONS */
+.sec{padding:96px 0}
+.sec-alt{background:var(--paper)}
+.sec-head{margin-bottom:56px;max-width:720px}
+.sec-head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
+
+/* HOME HERO */
+#hero{background:var(--ink);color:var(--white);position:relative;overflow:hidden}
+#hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);z-index:3}
+.hero-grid-lines{position:absolute;inset:0;opacity:0.05;background-image:linear-gradient(var(--white) 1px,transparent 1px),linear-gradient(90deg,var(--white) 1px,transparent 1px);background-size:64px 64px}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr 0.9fr;gap:72px;align-items:center;padding:92px 0 100px}
+.hero-open-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.18);padding:8px 18px;margin-bottom:28px}
+.hero-open-dot{width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+.hero-open-badge span{font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.8)}
+.hero-h{font-family:var(--display);font-size:clamp(2.6rem,5.2vw,4.2rem);font-weight:600;line-height:1.06;letter-spacing:-0.015em;margin-bottom:26px}
+.hero-h em{font-style:italic;color:var(--white);border-bottom:3px solid var(--red);padding-bottom:2px}
+.hero-p{font-size:1.05rem;color:rgba(255,255,255,0.68);line-height:1.9;margin-bottom:40px;max-width:540px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:56px}
+.hero-cta .btn-ink{background:var(--white);color:var(--ink)}
+.hero-cta .btn-ink:hover{background:var(--mist)}
+.hero-facts{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,0.14)}
+.hero-fact{padding:24px 24px 0 0}
+.hero-fact+.hero-fact{padding-left:24px;border-left:1px solid rgba(255,255,255,0.14)}
+.hero-fact-n{font-family:var(--display);font-size:2rem;font-weight:600;color:var(--white);line-height:1}
+.hero-fact-l{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-top:8px}
+.hero-visual{position:relative}
+.hero-img{aspect-ratio:4/5;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12)}
+.hero-img .img-slot{background:transparent;border:none;height:100%;color:rgba(255,255,255,0.35)}
+.hero-card{position:absolute;bottom:-28px;left:-28px;background:var(--white);color:var(--ink);padding:24px 28px;box-shadow:var(--sh-lg);border-left:4px solid var(--red)}
+.hero-card b{font-family:var(--display);font-size:1.5rem;font-weight:700;display:block;line-height:1.1}
+.hero-card span{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone)}
+@media(max-width:900px){.hero-in{grid-template-columns:1fr;padding:60px 0 76px}.hero-visual{display:none}}
+
+/* TICKER */
+.ticker{background:var(--white);border-bottom:1px solid var(--line);padding:14px 0;overflow:hidden;white-space:nowrap}
+.ticker-t{display:inline-flex;animation:tick 36s linear infinite}
+.ticker-i{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--slate);padding:0 36px;display:inline-flex;align-items:center;gap:36px}
+.ticker-i::after{content:'\25CF';color:var(--ink);opacity:0.25;font-size:0.45rem}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ABOUT BLOCKS */
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+@media(max-width:900px){.about-g{grid-template-columns:1fr;gap:48px}}
+.about-imgs{position:relative}
+.about-imgs .img-slot{aspect-ratio:4/5}
+.about-cred{position:absolute;bottom:-24px;right:-24px;background:var(--ink);color:var(--white);padding:28px 30px;max-width:250px;border-top:3px solid var(--red)}
+.about-cred b{font-family:var(--display);font-size:1.9rem;font-weight:700;display:block;line-height:1}
+.about-cred span{font-size:0.78rem;color:rgba(255,255,255,0.6);margin-top:6px;display:block;line-height:1.6}
+@media(max-width:900px){.about-cred{position:relative;right:0;bottom:0;margin-top:20px;max-width:100%}}
+.entry-note{margin-top:30px;padding:22px 26px;background:var(--paper);border-left:3px solid var(--red)}
+.entry-note p{font-size:0.9rem;color:var(--ink);line-height:1.75}
+.entry-note strong{font-weight:700}
+.about-marks{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.mark{padding:8px 18px;border:1px solid var(--line);font-size:0.78rem;font-weight:500;color:var(--slate);transition:var(--tr)}
+.mark:hover{border-color:var(--ink);color:var(--ink)}
+
+/* PRESIDENT MESSAGE */
+.letter-frame{max-width:860px;margin:0 auto;background:var(--white);border:1px solid var(--line);box-shadow:var(--sh-md)}
+.letter-band{height:5px;background:var(--ink)}
+.letter-band::after{content:'';display:block;width:120px;height:5px;background:var(--red)}
+.letter-body{padding:72px 80px}
+@media(max-width:700px){.letter-body{padding:44px 28px}}
+.letter-photo{display:flex;justify-content:center;margin-bottom:28px}
+.letter-photo .img-slot{width:132px;height:132px;border-radius:50%}
+.letter-photo .img-slot svg{width:34px;height:34px}
+.letter-photo .img-slot span{font-size:0.55rem}
+.letter-office{text-align:center;margin-bottom:44px}
+.letter-office h3{font-family:var(--display);font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink)}
+.letter-office p{font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);margin-top:4px}
+.letter-rule{width:64px;height:1.5px;background:var(--red);margin:20px auto 0}
+.letter-sal{font-family:var(--display);font-size:1.25rem;font-style:italic;color:var(--ink);margin-bottom:28px}
+.letter-p{font-size:0.98rem;color:var(--charcoal);line-height:2;margin-bottom:22px}
+.letter-p.em{font-family:var(--display);font-size:1.15rem;font-style:italic;color:var(--ink);border-left:3px solid var(--red);padding-left:24px;margin:32px 0}
+.letter-sig{margin-top:48px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+.letter-sig-img{width:180px;height:64px;border-bottom:1px solid var(--line);display:flex;align-items:center;color:var(--stone);font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;font-style:italic;margin-bottom:10px}
+.letter-sig-name{font-family:var(--display);font-weight:700;font-size:1.05rem;color:var(--ink)}
+.letter-sig-title{font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone);margin-top:4px;line-height:1.7}
+.letter-crest-slot{width:110px;height:110px;border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone);text-align:center;padding:12px}
+
+/* SCHOOLS */
+.schools-g{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(max-width:1000px){.schools-g{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.schools-g{grid-template-columns:1fr}}
+.school{background:var(--white);cursor:pointer;transition:var(--tr);position:relative;overflow:hidden;text-decoration:none;display:block}
+.school:hover{background:var(--paper)}
+.school:hover .school-go{background:var(--ink)}
+.school:hover .school-go svg{stroke:var(--white)}
+.school-img{height:172px}
+.school-img .img-slot{height:100%;border:none;border-bottom:1px solid var(--line)}
+.school-b{padding:28px}
+.school-n{font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--stone);margin-bottom:10px}
+.school-t{font-family:var(--display);font-size:1.2rem;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.school-d{font-size:0.86rem;color:var(--slate);line-height:1.75;margin-bottom:20px}
+.school-f{display:flex;justify-content:space-between;align-items:center}
+.school-c{font-size:0.75rem;font-weight:600;color:var(--ink)}
+.school-go{width:34px;height:34px;background:var(--mist);display:flex;align-items:center;justify-content:center;transition:var(--tr)}
+.school-go svg{width:14px;height:14px;stroke:var(--ink);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:var(--tr)}
+
+/* COURSES */
+.filters{display:flex;flex-wrap:wrap;border:1px solid var(--line)}
+.ftab{padding:11px 22px;border:none;background:var(--white);font-family:var(--body);font-size:0.8rem;font-weight:600;color:var(--stone);cursor:pointer;transition:var(--tr);border-right:1px solid var(--line)}
+.ftab:last-child{border-right:none}
+.ftab:hover{color:var(--ink)}
+.ftab.on{background:var(--ink);color:var(--white)}
+.clist{display:grid;border:1px solid var(--line);border-bottom:none}
+.citem{background:var(--white);border-bottom:1px solid var(--line);transition:var(--tr)}
+.citem:hover{background:var(--paper)}
+.chead{display:flex;align-items:center;gap:22px;padding:26px 30px;cursor:pointer}
+.cnum{font-family:var(--display);font-size:0.85rem;font-weight:600;color:var(--stone);min-width:76px}
+.cinfo{flex:1}
+.ccode{font-size:0.64rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--slate);margin-bottom:5px}
+.cname{font-family:var(--display);font-size:1.12rem;font-weight:600;color:var(--ink)}
+.cmeta{display:flex;flex-wrap:wrap;gap:14px;margin-top:7px}
+.cpill{font-size:0.73rem;font-weight:500;color:var(--stone)}
+.cright{display:flex;align-items:center;gap:20px;flex-shrink:0}
+.cfee{text-align:right}
+.cfee b{font-family:var(--display);font-size:1.08rem;font-weight:700;color:var(--ink);display:block}
+.cfee span{font-size:0.66rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--stone)}
+.cchev{width:34px;height:34px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:var(--tr)}
+.cchev svg{width:13px;height:13px;stroke:var(--ink);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform 0.3s}
+.citem.open .cchev{background:var(--ink)}
+.citem.open .cchev svg{stroke:var(--white);transform:rotate(180deg)}
+.cbody{max-height:0;overflow:hidden;transition:max-height 0.5s ease}
+.citem.open .cbody{max-height:1800px}
+.cbody-in{padding:28px 30px 34px 128px;border-top:1px solid var(--line)}
+@media(max-width:800px){.cbody-in{padding-left:30px}}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+@media(max-width:700px){.cgrid{grid-template-columns:1fr}}
+.cbody h5{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);margin-bottom:14px}
+.cbody ul{list-style:none}
+.cbody ul li{font-size:0.87rem;color:var(--charcoal);padding:7px 0;border-bottom:1px solid var(--mist);display:flex;gap:12px;line-height:1.55}
+.cbody ul li::before{content:'';width:5px;height:5px;background:var(--charcoal);flex-shrink:0;margin-top:8px}
+.cacts{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap}
+.btn-dl{display:inline-flex;align-items:center;gap:9px;padding:12px 24px;border:1.5px solid var(--ink);font-family:var(--body);font-size:0.8rem;font-weight:600;color:var(--ink);background:transparent;cursor:pointer;transition:var(--tr);text-decoration:none}
+.btn-dl:hover{background:var(--ink);color:var(--white)}
+.btn-dl svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.btn-ap{display:inline-flex;align-items:center;padding:12px 24px;background:var(--ink);font-size:0.8rem;font-weight:600;color:var(--white);text-decoration:none;transition:var(--tr)}
+.btn-ap:hover{background:var(--red)}
+@media(max-width:700px){.cright{flex-direction:column;align-items:flex-end;gap:10px}.cnum{display:none}}
+
+/* TIERS */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.tiers{grid-template-columns:1fr}}
+.tier{padding:44px 36px;transition:var(--tr)}
+.tier:hover{transform:translateY(-4px)}
+.tier-a{background:var(--ink);color:var(--white);border-top:4px solid var(--red)}
+.tier-b{background:var(--white);color:var(--ink);border:1px solid var(--line);border-top:4px solid var(--ink)}
+.tier-c{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-top:4px solid var(--stone)}
+.tier-tag{font-size:0.64rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:18px;opacity:0.65}
+.tier-pc{font-family:var(--display);font-size:4.2rem;font-weight:700;line-height:0.95;margin-bottom:6px}
+.tier-a .tier-pc{color:var(--white)}
+.tier-b .tier-pc{color:var(--ink)}
+.tier-c .tier-pc{color:var(--stone)}
+.tier-name{font-family:var(--display);font-size:1.1rem;font-weight:600;margin-bottom:12px}
+.tier-who{font-size:0.86rem;line-height:1.8;opacity:0.78;margin-bottom:22px}
+.tier-note{font-size:0.78rem;font-style:italic;line-height:1.7;padding-top:18px;border-top:1px solid rgba(0,0,0,0.1);opacity:0.65}
+.tier-a .tier-note{border-top-color:rgba(255,255,255,0.16)}
+
+/* DOCS */
+.docs-g{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
+@media(max-width:800px){.docs-g{grid-template-columns:1fr}}
+.docs-card{background:var(--white);border:1px solid var(--line);padding:38px}
+.docs-card.army{border-top:3px solid var(--red)}
+.docs-card.general{border-top:3px solid var(--ink)}
+.docs-card h4{font-family:var(--display);font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.docs-card>p{font-size:0.84rem;color:var(--stone);margin-bottom:24px;line-height:1.7}
+.doc-row{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--mist);align-items:flex-start}
+.doc-row:last-child{border-bottom:none}
+.doc-i{width:30px;height:30px;background:var(--mist);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.doc-i svg{width:14px;height:14px;stroke:var(--ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.doc-t b{font-size:0.88rem;font-weight:600;color:var(--ink);display:block}
+.doc-t span{font-size:0.77rem;color:var(--stone);line-height:1.6}
+
+/* STEPS */
+.steps-g{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+@media(max-width:900px){.steps-g{grid-template-columns:1fr}}
+.step{display:flex;gap:22px;padding:24px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.step:last-child{border-bottom:none}
+.step-no{font-family:var(--display);font-size:0.9rem;font-weight:600;width:42px;height:42px;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--stone);flex-shrink:0;transition:var(--tr)}
+.step.on .step-no{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.step-tx h4{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--slate);margin-bottom:5px;transition:var(--tr)}
+.step.on .step-tx h4{color:var(--ink)}
+.step-tx p{font-size:0.84rem;color:var(--stone);line-height:1.7}
+.step-panel{background:var(--white);border:1px solid var(--line);padding:48px;position:sticky;top:110px}
+.step-panel-no{font-family:var(--display);font-size:3.2rem;font-weight:700;color:var(--ink);line-height:1;margin-bottom:16px;border-bottom:3px solid var(--red);display:inline-block;padding-bottom:6px}
+.step-panel h3{font-family:var(--display);font-size:1.35rem;font-weight:600;color:var(--ink);margin-bottom:14px}
+.step-panel p{font-size:0.92rem;color:var(--slate);line-height:1.9}
+
+/* NEWS */
+.news-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.news-g{grid-template-columns:1fr}}
+.news-c{background:var(--white);border:1px solid var(--line);transition:var(--tr);text-decoration:none;display:block}
+.news-c:hover{box-shadow:var(--sh-md);transform:translateY(-3px)}
+.news-img{height:190px}
+.news-img .img-slot{height:100%;border:none;border-bottom:1px solid var(--line)}
+.news-b{padding:26px}
+.news-meta{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.news-cat{font-size:0.62rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink);border-bottom:1.5px solid var(--red);padding-bottom:1px}
+.news-date{font-size:0.72rem;color:var(--stone)}
+.news-t{font-family:var(--display);font-size:1.08rem;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:10px}
+.news-x{font-size:0.84rem;color:var(--slate);line-height:1.7}
+.news-more{display:inline-flex;align-items:center;gap:8px;font-size:0.78rem;font-weight:600;color:var(--ink);margin-top:16px}
+.news-more svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* VOICES */
+.voices-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:900px){.voices-g{grid-template-columns:1fr}}
+.voice{background:var(--white);border:1px solid var(--line);padding:36px;position:relative}
+.voice::before{content:'\201C';font-family:var(--display);font-size:4rem;color:var(--ink);position:absolute;top:14px;left:28px;line-height:1;opacity:0.15}
+.voice-x{font-size:0.9rem;color:var(--charcoal);line-height:1.9;margin:36px 0 26px;font-style:italic}
+.voice-a{display:flex;align-items:center;gap:14px;border-top:1px solid var(--mist);padding-top:20px}
+.voice-av{width:44px;height:44px;border-radius:50%;background:var(--mist);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.voice-av svg{width:18px;height:18px;stroke:var(--stone);fill:none;stroke-width:1.5}
+.voice-n{font-weight:700;font-size:0.86rem;color:var(--ink)}
+.voice-r{font-size:0.74rem;color:var(--stone)}
+
+/* APPLY */
+.apply-dark{background:var(--ink);color:var(--white);position:relative}
+.apply-dark::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.apply-g{display:grid;grid-template-columns:0.9fr 1.1fr;gap:72px;align-items:start;padding:96px 0}
+@media(max-width:960px){.apply-g{grid-template-columns:1fr;gap:48px}}
+.apply-left h2{font-family:var(--display);font-size:clamp(2rem,4vw,3rem);font-weight:600;line-height:1.15;margin-bottom:22px}
+.apply-left h2 em{font-style:italic;border-bottom:3px solid var(--red);padding-bottom:2px}
+.apply-left>p{font-size:0.98rem;color:rgba(255,255,255,0.65);line-height:1.9;margin-bottom:36px}
+.apply-left .kicker{color:rgba(255,255,255,0.7)}
+.apply-points{display:flex;flex-direction:column;gap:18px}
+.apply-pt{display:flex;gap:16px;align-items:flex-start}
+.apply-pt-i{width:26px;height:26px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.apply-pt-i svg{width:13px;height:13px;stroke:var(--white);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.apply-pt span{font-size:0.88rem;color:rgba(255,255,255,0.78);line-height:1.7}
+.form-card{background:var(--white);color:var(--ink);padding:52px;box-shadow:var(--sh-lg)}
+@media(max-width:600px){.form-card{padding:32px 24px}}
+.form-card h3{font-family:var(--display);font-size:1.4rem;font-weight:600;margin-bottom:6px}
+.form-card>p{font-size:0.83rem;color:var(--stone);margin-bottom:30px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.fg{grid-template-columns:1fr}}
+.fld{display:flex;flex-direction:column;gap:6px}
+.fld.full{grid-column:1/-1}
+.fld label{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--slate)}
+.fld input,.fld select,.fld textarea{width:100%;padding:13px 16px;border:1.5px solid var(--line);font-size:0.9rem;font-family:var(--body);color:var(--ink);background:var(--white);transition:var(--tr);outline:none;border-radius:0}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--ink)}
+.fld textarea{resize:vertical;min-height:80px}
+.fld select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7A76' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.fnote{font-size:0.76rem;color:var(--stone);line-height:1.7;margin-top:18px;padding:14px 16px;background:var(--paper);border-left:3px solid var(--red)}
+.fnote a{color:var(--ink);font-weight:700}
+.fsubmit{width:100%;padding:17px;background:var(--ink);color:var(--white);border:none;font-family:var(--body);font-size:0.95rem;font-weight:700;letter-spacing:0.04em;cursor:pointer;transition:var(--tr);margin-top:24px}
+.fsubmit:hover{background:var(--red)}
+
+/* CTA BANNER */
+.cta-band{background:var(--ink);color:var(--white);position:relative}
+.cta-band::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.cta-band-in{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;padding:64px 0}
+.cta-band h2{font-family:var(--display);font-size:clamp(1.6rem,3.2vw,2.3rem);font-weight:600;line-height:1.2}
+.cta-band p{color:rgba(255,255,255,0.6);font-size:0.9rem;margin-top:8px}
+.cta-band .btn-ink{background:var(--white);color:var(--ink)}
+.cta-band .btn-ink:hover{background:var(--mist)}
+
+/* FOOTER */
+footer{background:#0A0A0A;color:rgba(255,255,255,0.62);padding:80px 0 40px;border-top:3px solid var(--red)}
+.foot-g{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
+@media(max-width:900px){.foot-g{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-g{grid-template-columns:1fr}}
+.foot-desc{font-size:0.85rem;line-height:1.85;margin:20px 0 24px;max-width:320px}
+.foot-contact a{display:flex;align-items:center;gap:10px;font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;margin-bottom:9px;transition:var(--tr)}
+.foot-contact a:hover{color:var(--white)}
+.foot-contact svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;flex-shrink:0}
+.foot-col h4{font-size:0.66rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:22px;border-bottom:1.5px solid var(--red);display:inline-block;padding-bottom:4px}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:11px}
+.foot-col a{font-size:0.84rem;color:rgba(255,255,255,0.55);text-decoration:none;transition:var(--tr)}
+.foot-col a:hover{color:var(--white)}
+.foot-btm{border-top:1px solid rgba(255,255,255,0.08);padding-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;align-items:center}
+.foot-btm-l{font-size:0.76rem;color:rgba(255,255,255,0.3)}
+.foot-lnks{display:flex;gap:24px}
+.foot-lnks a{font-size:0.76rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:var(--tr)}
+.foot-lnks a:hover{color:var(--white)}
+
+/* POLICY PAGE */
+.policy-wrap{max-width:880px;margin:0 auto}
+.ptoc{background:var(--paper);border:1px solid var(--line);padding:26px 30px;margin-bottom:44px}
+.ptoc h4{font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--ink);margin-bottom:14px}
+.ptoc ol{padding-left:18px}
+.ptoc li{font-size:0.84rem;padding:3px 0;font-weight:500}
+.ptoc a{color:var(--ink);text-decoration:none}
+.ptoc a:hover{text-decoration:underline}
+.psec{margin-bottom:44px}
+.psec h3{font-family:var(--display);font-size:1.12rem;font-weight:600;color:var(--ink);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.psec p{font-size:0.87rem;color:var(--charcoal);line-height:1.95;margin-bottom:12px}
+.psec ul,.psec ol{padding-left:20px;margin-bottom:12px}
+.psec li{font-size:0.87rem;color:var(--charcoal);line-height:1.85;margin-bottom:7px}
+.psec strong{color:var(--ink);font-weight:700}
+.psec em{color:var(--stone)}
+.pupd{font-size:0.76rem;color:var(--stone);margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+
+/* SUCCESS MODAL */
+#smodal{display:none;position:fixed;inset:0;z-index:3000;background:rgba(10,10,10,0.78);align-items:center;justify-content:center;padding:16px}
+#smodal.open{display:flex}
+.scard{background:var(--white);padding:60px 52px;text-align:center;max-width:480px;width:100%;box-shadow:var(--sh-lg);border-top:4px solid var(--ink)}
+.sicon{width:72px;height:72px;border-radius:50%;background:var(--mist);display:flex;align-items:center;justify-content:center;margin:0 auto 26px}
+.sicon svg{width:34px;height:34px;stroke:var(--ink);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.scard h3{font-family:var(--display);font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:12px}
+.scard p{font-size:0.88rem;color:var(--slate);line-height:1.85;margin-bottom:32px}
+.sclose{padding:14px 44px;background:var(--ink);color:var(--white);border:none;font-family:var(--body);font-size:0.9rem;font-weight:700;cursor:pointer;transition:var(--tr)}
+.sclose:hover{background:var(--red)}
+
+/* MOBILE STICKY + TOP */
+.mstick{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:var(--ink);padding:12px 20px;border-top:2px solid var(--red)}
+.mstick-in{display:flex;align-items:center;justify-content:space-between;max-width:600px;margin:0 auto;gap:12px}
+.mstick-t{color:rgba(255,255,255,0.7);font-size:0.78rem;line-height:1.4}
+.mstick-t strong{color:var(--white);display:block;font-size:0.88rem}
+.mstick-b{padding:11px 22px;background:var(--white);color:var(--ink);border:none;font-family:var(--body);font-weight:700;font-size:0.84rem;cursor:pointer;white-space:nowrap;text-decoration:none;display:inline-block}
+@media(max-width:700px){.mstick{display:block}}
+#totop{position:fixed;bottom:84px;right:22px;z-index:800;width:44px;height:44px;background:var(--ink);color:var(--white);border:none;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:var(--sh-md);transition:var(--tr)}
+#totop.show{display:flex}
+#totop:hover{background:var(--red)}
+#totop svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* TEAM */
+.team-g{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media(max-width:960px){.team-g{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.team-g{grid-template-columns:1fr}}
+.tcard{background:var(--white);border:1px solid var(--line);transition:var(--tr)}
+.tcard:hover{box-shadow:var(--sh-md);transform:translateY(-3px)}
+.tcard-img{aspect-ratio:1/1}
+.tcard-img .img-slot{height:100%;border:none;border-bottom:1px solid var(--line)}
+.tcard-b{padding:24px 26px 28px}
+.tcard-role{font-size:0.64rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--stone);margin-bottom:8px}
+.tcard-name{font-family:var(--display);font-size:1.15rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.tcard-cred{font-size:0.78rem;color:var(--slate);margin-bottom:12px}
+.tcard-bio{font-size:0.82rem;color:var(--stone);line-height:1.7;border-top:1px solid var(--mist);padding-top:12px}
+.tcard.lead{border-top:3px solid var(--ink)}
+.tcard.lead .tcard-role{color:var(--ink)}
+
+/* GALLERY */
+.gal-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:900px){.gal-g{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.gal-g{grid-template-columns:1fr}}
+.gitem{background:var(--white);border:1px solid var(--line);transition:var(--tr)}
+.gitem:hover{box-shadow:var(--sh-md)}
+.gitem .img-slot{aspect-ratio:4/3;border:none;border-bottom:1px solid var(--line)}
+.gitem.tall .img-slot{aspect-ratio:3/4}
+.gcap{padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.gcap b{font-size:0.84rem;font-weight:600;color:var(--ink)}
+.gcap span{font-size:0.64rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--stone)}
+
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <strong>Admissions Now Open</strong> &nbsp;&middot;&nbsp; January 2026 Cohort &nbsp;&middot;&nbsp; Scholarships available for children of serving personnel <a href="apply.html">Begin your application</a>
+</div>
+
+<nav id="nav" role="navigation" aria-label="Main">
+  <div class="nav-in">
+    <a href="index.html" class="brand">
+      <div class="crest"><svg viewBox="0 0 28 28"><path d="M14 2L3 8v6c0 7 5 12 11 14 6-2 11-7 11-14V8L14 2z"/></svg></div>
+      <div class="crest-red"></div>
+      <div>
+        <div class="brand-name">NIMTA</div>
+        <div class="brand-sub">NAOWA Institute of Management &amp; Technology</div>
+      </div>
+    </a>
+    <div class="nav-l" id="navL">
+      <a href="about.html">The Institute</a>
+      <a href="president.html">President's Message</a>
+      <a href="programmes.html">Programmes</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="team.html">Our People</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="news.html">News</a>
+      <a href="apply.html" class="nav-apply">Apply Now</a>
+    </div>
+    <button class="nav-tog" id="navTog" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="apply-dark">
+  <div class="wrap">
+    <div class="apply-g">
+      <div class="apply-left">
+        <div class="pcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Apply</div>
+        <div class="kicker">Admissions Now Open</div>
+        <h2>Start something<br/><em>you'll be proud of.</em></h2>
+        <p>This part is easy. Tell us who you are and what you'd like to learn. It takes about ten minutes, and there's nothing to pay right now. Within five working days, our admissions team will send you your full application pack, and if a scholarship applies to you, we'll confirm it in writing.</p>
+        <div class="apply-points">
+          <div class="apply-pt"><div class="apply-pt-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>Nothing to pay at this stage. This is simply you raising your hand.</span></div>
+          <div class="apply-pt"><div class="apply-pt-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>If a scholarship applies to you, it's confirmed in writing before you pay anything.</span></div>
+          <div class="apply-pt"><div class="apply-pt-i"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>An SSCE result is the only academic requirement. You bring the rest.</span></div>
+        </div>
+      </div>
+      <div class="form-card">
+        <h3>Expression of Interest</h3>
+        <p>Fields marked * are required. Your information is protected under our data policy.</p>
+        <form id="appForm" onsubmit="doApply(event)" novalidate>
+          <div class="fg">
+            <div class="fld"><label for="fn">First Name *</label><input id="fn" type="text" placeholder="e.g. Amina" required/></div>
+            <div class="fld"><label for="ln">Last Name *</label><input id="ln" type="text" placeholder="e.g. Hassan" required/></div>
+            <div class="fld"><label for="em">Email Address *</label><input id="em" type="email" placeholder="your@email.com" required/></div>
+            <div class="fld"><label for="ph">Phone Number *</label><input id="ph" type="tel" placeholder="+234 800 000 0000" required/></div>
+            <div class="fld full"><label for="cat">Applicant Category *</label>
+              <select id="cat" required>
+                <option value="">Select your category</option>
+                <option>Child of a Nigerian Army Officer (100% Scholarship, First Programme)</option>
+                <option>Child of a Soldier or Other Ranks Personnel (50% Scholarship, First Two Programmes)</option>
+                <option>General Applicant (Standard Admission)</option>
+              </select>
+            </div>
+            <div class="fld full"><label for="crs">Programme of Interest *</label>
+              <select id="crs" required>
+                <option value="">Select a programme</option>
+                <optgroup label="Department of Technology">
+                  <option>NIMTA-T00 &middot; Computer Appreciation &amp; Digital Essentials</option>
+                  <option>NIMTA-T01 &middot; Software Development (Full Stack Web)</option>
+                  <option>NIMTA-T02 &middot; UI/UX Product Design</option>
+                  <option>NIMTA-T03 &middot; Data Analytics &amp; Business Intelligence</option>
+                  <option>NIMTA-T04 &middot; Digital Marketing &amp; Social Media Management</option>
+                  <option>NIMTA-T05 &middot; Cybersecurity Fundamentals</option>
+                  <option>NIMTA-T06 &middot; AI Tools for Productivity &amp; Business</option>
+                  <option>NIMTA-T07 &middot; Graphic Design &amp; Visual Communication</option>
+                </optgroup>
+                <optgroup label="Department of Fashion &amp; Textiles">
+                  <option>NIMTA-F01 &middot; Fashion Design &amp; Garment Construction</option>
+                  <option>NIMTA-F02 &middot; Pattern Drafting &amp; Grading</option>
+                  <option>NIMTA-F03 &middot; Textile Dyeing, Printing &amp; Fabric Decoration</option>
+                </optgroup>
+                <optgroup label="Department of Culinary Arts">
+                  <option>NIMTA-C01 &middot; Professional Culinary Arts</option>
+                  <option>NIMTA-C02 &middot; Pastry, Baking &amp; Confectionery</option>
+                  <option>NIMTA-C03 &middot; Event Catering Management</option>
+                </optgroup>
+                <optgroup label="Department of Beauty &amp; Wellness">
+                  <option>NIMTA-B01 &middot; Professional Hair Styling &amp; Braiding</option>
+                  <option>NIMTA-B02 &middot; Professional Make-Up Artistry</option>
+                </optgroup>
+                <optgroup label="Department of Enterprise">
+                  <option>NIMTA-E01 &middot; Business Development &amp; Entrepreneurship</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="fld full"><label for="del">Preferred Delivery Mode *</label>
+              <select id="del" required>
+                <option value="">Select mode</option>
+                <option>In-Person (Main Campus, Asokoro, Abuja)</option>
+                <option>Online (Live Virtual Classes)</option>
+              </select>
+            </div>
+            <div class="fld full"><label for="qual">Highest Qualification *</label>
+              <select id="qual" required>
+                <option value="">Select qualification</option>
+                <option>SSCE / WAEC / NECO / NABTEB / GCE</option>
+                <option>OND</option>
+                <option>HND</option>
+                <option>Bachelor's Degree</option>
+                <option>Postgraduate Degree</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fld full"><label for="msg">Anything you would like us to know? (Optional)</label><textarea id="msg" placeholder="Tell us a little about yourself, or ask a question."></textarea></div>
+          </div>
+          <div class="fnote">By submitting, you confirm that you have read and accept the <a href="policy.html">NIMTA Programme Policy and Terms</a>. Your information is processed securely and used only for your application.</div>
+          <button type="submit" class="fsubmit">Submit My Application</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="smodal" role="dialog" aria-modal="true">
+  <div class="scard">
+    <div class="sicon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+    <h3>We've got your application.</h3>
+    <p>Thank you for raising your hand. Our admissions team will be in touch within five working days with your full application pack, and your scholarship confirmation in writing if one applies to you.</p>
+    <button class="sclose" onclick="closeS()">Close</button>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-g">
+      <div>
+        <div class="brand" style="pointer-events:none">
+          <div class="crest"><svg viewBox="0 0 28 28"><path d="M14 2L3 8v6c0 7 5 12 11 14 6-2 11-7 11-14V8L14 2z"/></svg></div>
+          <div class="crest-red"></div>
+          <div><div class="brand-name" style="color:#fff">NIMTA</div><div class="brand-sub" style="color:rgba(255,255,255,0.4)">Empowerment Training Scheme</div></div>
+        </div>
+        <p class="foot-desc">A NAOWA institution. Training the next generation of skilled, self-reliant Nigerians with the discipline this nation was built on.</p>
+        <div class="foot-contact">
+          <a href="tel:+2348141283720"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2.18L5 2.18a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg> +234 814 128 3720</a>
+          <a href="mailto:admissions@nimta.edu.ng"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> admissions@nimta.edu.ng</a>
+          <a href="#"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Mambilla Barracks Road, Asokoro, Abuja</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Academics</h4>
+        <ul>
+          <li><a href="programmes.html#tech">Technology</a></li>
+          <li><a href="programmes.html#fashion">Fashion &amp; Textiles</a></li>
+          <li><a href="programmes.html#culinary">Culinary Arts</a></li>
+          <li><a href="programmes.html#beauty">Beauty &amp; Wellness</a></li>
+          <li><a href="programmes.html#enterprise">Enterprise</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Admissions</h4>
+        <ul>
+          <li><a href="admissions.html#tiers">Scholarship Tiers</a></li>
+          <li><a href="admissions.html#documents">Required Documents</a></li>
+          <li><a href="admissions.html#process">How to Apply</a></li>
+          <li><a href="apply.html">Apply Now</a></li>
+          <li><a href="policy.html">Programme Policy</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>The Institute</h4>
+        <ul>
+          <li><a href="about.html">About NIMTA</a></li>
+          <li><a href="president.html">President's Message</a></li>
+          <li><a href="team.html">Our People</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="news.html">News &amp; Stories</a></li>
+          <li><a href="https://naowa.ng" target="_blank" rel="noopener">NAOWA</a></li>
+          <li><a href="about.html#accreditation">NBTE Accreditation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-btm">
+      <div class="foot-btm-l">&copy; 2025 NIMTA. NAOWA Institute of Management and Technology. All rights reserved.</div>
+      <div class="foot-lnks">
+        <a href="policy.html">Terms &amp; Policy</a>
+        <a href="policy.html#pp10">Privacy Notice</a>
+        <a href="about.html#accreditation">Accreditation</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="mstick">
+  <div class="mstick-in">
+    <div class="mstick-t"><strong>Admissions Now Open</strong>SSCE minimum &middot; Scholarships available</div>
+    <a class="mstick-b" href="apply.html">Apply Now</a>
+  </div>
+</div>
+
+<button id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top"><svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+
+<script>
+// NIMTA shared scripts
+(function(){
+  var topBtn=document.getElementById('totop');
+  if(topBtn){window.addEventListener('scroll',function(){topBtn.classList.toggle('show',window.scrollY>500)})}
+  var tog=document.getElementById('navTog');
+  if(tog){tog.addEventListener('click',function(){document.getElementById('navL').classList.toggle('open')})}
+  document.querySelectorAll('.nav-l a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('navL').classList.remove('open')})});
+  var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.06});
+  document.querySelectorAll('.reveal').forEach(function(r){obs.observe(r)});
+})();
+
+// Courses accordion + filter
+function togC(h){var it=h.closest('.citem');document.querySelectorAll('.citem').forEach(function(i){if(i!==it)i.classList.remove('open')});it.classList.toggle('open')}
+function filterC(cat,btn){
+  document.querySelectorAll('.citem').forEach(function(i){
+    if(cat==='all'||i.dataset.cat===cat){i.style.display=''}else{i.style.display='none';i.classList.remove('open')}
+  });
+  if(btn){document.querySelectorAll('.ftab').forEach(function(t){t.classList.remove('on')});btn.classList.add('on')}
+}
+
+// Steps
+var stepD=[
+ {n:'01',t:'Register online',d:'The form takes less than ten minutes to complete. You will tell us who you are, which category you fall under, and which programme you want. That is all we need to begin. No payment is requested at this stage.'},
+ {n:'02',t:'Submit your documents',d:'Upload your SSCE certificate or statement of result, a valid means of identification, and one passport photograph. Children of Army officers also upload their Letter of Introduction, their parent\u2019s ID card, and the relevant Part Two Order.'},
+ {n:'03',t:'Verification',d:'Our admissions team reviews and confirms your documents within five working days. Military affiliation claims are cross-checked against official records. Honest applications move quickly.'},
+ {n:'04',t:'Receive your admission letter',d:'You receive a formal admission letter stating your scholarship tier, your exact fee, and your payment deadline. Everything in writing, before you commit a single naira.'},
+ {n:'05',t:'Confirm your place',d:'Pay through the official NIMTA account or payment gateway only. Once your payment is confirmed, your seat in the cohort is locked in within two business days.'},
+ {n:'06',t:'Orientation',d:'In-person students attend a two-day orientation on campus. Online students receive their learning platform access, class schedule and full resource pack by email.'},
+ {n:'07',t:'Train. Build. Graduate.',d:'Attend your classes, complete every practical project, hold your attendance above 80%, and cross the graduation stage with your certificate and your portfolio in hand.'}
+];
+function pickStep(el,i){
+  document.querySelectorAll('.step').forEach(function(s){s.classList.remove('on')});
+  el.classList.add('on');
+  var p=document.getElementById('stepPanel');var d=stepD[i];
+  if(p){p.innerHTML='<div class="step-panel-no">'+d.n+'</div><h3>'+d.t+'</h3><p>'+d.d+'</p>'}
+}
+
+// Apply form
+function doApply(e){
+  e.preventDefault();
+  var f=document.getElementById('appForm');var ok=true;
+  f.querySelectorAll('[required]').forEach(function(x){
+    if(!x.value.trim()){x.style.borderColor='#C8102E';ok=false;x.addEventListener('input',function(){x.style.borderColor=''},{once:true})}
+  });
+  if(!ok)return;
+  document.getElementById('smodal').classList.add('open');
+  f.reset();
+}
+function closeS(){var m=document.getElementById('smodal');if(m)m.classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeS()});
+
+// Curriculum download
+function dlCurr(code,name){
+  var c=genCurr(code,name);
+  var b=new Blob([c],{type:'text/plain;charset=utf-8'});
+  var u=URL.createObjectURL(b);
+  var a=document.createElement('a');
+  a.href=u;a.download='NIMTA_'+code+'_Curriculum.txt';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  URL.revokeObjectURL(u);
+}
+function genCurr(code,name){
+  var D={
+    'NIMTA-T00':{dur:'4 Weeks',fee:'\u20A6100,000',del:'In-Person (Abuja) | Online (Live + Recorded)',tools:'Microsoft Word, Microsoft Excel, Microsoft PowerPoint, Email, Web Browsers, File Management',
+      mods:['Module 1 (Week 1): The Computer and You\n  - Parts of a computer and safe handling\n  - Files, folders and organised storage\n  - Typing practice and keyboard shortcuts\n  - Saving, backing up and finding your work',
+      'Module 2 (Week 2): Microsoft Word Essentials\n  - Creating, formatting and saving documents\n  - Letters, reports and CVs\n  - Tables, images and page layout\n  - Printing and sharing as PDF',
+      'Module 3 (Week 3): Microsoft Excel Essentials\n  - Rows, columns and worksheets\n  - Lists, budgets and simple records\n  - Basic formulas: SUM, AVERAGE, COUNT\n  - Sorting, filtering and simple charts',
+      'Module 4 (Week 4): PowerPoint, Email and the Internet\n  - Building a clear, confident presentation\n  - Professional email writing and etiquette\n  - Searching, downloading and staying safe online\n  - Final practical: a complete document, budget sheet and presentation'],
+      cap:'Produce and present a complete mini project: a formatted Word document, an Excel budget, and a PowerPoint presentation delivered to the class.',
+      out:['Operate a computer confidently for study and work','Produce professional documents in Microsoft Word','Build and manage simple spreadsheets in Excel','Create and deliver a clear PowerPoint presentation','Use email and the internet safely and professionally'],
+      ass:'100% practical. Weekly hands-on tasks and one final presented project. This course is the foundation for all Department of Technology programmes.'},
+    'NIMTA-T01':{dur:'6 Months (24 Weeks)',fee:'\u20A6450,000',del:'In-Person (Abuja) | Online (Live + Recorded)',tools:'VS Code, HTML/CSS/JS, React, Node.js, MongoDB, Git & GitHub, Postman, Vercel, Netlify, Figma',
+      mods:['Module 1 (Weeks 1-2): Digital Foundations\n  - Computer basics and file management\n  - How the internet works: DNS, HTTP, servers\n  - VS Code and developer tools\n  - Command Line Interface fundamentals',
+      'Module 2 (Weeks 3-8): Front-End Development\n  - HTML5 semantic markup\n  - CSS3: Flexbox, Grid, animations\n  - Responsive design\n  - JavaScript fundamentals and DOM\n  - Building sites from real design mockups',
+      'Module 3 (Weeks 9-12): JavaScript Deep Dive & React\n  - ES6+ JavaScript\n  - Promises, async/await, fetch API\n  - React components, props, state, hooks\n  - React Router and SPA architecture',
+      'Module 4 (Weeks 13-18): Back-End Development\n  - Node.js and Express.js\n  - RESTful API design\n  - MongoDB with Mongoose\n  - JWT authentication, bcrypt security\n  - Uploads, environment variables, middleware',
+      'Module 5 (Weeks 19-22): Deployment & DevOps\n  - Git workflow, branching, pull requests\n  - Deploying to Render, Vercel, Netlify\n  - Domains and SSL\n  - Cloud storage, performance basics',
+      'Module 6 (Weeks 23-24): Capstone & Career\n  - Full-stack capstone build and deployment\n  - Portfolio and GitHub optimisation\n  - Resume and LinkedIn for tech\n  - Freelancing platforms, mock interviews'],
+      cap:'Build and deploy a complete full-stack application with a live URL and full documentation, reviewed by an industry panel.',
+      out:['Build front-end interfaces with HTML, CSS, JavaScript and React','Develop back-end services with Node.js and databases','Deploy applications to cloud hosting','Use Git and GitHub professionally','Earn as a freelancer or junior developer'],
+      ass:'60% project submissions | 20% weekly practical challenges | 20% capstone and panel review | 100% practical, no written exams'},
+    'NIMTA-T02':{dur:'3 Months (12 Weeks)',fee:'\u20A6320,000',del:'In-Person (Abuja) | Online (Live + Recorded)',tools:'Figma, FigJam, Maze, Notion, Google Forms, Behance, Canva',
+      mods:['Module 1 (Weeks 1-2): Design Thinking Foundations\n  - UI vs UX\n  - Empathize, Define, Ideate, Prototype, Test\n  - User research methods\n  - Competitive analysis',
+      'Module 2 (Weeks 3-4): UX Research & Information Architecture\n  - Personas and journey maps\n  - Site maps and IA\n  - Card sorting, tree testing\n  - Usability heuristics',
+      'Module 3 (Weeks 5-6): Wireframing & Prototyping\n  - Low and mid fidelity wireframes\n  - Interactive prototyping in Figma\n  - Usability testing and iteration',
+      'Module 4 (Weeks 7-9): Visual Design & UI Systems\n  - Typography, colour, grids\n  - Components, auto-layout, design systems\n  - Responsive design\n  - Microinteractions',
+      'Module 5 (Weeks 10-12): Portfolio & Professional Practice\n  - Writing case studies\n  - Portfolio on Behance\n  - Presenting to clients and teams\n  - Pricing and proposals, Dev Mode handoff'],
+      cap:'Design a complete mobile application from discovery to final prototype, with a research report and a written case study.',
+      out:['Conduct user research and synthesize design decisions','Design wireframes, prototypes and high-fidelity UI in Figma','Present a portfolio of three case studies','Apply design systems and accessibility standards','Communicate design decisions to stakeholders'],
+      ass:'60% case studies | 25% weekly challenges | 15% final portfolio presentation | 100% practical'}
+  };
+  var d=D[code]||{dur:'See programme page',fee:'See website',del:'In-Person and/or Online',tools:'Listed in the programme details on the NIMTA website.',mods:['Full module-by-module curriculum available from NIMTA Admissions: admissions@nimta.edu.ng'],cap:'Details available from NIMTA Admissions.',out:['Practical, portfolio-based outcomes. Full list available on request.'],ass:'99% practical, portfolio and project-based.'};
+  var line='--------------------------------------------------------------------------------';
+  var dline='================================================================================';
+  return dline+'\nNIMTA EMPOWERMENT TRAINING SCHEME\nNAOWA Institute of Management and Technology\nMambilla Barracks Road, Asokoro, Abuja | admissions@nimta.edu.ng\n'+dline+'\n\nCOURSE CURRICULUM DOCUMENT\n\nCourse Code  : '+code+'\nCourse Name  : '+name+'\nDuration     : '+d.dur+'\nFull Fee     : '+d.fee+'\nDelivery     : '+d.del+'\nEntry        : SSCE or equivalent. No degree required. No prior experience needed.\n\n'+line+'\nTOOLS AND TECHNOLOGIES\n'+line+'\n'+d.tools+'\n\n'+line+'\nCURRICULUM MODULES\n'+line+'\n'+d.mods.join('\n\n')+'\n\n'+line+'\nCAPSTONE PROJECT\n'+line+'\n'+d.cap+'\n\n'+line+'\nLEARNING OUTCOMES\n'+line+'\n'+d.out.map(function(o,i){return (i+1)+'. '+o}).join('\n')+'\n\n'+line+'\nASSESSMENT\n'+line+'\n'+d.ass+'\n\n'+line+'\nSCHOLARSHIP TIERS\n'+line+'\nTier One   : Children of Nigerian Army Officers (1st application) - 100% Scholarship\n             Required: Letter of Introduction, Parent\'s ID Card, Part Two Order\nTier Two   : Children of Soldiers and Other Ranks (1st and 2nd programme) - 50% Scholarship\nTier Three : General Public - Standard Fee\n\n'+line+'\nHOW TO APPLY\n'+line+'\n1. Register on the NIMTA website\n2. Submit your documents (SSCE result, ID, passport photo, plus Tier One documents if applicable)\n3. Receive your admission letter within 5 working days\n4. Pay your applicable fee within 7 working days of the offer\n5. Attend orientation and begin your programme\n\nContact: admissions@nimta.edu.ng | +234 814 128 3720\n\n'+dline+'\nNIMTA reserves the right to update curricula to reflect industry developments.\n'+dline+'\n';
+}
+
+</script>
+</body>
+</html>
