@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import CtaBand from '@/components/CtaBand';
-import HeroSlideshow from '@/components/HeroSlideshow';
+import HeroVisual from '@/components/HeroVisual';
 import ImgSlot from '@/components/ImgSlot';
 import Reveal from '@/components/Reveal';
 import ScholarshipTiers from '@/components/ScholarshipTiers';
@@ -10,7 +10,6 @@ import {
   departments,
   guidanceCard,
   heroFacts,
-  heroSlides,
   homeNewsTeaser,
   testimonials,
 } from '@/lib/data/home';
@@ -61,15 +60,7 @@ export default function HomePage() {
                 ))}
               </div>
             </div>
-            <div className="hero-visual">
-              <div className="hero-img">
-                <HeroSlideshow slides={heroSlides} />
-              </div>
-              <div className="hero-card">
-                <b>SSCE</b>
-                <span>That&apos;s all you need to start.</span>
-              </div>
-            </div>
+            <HeroVisual />
           </div>
         </div>
       </header>

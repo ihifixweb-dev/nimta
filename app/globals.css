@@ -133,10 +133,6 @@ img,video{max-width:100%;height:auto}
 .hero-slide-photo{object-fit:cover}
 .hero-slide-label{position:absolute;bottom:0;left:0;right:0;padding:14px 18px;background:linear-gradient(transparent,rgba(10,10,10,0.82));font-size:0.68rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.92)}
 .hero-img .img-slot{background:transparent;border:none;height:100%;color:rgba(255,255,255,0.35)}
-.hero-img .img-slot--filled{position:absolute;inset:0;height:100%}
-.hero-card{position:absolute;bottom:-28px;left:-28px;background:var(--white);color:var(--ink);padding:24px 28px;box-shadow:var(--sh-lg);border-left:4px solid var(--red);z-index:2}
-.hero-card b{font-family:var(--display);font-size:1.5rem;font-weight:700;display:block;line-height:1.1}
-.hero-card span{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--stone)}
 @media(max-width:900px){.hero-in{grid-template-columns:1fr;padding:60px 0 76px}.hero-visual{max-width:420px;margin:40px auto 0;width:100%}}
 
 /* TICKER */
