@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { CrestIcon } from '@/components/Brand';
+import Brand from '@/components/Brand';
 import {
   footerBottom,
   footerBrand,
@@ -13,23 +13,12 @@ export default function Footer() {
       <div className="wrap">
         <div className="foot-g">
           <div>
-            <div className="brand" style={{ pointerEvents: 'none' }}>
-              <div className="crest">
-                <CrestIcon />
-              </div>
-              <div className="crest-red" />
-              <div>
-                <div className="brand-name" style={{ color: '#fff' }}>
-                  {footerBrand.name}
-                </div>
-                <div
-                  className="brand-sub"
-                  style={{ color: 'rgba(255,255,255,0.4)' }}
-                >
-                  {footerBrand.subtitle}
-                </div>
-              </div>
-            </div>
+            <Brand
+              dark
+              asLink={false}
+              name={footerBrand.name}
+              subtitle={footerBrand.subtitle}
+            />
             <p className="foot-desc">{footerBrand.description}</p>
             <div className="foot-contact">
               <a href={footerContact.phoneHref}>

@@ -35,7 +35,7 @@ export default function GalleryGrid() {
       <div className="gal-g" id="galG">
         {visible.map((item) => (
           <div key={item.title} className="gitem" data-gcat={item.category}>
-            <ImgSlot label={item.label} src={item.image} alt={item.title} />
+            <ImgSlot label="Image Slot" alt={item.title} />
             <div className="gcap">
               <b>{item.title}</b>
               <span>{item.label}</span>

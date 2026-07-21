@@ -18,11 +18,12 @@ function TeamCard({
   return (
     <div className={`tcard${isLeadership ? ' lead' : ''}`}>
       <div className="tcard-img">
-        <ImgSlot
-          label="Photo"
-          src={member.image}
-          alt={member.role}
-        />
+        <ImgSlot label="Photo" alt={member.role}>
+          <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="16" r="9" />
+            <path d="M8 42c0-8 7-13 16-13s16 5 16 13" />
+          </svg>
+        </ImgSlot>
       </div>
       <div className="tcard-b">
         <div className="tcard-role">{member.role}</div>

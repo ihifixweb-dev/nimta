@@ -5,6 +5,7 @@ export const images = {
   campusReception: '/images/campus-reception.jpg',
   presidentPortrait: '/images/president-portrait.png',
   presidentSignature: '/images/president-signature.jpg',
+  logo: '/images/logo-nimta.jpeg',
   naowaCrest: '/images/naowa-crest.jpg',
   certificatePresentation: '/images/certificate-presentation.jpg',
   deptTechnology: '/images/dept-technology.jpg',

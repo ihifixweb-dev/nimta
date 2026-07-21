@@ -1,5 +1,3 @@
-import { galleryImageMap } from './images';
-
 export type GalleryCategory =
   | 'campus'
   | 'training'
@@ -16,7 +14,6 @@ export type GalleryItem = {
   category: GalleryCategory;
   title: string;
   label: string;
-  image: string;
 };
 
 export const galleryFilters: GalleryFilter[] = [
@@ -28,7 +25,7 @@ export const galleryFilters: GalleryFilter[] = [
   { id: 'events', label: 'Events' },
 ];
 
-const galleryItemData: Omit<GalleryItem, 'image'>[] = [
+export const galleryItems: GalleryItem[] = [
   {
     category: 'campus',
     title: 'Main Campus, Asokoro',
@@ -90,8 +87,3 @@ const galleryItemData: Omit<GalleryItem, 'image'>[] = [
     label: 'Events',
   },
 ];
-
-export const galleryItems: GalleryItem[] = galleryItemData.map((item, index) => ({
-  ...item,
-  image: galleryImageMap[index],
-}));
