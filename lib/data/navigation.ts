@@ -48,6 +48,7 @@ export const announceBar: AnnounceBar = {
 };
 
 const allNavLinks: NavLink[] = [
+  { label: 'Home', href: '/' },
   { label: 'The Institute', href: '/about' },
   { label: "President's Message", href: '/president' },
   { label: 'Programmes', href: '/programmes' },

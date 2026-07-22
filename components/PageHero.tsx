@@ -19,10 +19,8 @@ export default function PageHero({
         <div className="pcrumb">
           <Link href="/">Home</Link> &nbsp;/&nbsp; {breadcrumb}
         </div>
-        <div className="kicker" style={{ color: 'rgba(255,255,255,0.6)' }}>
-          {kicker}
-        </div>
         <h1>{title}</h1>
+        <div className="kicker">{kicker}</div>
         <p>{description}</p>
       </div>
     </header>

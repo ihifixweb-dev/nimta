@@ -54,8 +54,8 @@ export const heroSlides: HeroSlide[] = [
   },
   {
     src: images.galleryGraduationCeremony,
-    alt: 'Graduates celebrating practical skills training',
-    label: 'Graphic Design',
+    alt: 'Black Nigerian graduates at a NIMTA convocation ceremony in green and white',
+    label: 'Graduation',
   },
   {
     src: images.deptCulinary,

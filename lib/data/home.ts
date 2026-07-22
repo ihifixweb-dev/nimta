@@ -164,8 +164,21 @@ export const homeNewsTeaser: HomeNewsTeaser[] = [
   },
 ];
 
-export const heroFacts = [
+export type HeroFact = {
+  value: string;
+  label: string;
+  href?: string;
+  trust?: boolean;
+};
+
+export const heroFacts: HeroFact[] = [
   { value: '17', label: 'Programmes' },
   { value: '5', label: 'Departments' },
   { value: '99%', label: 'Practical Training' },
+  {
+    value: 'NBTE',
+    label: 'Approved',
+    href: '/about#accreditation',
+    trust: true,
+  },
 ];

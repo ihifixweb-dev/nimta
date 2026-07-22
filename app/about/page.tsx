@@ -38,8 +38,8 @@ export default function AboutPage() {
     <>
       <PageHero
         breadcrumb="The Institute"
-        kicker="The Institute"
-        title="An institution that keeps it&apos;s word."
+        kicker="An institution that keeps it's word."
+        title="NAOWA Institute of Management and Technology"
         description="Established in 2010 under the Nigerian Army Officers' Wives Association. Approved by the National Board for Technical Education. Built on one conviction that competence, not connection, is what changes a young person's life."
       />
 
@@ -191,6 +191,8 @@ export default function AboutPage() {
         description="Seventeen programmes across five departments. Every curriculum downloadable."
         primaryHref="/programmes"
         primaryLabel="View All Programmes"
+        imageSrc={images.deptTechnology}
+        imageAlt="NIMTA technology training session"
       />
     </>
   );

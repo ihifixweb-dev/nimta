@@ -32,7 +32,9 @@ export default function HomePage() {
                 <span>Admissions Now Open · July 2026 Session</span>
               </div>
               <h1 className="hero-h">
-                Excellence is a skill.
+                Excellence
+                <br />
+                is a skill.
                 <br />
                 <em>We teach it here.</em>
               </h1>
@@ -52,12 +54,36 @@ export default function HomePage() {
                 </Link>
               </div>
               <div className="hero-facts">
-                {heroFacts.map((fact) => (
-                  <div key={fact.label} className="hero-fact">
-                    <div className="hero-fact-n">{fact.value}</div>
-                    <div className="hero-fact-l">{fact.label}</div>
-                  </div>
-                ))}
+                {heroFacts.map((fact) => {
+                  const content = (
+                    <>
+                      <div className="hero-fact-n">{fact.value}</div>
+                      <div className="hero-fact-l">{fact.label}</div>
+                    </>
+                  );
+
+                  if (fact.href) {
+                    return (
+                      <Link
+                        key={fact.label}
+                        href={fact.href}
+                        className={`hero-fact${fact.trust ? ' hero-fact--trust' : ''}`}
+                        title="National Board for Technical Education accreditation"
+                      >
+                        {content}
+                      </Link>
+                    );
+                  }
+
+                  return (
+                    <div
+                      key={fact.label}
+                      className={`hero-fact${fact.trust ? ' hero-fact--trust' : ''}`}
+                    >
+                      {content}
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <HeroVisual />
