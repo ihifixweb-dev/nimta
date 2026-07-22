@@ -150,7 +150,7 @@ export function generateCurriculum(code: string, name: string): string {
     line +
     '\nHOW TO APPLY\n' +
     line +
-    '\n1. Register on the NIMTA website\n2. Submit your documents (certificate or statement of result, ID, passport photo, plus Tier One documents if applicable)\n3. Receive your admission letter within 5 working days\n4. Pay your applicable fee within 7 working days of the offer\n5. Attend orientation and begin your programme\n\nContact admissions@nimta.edu.ng | +234 814 128 3720\n\n' +
+    '\n1. Register on the NIMTA website\n2. Submit your documents (statement of result, ID, passport photo, plus Tier One documents if applicable)\n3. Receive your admission letter within 5 working days\n4. Pay your applicable fee within 7 working days of the offer\n5. Attend orientation and begin your programme\n\nContact admissions@nimta.edu.ng | +234 814 128 3720\n\n' +
     dline +
     '\nNIMTA reserves the right to update curricula to reflect industry developments.\n' +
     dline +

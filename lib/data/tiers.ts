@@ -21,10 +21,10 @@ export const scholarshipTiers: ScholarshipTier[] = [
     variant: 'b',
     tag: 'Children of Soldiers & Other Ranks',
     percent: '50%',
-    name: 'Half Off, First Programme',
+    name: 'Half Off, First Application',
     description:
-      'If your parent serves or has served in uniform at any other rank, in any of the nation\'s uniformed services, half your tuition is covered on your first programme.',
-    note: '50% off your first programme only. From your second application onward, the standard fee applies.',
+      'If your parent serves or has served in uniform at any other rank, in any of the nation\'s uniformed services, half your tuition is covered on your first application.',
+    note: '50% off your first application only. From your second application onward, the standard fee applies.',
   },
   {
     variant: 'c',

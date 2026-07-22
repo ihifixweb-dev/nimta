@@ -39,7 +39,7 @@ export default function AboutPage() {
       <PageHero
         breadcrumb="The Institute"
         kicker="The Institute"
-        title="An institution that keeps its word."
+        title="An institution that keeps it&apos;s word."
         description="Established in 2010 under the Nigerian Army Officers' Wives Association. Approved by the National Board for Technical Education. Built on one conviction that competence, not connection, is what changes a young person's life."
       />
 

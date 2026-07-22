@@ -18,9 +18,9 @@ export const admissionSteps: AdmissionStep[] = [
     num: '02',
     title: 'Submit your documents',
     summary:
-      'Upload your certificate or statement of result, ID and photograph, plus scholarship documents if they apply to you.',
+      'Upload your statement of result, ID and photograph, plus scholarship documents if they apply to you.',
     description:
-      "Upload your certificate or statement of result, a valid means of identification, and one passport photograph. Children of Army officers also upload their Letter of Introduction, their parent's ID card, and the relevant Part Two Order.",
+      "Upload your statement of result, a valid means of identification, and one passport photograph. Children of Army officers also upload their Letter of Introduction, their parent's ID card, and the relevant Part Two Order.",
   },
   {
     num: '03',

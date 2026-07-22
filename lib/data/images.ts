@@ -1,7 +1,7 @@
 /** Central registry of AI-generated site imagery under /public/images */
 export const images = {
   heroStudents: '/images/hero-students.jpg',
-  campusMain: '/images/kml.jpeg',
+  campusMain: '/images/campus-main.jpg',
   campusReception: '/images/campus-reception.jpg',
   presidentPortrait: '/images/president-portrait.png',
   presidentSignature: '/images/president-signature.jpg',

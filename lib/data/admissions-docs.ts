@@ -16,11 +16,7 @@ export const admissionDocumentGroups: AdmissionDocumentGroup[] = [
     title: 'Every Applicant',
     description: 'These three documents come with every application, whoever you are.',
     documents: [
-      {
-        title: 'Certificate or Statement of Result',
-        description:
-          'WAEC, NECO, NABTEB or an equivalent recognised qualification.',
-      },
+     
       {
         title: 'Valid Means of Identification',
         description:

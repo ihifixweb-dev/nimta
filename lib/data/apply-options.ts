@@ -1,7 +1,7 @@
 export const programmeOptions = {
   categories: [
     'Child of a Nigerian Army Officer (100% Scholarship, First Programme)',
-    'Child of a Soldier or Other Ranks Personnel (50% Scholarship, First Programme)',
+    'Child of a Soldier or Other Ranks Personnel (50% Scholarship, First Application)',
     'General Applicant (Standard Admission)',
   ],
   programmeGroups: [
