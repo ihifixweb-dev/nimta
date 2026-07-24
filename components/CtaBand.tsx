@@ -1,5 +1,7 @@
+import ApplyLink from '@/components/ApplyLink';
 import Image from 'next/image';
 import Link from 'next/link';
+import { isApplyHref } from '@/lib/is-apply-href';
 import { images } from '@/lib/data/images';
 
 type CtaBandProps = {
@@ -23,6 +25,8 @@ export default function CtaBand({
   imageSrc = images.heroStudents,
   imageAlt = 'NIMTA students training on campus',
 }: CtaBandProps) {
+  const PrimaryLink = isApplyHref(primaryHref) ? ApplyLink : Link;
+
   return (
     <section className="cta-band">
       <div className="wrap">
@@ -39,12 +43,12 @@ export default function CtaBand({
             <h2>{title}</h2>
             <p>{description}</p>
             <div className="cta-card-actions">
-              <Link href={primaryHref} className="cta-card-btn">
+              <PrimaryLink href={primaryHref} className="cta-card-btn">
                 {primaryLabel}
                 <svg viewBox="0 0 16 16" aria-hidden="true">
                   <path d="M3 8h10M9 4l4 4-4 4" />
                 </svg>
-              </Link>
+              </PrimaryLink>
               {secondaryHref && secondaryLabel ? (
                 <Link href={secondaryHref} className="cta-card-btn cta-card-btn--ghost">
                   {secondaryLabel}

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Archivo, Fraunces } from 'next/font/google';
 import AnnounceBar from '@/components/AnnounceBar';
+import { ApplyNavigationProvider } from '@/components/ApplyNavigationProvider';
 import Footer from '@/components/Footer';
 import MobileStickyBar from '@/components/MobileStickyBar';
 import Nav from '@/components/Nav';
@@ -41,12 +42,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${archivo.variable}`}>
       <body>
-        <AnnounceBar />
-        <Nav />
-        {children}
-        <Footer />
-        <MobileStickyBar />
-        <ScrollToTop />
+        <ApplyNavigationProvider>
+          <AnnounceBar />
+          <Nav />
+          {children}
+          <Footer />
+          <MobileStickyBar />
+          <ScrollToTop />
+        </ApplyNavigationProvider>
       </body>
     </html>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import ApplyLink from '@/components/ApplyLink';
 import ImgSlot from '@/components/ImgSlot';
 import PageHero from '@/components/PageHero';
 import Reveal from '@/components/Reveal';
@@ -106,9 +106,9 @@ export default function PresidentPage() {
           </Reveal>
 
           <div style={{ textAlign: 'center', marginTop: 56 }}>
-            <Link href="/apply" className="btn btn-ink">
+            <ApplyLink href="/apply" className="btn btn-ink">
               Begin Your Application
-            </Link>
+            </ApplyLink>
           </div>
         </div>
       </section>

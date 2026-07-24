@@ -1,5 +1,6 @@
 'use client';
 
+import ApplyLink from '@/components/ApplyLink';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { generateCurriculum } from '@/lib/data/curriculum';
@@ -179,9 +180,9 @@ function CourseItem({
               </svg>
               Download Curriculum
             </button>
-            <Link href="/apply" className="btn-ap">
+            <ApplyLink href="/apply" className="btn-ap">
               Apply for This Programme
-            </Link>
+            </ApplyLink>
           </div>
         </div>
       </div>

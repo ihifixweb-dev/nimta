@@ -1,5 +1,6 @@
 'use client';
 
+import ApplyLink from '@/components/ApplyLink';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
@@ -21,16 +22,20 @@ export default function Nav() {
       <div className="nav-in">
         <Brand logoSrc={images.navLogo} />
         <div className={`nav-l${open ? ' open' : ''}`} id="navL">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`${link.variant === 'apply' ? 'nav-apply' : ''}${isActive(link.href) ? ' on' : ''}`}
-              onClick={() => setOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const LinkComponent = link.href === '/apply' ? ApplyLink : Link;
+
+            return (
+              <LinkComponent
+                key={link.href}
+                href={link.href}
+                className={`${link.variant === 'apply' ? 'nav-apply' : ''}${isActive(link.href) ? ' on' : ''}`}
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </LinkComponent>
+            );
+          })}
         </div>
         <button
           className="nav-tog"

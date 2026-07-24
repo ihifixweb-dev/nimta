@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import ApplyLink from '@/components/ApplyLink';
 import Link from 'next/link';
 import CtaBand from '@/components/CtaBand';
 import HeroVisual from '@/components/HeroVisual';
@@ -49,9 +50,9 @@ export default function HomePage() {
                 <Link href="/programmes" className="btn btn-ink">
                   Explore Programmes
                 </Link>
-                <Link href="/apply" className="btn btn-ghost-w">
+                <ApplyLink href="/apply" className="btn btn-ghost-w">
                   Apply Now
-                </Link>
+                </ApplyLink>
               </div>
               <div className="hero-facts">
                 {heroFacts.map((fact) => {
@@ -216,7 +217,7 @@ export default function HomePage() {
                 </div>
               </Link>
             ))}
-            <Link
+            <ApplyLink
               className="school"
               href={guidanceCard.href}
               style={{ background: 'var(--ink)' }}
@@ -259,7 +260,7 @@ export default function HomePage() {
                   {guidanceCard.ctaLabel}
                 </span>
               </div>
-            </Link>
+            </ApplyLink>
           </div>
         </div>
       </Reveal>

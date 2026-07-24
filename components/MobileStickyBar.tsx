@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import ApplyLink from '@/components/ApplyLink';
 import { mobileSticky } from '@/lib/data/navigation';
 
 export default function MobileStickyBar() {
@@ -9,9 +9,9 @@ export default function MobileStickyBar() {
           <strong>{mobileSticky.headline}</strong>
           {mobileSticky.detail}
         </div>
-        <Link className="mstick-b" href={mobileSticky.ctaHref}>
+        <ApplyLink className="mstick-b" href={mobileSticky.ctaHref}>
           {mobileSticky.ctaLabel}
-        </Link>
+        </ApplyLink>
       </div>
     </div>
   );
