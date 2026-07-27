@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ApplyLink from '@/components/ApplyLink';
+import Image from 'next/image';
 import Link from 'next/link';
 import CtaBand from '@/components/CtaBand';
 import HeroVisual from '@/components/HeroVisual';
@@ -121,7 +122,7 @@ export default function HomePage() {
             </div>
             <div>
               <div className="kicker">The Institute</div>
-              <h2 className="h-major">
+              <h2 className="h-major h-major-alt w-full">
                 Some places teach you a bit of everything. We build you fully.
               </h2>
               <p className="lede" style={{ margin: '22px 0 18px' }}>
@@ -192,73 +193,47 @@ export default function HomePage() {
               you are building.
             </p>
           </div>
-          <div className="schools-g">
-            {departments.map((dept) => (
-              <Link key={dept.title} className="school" href={dept.href}>
-                <div className="school-img">
-                  <ImgSlot
-                    label={dept.imageLabel}
-                    src={dept.image}
-                    alt={dept.title}
-                  />
-                </div>
-                <div className="school-b">
-                  <div className="school-n">{dept.departmentNum}</div>
-                  <div className="school-t">{dept.title}</div>
-                  <div className="school-d">{dept.description}</div>
-                  <div className="school-f">
-                    <span className="school-c">{dept.programmeCount}</span>
-                    <div className="school-go">
-                      <svg viewBox="0 0 16 16">
-                        <path d="M3 8h10M9 4l4 4-4 4" />
-                      </svg>
+          <div className="schools-wrap">
+            <div className="schools-g">
+              {departments.map((dept) => (
+                <Link key={dept.title} className="school" href={dept.href}>
+                  <div className="school-img">
+                    <ImgSlot
+                      label={dept.imageLabel}
+                      src={dept.image}
+                      alt={dept.title}
+                    />
+                  </div>
+                  <div className="school-b">
+                    <div className="school-meta">
+                      {dept.programmeCount} · {dept.title}
+                    </div>
+                    <div className="school-t">{dept.title}</div>
+                    <div className="school-d">{dept.description}</div>
+                    <div className="school-f">
+                      <span className="school-c">{dept.programmeCount}</span>
+                      <span className="school-link">
+                        Explore
+                        <svg viewBox="0 0 16 16" aria-hidden="true">
+                          <path d="M4 12L12 4M12 4H6M12 4v6" />
+                        </svg>
+                      </span>
                     </div>
                   </div>
+                </Link>
+              ))}
+            </div>
+
+            <ApplyLink className="schools-guidance" href={guidanceCard.href}>
+              <div className="schools-guidance-in">
+                <div>
+                  <div className="schools-guidance-kicker">
+                    {guidanceCard.departmentNum}
+                  </div>
+                  <h3 className="schools-guidance-title">{guidanceCard.title}</h3>
+                  <p className="schools-guidance-text">{guidanceCard.description}</p>
                 </div>
-              </Link>
-            ))}
-            <ApplyLink
-              className="school"
-              href={guidanceCard.href}
-              style={{ background: 'var(--ink)' }}
-            >
-              <div
-                className="school-b"
-                style={{
-                  height: '100%',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  padding: '48px 28px',
-                }}
-              >
-                <div
-                  className="school-n"
-                  style={{ color: 'rgba(255,255,255,0.5)' }}
-                >
-                  {guidanceCard.departmentNum}
-                </div>
-                <div className="school-t" style={{ color: 'var(--white)' }}>
-                  {guidanceCard.title}
-                </div>
-                <div
-                  className="school-d"
-                  style={{ color: 'rgba(255,255,255,0.6)' }}
-                >
-                  {guidanceCard.description}
-                </div>
-                <span
-                  className="btn btn-ink"
-                  style={{
-                    alignSelf: 'flex-start',
-                    padding: '12px 26px',
-                    fontSize: '0.82rem',
-                    background: 'var(--white)',
-                    color: 'var(--ink)',
-                  }}
-                >
-                  {guidanceCard.ctaLabel}
-                </span>
+                <span className="schools-guidance-btn">{guidanceCard.ctaLabel}</span>
               </div>
             </ApplyLink>
           </div>
@@ -303,10 +278,13 @@ export default function HomePage() {
                 <p className="voice-x">{voice.quote}</p>
                 <div className="voice-a">
                   <div className="voice-av">
-                    <svg viewBox="0 0 24 24">
-                      <circle cx="12" cy="8" r="4" />
-                      <path d="M4 20c0-5 3.6-9 8-9s8 4 8 9" />
-                    </svg>
+                    <Image
+                      src={voice.photo}
+                      alt={voice.photoAlt}
+                      width={44}
+                      height={44}
+                      className="voice-av-photo"
+                    />
                   </div>
                   <div>
                     <div className="voice-n">{voice.name}</div>

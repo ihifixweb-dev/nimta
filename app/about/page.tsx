@@ -4,10 +4,11 @@ import CtaBand from '@/components/CtaBand';
 import ImgSlot from '@/components/ImgSlot';
 import PageHero from '@/components/PageHero';
 import Reveal from '@/components/Reveal';
+import { aboutProgrammeHighlights } from '@/lib/data/about-programmes';
 import { images } from '@/lib/data/images';
 
 export const metadata: Metadata = {
-  title: 'The Institute',
+  title: 'About the Institute',
 };
 
 const principles = [
@@ -37,8 +38,8 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        breadcrumb="The Institute"
-        kicker="An institution that keeps it's word."
+        breadcrumb="About the Institute"
+        kicker="An institution that keeps its word."
         title="NAOWA Institute of Management and Technology"
         description="Established in 2010 under the Nigerian Army Officers' Wives Association. Approved by the National Board for Technical Education. Built on one conviction that competence, not connection, is what changes a young person's life."
       />
@@ -55,8 +56,8 @@ export default function AboutPage() {
               <div className="about-cred">
                 <b>Est. 2010</b>
                 <span>
-                  NBTE approved. Trusted by military families for
-                  over a decade.
+                  NBTE approved. Sixteen years of training people
+                  properly.
                 </span>
               </div>
             </div>
@@ -66,7 +67,7 @@ export default function AboutPage() {
                 Built by the Army community. Open to the nation.
               </h2>
               <p className="lede" style={{ margin: '22px 0 18px' }}>
-                For over a decade, NIMTA has trained the sons and daughters of
+                For sixteen years, NIMTA has trained the sons and daughters of
                 those who serve this country. We do not promise certificates. We
                 promise competence. Every programme here is built the way the
                 Army builds anything worth keeping, with structure, with
@@ -103,36 +104,65 @@ export default function AboutPage() {
             <div className="kicker">How We Train</div>
             <h2 className="h-major">We have three principles</h2>
           </div>
-          <div className="voices-g">
+          <div className="voices-g principles-g">
             {principles.map((principle) => (
-              <div
-                key={principle.title}
-                className="voice"
-                style={{ paddingTop: 44 }}
-              >
-                <p
-                  className="voice-x"
-                  style={{ marginTop: 0, fontStyle: 'normal' }}
-                >
-                  <strong
-                    style={{
-                      fontFamily: 'var(--font-fraunces)',
-                      fontSize: '1.05rem',
-                      display: 'block',
-                      marginBottom: 10,
-                    }}
-                  >
-                    {principle.title}
-                  </strong>
-                  {principle.text}
-                </p>
+              <div key={principle.title} className="voice principle-voice">
+                <h3 className="principle-title">{principle.title}</h3>
+                <p className="principle-text">{principle.text}</p>
               </div>
             ))}
           </div>
         </div>
       </Reveal>
 
-      <Reveal className="sec" as="section">
+      <Reveal className="sec">
+        <div className="wrap">
+          <div className="sec-head">
+            <div className="kicker">Sixteen Years of Training</div>
+            <h2 className="h-major">
+              Five programmes. <br />Thousands of participants. <br /> One standard throughout.
+            </h2>
+            <p className="lede" style={{ marginTop: 20 }}>
+              NIMTA has run practical, hands-on programmes since 2010. These are
+              five of the tracks where participants have trained, built portfolios,
+              and gone on to earn from what they learned here.
+            </p>
+          </div>
+
+          <div className="about-prog-list">
+            {aboutProgrammeHighlights.map((programme, index) => (
+              <article
+                key={programme.name}
+                className={`about-prog${index % 2 === 1 ? ' about-prog--reverse' : ''}`}
+              >
+                <div className="about-prog-img">
+                  <ImgSlot
+                    label={programme.department}
+                    src={programme.image}
+                    alt={programme.imageAlt}
+                    style={{ aspectRatio: '4/3' }}
+                  />
+                </div>
+                <div className="about-prog-body">
+                  <div className="about-prog-since">{programme.since}</div>
+                  <h3 className="about-prog-title">{programme.name}</h3>
+                  <div className="about-prog-dept">{programme.department}</div>
+                  <p>{programme.description}</p>
+                  <Link href={programme.href} className="about-prog-link">
+                    View programme details
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal className="sec sec-alt" as="section">
         <div className="wrap" id="accreditation">
           <div className="about-g">
             <div>

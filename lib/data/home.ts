@@ -1,6 +1,6 @@
 import type { ProgrammeCategory } from './programmes';
 import type { NewsImageType } from './news';
-import { departmentImageMap, newsImageMap } from './images';
+import { departmentImageMap, images, newsImageMap } from './images';
 
 export type DepartmentCard = {
   departmentNum: string;
@@ -26,6 +26,8 @@ export type Testimonial = {
   quote: string;
   name: string;
   role: string;
+  photo: string;
+  photoAlt: string;
 };
 
 export type HomeNewsTeaser = {
@@ -116,18 +118,24 @@ export const testimonials: Testimonial[] = [
       'I almost did not apply because I thought a place like this was not for someone like me. I only had my WAEC result. Two months into Digital Marketing, I was running a real campaign for a real business. Today I have three clients who pay me every month. NIMTA did not just teach me a skill. It taught me to stop underrating myself.',
     name: 'Amina O.',
     role: 'Digital Marketing Graduate · Abuja',
+    photo: images.graduatePortraits.amina,
+    photoAlt: 'Amina O., NIMTA digital marketing graduate',
   },
   {
     quote:
       'The scholarship got me through the door, but I will be honest, it is the training that changed my life. My facilitator pushed me harder than anyone ever has. When my capsule collection sold out before graduation, I finally understood why. Now I run my own label and I hold my two apprentices to the same standard she held me to.',
     name: 'Fatima B.',
     role: 'Fashion Design Graduate · Kaduna',
+    photo: images.graduatePortraits.fatima,
+    photoAlt: 'Fatima B., NIMTA fashion design graduate',
   },
   {
     quote:
       'What surprised me most was how honest everyone was. My instructor is a working developer, and he told me the truth about the industry from week one, then trained me to meet it. My final project got me a job offer before I even collected my certificate. People ask if I got lucky. No. I got trained.',
     name: 'Emmanuel K.',
     role: 'Software Development Graduate · Lagos',
+    photo: images.graduatePortraits.emmanuel,
+    photoAlt: 'Emmanuel K., NIMTA software development graduate',
   },
 ];
 

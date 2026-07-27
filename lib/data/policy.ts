@@ -267,3 +267,64 @@ export const policySections: PolicySection[] = [
 
 export const policyUpdated =
   'Last Updated January 2025. This is the current and controlling version of the NIMTA Empowerment Training Scheme Programme Policy and Terms.';
+
+function decodePolicyEntities(text: string) {
+  return text.replace(/&#(\d+);/g, (_, code) =>
+    String.fromCharCode(Number(code)),
+  );
+}
+
+export function generatePolicyDocument() {
+  const line = '='.repeat(72);
+  const dline = '-'.repeat(72);
+  const parts: string[] = [
+    line,
+    'NIMTA EMPOWERMENT TRAINING SCHEME',
+    'PROGRAMME POLICY AND TERMS',
+    'NAOWA Institute of Management and Technology',
+    'Mambilla Barracks Road, Asokoro, Abuja | admissions@nimta.edu.ng',
+    line,
+    '',
+    'Effective Date: 1 January 2025',
+    'Version: 1.2',
+    'Governing Law: Federal Republic of Nigeria',
+    '',
+    policyUpdated,
+    '',
+  ];
+
+  for (const section of policySections) {
+    parts.push(line);
+    parts.push(section.title.toUpperCase());
+    parts.push(dline);
+    parts.push('');
+
+    const { paragraphs, lists } = section.content;
+    const listMap = new Map(lists.map((list) => [list.afterParagraph, list]));
+
+    if (paragraphs.length === 0 && listMap.has(0)) {
+      const list = listMap.get(0)!;
+      list.items.forEach((item, index) => {
+        const prefix = list.type === 'ol' ? `${index + 1}. ` : '- ';
+        parts.push(prefix + decodePolicyEntities(item));
+      });
+      parts.push('');
+      continue;
+    }
+
+    paragraphs.forEach((paragraph, index) => {
+      parts.push(decodePolicyEntities(paragraph));
+      parts.push('');
+      const list = listMap.get(index + 1);
+      if (list) {
+        list.items.forEach((item, itemIndex) => {
+          const prefix = list.type === 'ol' ? `${itemIndex + 1}. ` : '- ';
+          parts.push(prefix + decodePolicyEntities(item));
+        });
+        parts.push('');
+      }
+    });
+  }
+
+  return parts.join('\n');
+}

@@ -42,6 +42,11 @@ export const images = {
     '/images/team-facilitator-5.jpg',
     '/images/team-facilitator-6.jpg',
   ],
+  graduatePortraits: {
+    amina: '/images/team-facilitator-2.jpg',
+    fatima: '/images/team-facilitator-1.jpg',
+    emmanuel: '/images/team-facilitator-3.jpg',
+  },
 } as const;
 
 export const newsImageMap = {

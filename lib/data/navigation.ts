@@ -49,7 +49,7 @@ export const announceBar: AnnounceBar = {
 
 const allNavLinks: NavLink[] = [
   { label: 'Home', href: '/' },
-  { label: 'The Institute', href: '/about' },
+  { label: 'About the Institute', href: '/about' },
   { label: "President's Message", href: '/president' },
   { label: 'Programmes', href: '/programmes' },
   { label: 'Admissions', href: '/admissions' },
@@ -109,7 +109,7 @@ export const footerColumns: FooterColumn[] = [
     ],
   },
   {
-    title: 'The Institute',
+    title: 'About the Institute',
     links: [
       { label: 'About NIMTA', href: '/about' },
       { label: "President's Message", href: '/president' },
@@ -135,6 +135,8 @@ export const footerContact = {
   email: 'admissions@nimta.edu.ng',
   emailHref: 'mailto:admissions@nimta.edu.ng',
   address: 'Mambilla Barracks Road, Asokoro, Abuja',
+  addressHref:
+    'https://www.google.com/maps/search/?api=1&query=NAOWA+Institute+of+Management+and+Technology,+Mambilla+Barracks+Road,+Asokoro,+Abuja,+Nigeria',
 };
 
 export const footerBottom = {

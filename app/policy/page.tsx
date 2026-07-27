@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageHero from '@/components/PageHero';
+import PolicyDownload from '@/components/PolicyDownload';
 import type { PolicySection } from '@/lib/data/policy';
 import { policySections, policyUpdated } from '@/lib/data/policy';
 
@@ -93,6 +94,8 @@ export default function PolicyPage() {
                 <PolicySectionContent section={section} />
               </div>
             ))}
+
+            <PolicyDownload />
           </div>
         </div>
       </section>

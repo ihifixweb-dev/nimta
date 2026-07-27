@@ -147,7 +147,7 @@ export default function ApplyForm() {
         type: 'success',
         title: 'Application submitted',
         message:
-          'Thank you. Our admissions team will contact you within five working days.',
+          'Thank you. Our admissions team will be in touch soon.',
       });
     } catch (error) {
       const message =
@@ -321,8 +321,8 @@ export default function ApplyForm() {
           <h3>We have your application.</h3>
           <p>
             Thank you for raising your hand. Our admissions team will be in
-            touch within five working days with your full application pack, and
-            your scholarship confirmation in writing if one applies to you.
+            touch with your full application pack, and your scholarship
+            confirmation in writing if one applies to you.
           </p>
           <button
             type="button"
