@@ -4,24 +4,38 @@
  * SETUP
  * 1. Create a new Google Sheet (or open an existing one).
  * 2. Extensions -> Apps Script -> paste this file -> Save.
- * 3. Run setupSheet once (select setupSheet, click Run, approve permissions).
- * 4. Deploy -> New deployment -> Web app
+ * 3. Create (or reuse) a Google Drive folder to hold uploaded documents,
+ *    copy its ID from the URL, and paste it into DRIVE_PARENT_FOLDER_ID below.
+ *    Leave it blank to disable document uploads (rows are still saved).
+ * 4. Run setupSheet once (select setupSheet, click Run, approve permissions,
+ *    including Drive access).
+ * 5. Deploy -> New deployment -> Web app
  *    - Execute as: Me
  *    - Who has access: Anyone
- * 5. Copy the Web app URL into your site .env.local:
+ * 6. Copy the Web app URL into your site .env.local:
  *    NEXT_PUBLIC_NIMTA_FORM_URL=https://script.google.com/macros/s/AKfycby0HQ8sv5kPfzNqXyzh35ONOP90SRf33XPgfjgQzAp3jmqcUIun1V5YBBFfA9S169YouA/exec
  *
  * Sheet: https://docs.google.com/spreadsheets/d/1K2nOHztgdTXtVQlsbNewq9Jcbc_S_rB85jNKFr9F6r4/edit
+ *
+ * Responses are written to a tab named "Scholarship", created automatically
+ * on first run if it doesn't already exist (leaves any other tabs untouched).
+ *
+ * NOTE: if that tab already has data, ensureHeaders_ will NOT retrofit new
+ * columns (it only writes headers on an empty sheet). Add "Gender",
+ * "Location", and "Documents Folder" to the existing header row by hand.
  */
 
 /** NIMTA applications spreadsheet */
 var SPREADSHEET_ID = '1K2nOHztgdTXtVQlsbNewq9Jcbc_S_rB85jNKFr9F6r4';
 
-/** Tab gid from the sheet URL (fallback if name lookup fails) */
-var SHEET_GID = 1951210370;
+/** Tab gid from the sheet URL (fallback if name lookup fails). Leave blank to always resolve by name below. */
+var SHEET_GID = null;
 
-/** Change this if you want a custom tab name */
-var SHEET_NAME = 'Applications';
+/** Responses are written to this tab, created automatically if it doesn't exist yet */
+var SHEET_NAME = 'Scholarship';
+
+/** Drive folder ID that per-applicant document folders are created inside. Leave blank to skip uploads. */
+var DRIVE_PARENT_FOLDER_ID = '1fObM7eo_TfHJzmy-i3-RbqklwUu_GAlX';
 
 /** Column headers written on first run */
 var HEADERS = [
@@ -30,11 +44,14 @@ var HEADERS = [
   'Last Name',
   'Email Address',
   'Phone Number',
+  'Gender',
+  'Location',
   'Applicant Category',
   'Programme of Interest',
   'Preferred Delivery Mode',
   'Highest Qualification',
   'Message',
+  'Documents Folder',
 ];
 
 /**
@@ -59,17 +76,24 @@ function doPost(e) {
     var sheet = getSheet_();
     ensureHeaders_(sheet);
 
+    var applicantName =
+      (clean_(payload.firstName) + ' ' + clean_(payload.lastName)).trim() || 'Applicant';
+    var documentsFolderUrl = saveDocuments_(payload.documents, applicantName);
+
     var row = [
       new Date(),
       clean_(payload.firstName),
       clean_(payload.lastName),
       clean_(payload.email),
       clean_(payload.phone),
+      clean_(payload.gender),
+      clean_(payload.location),
       clean_(payload.category),
       clean_(payload.programme),
       clean_(payload.deliveryMode),
       clean_(payload.qualification),
       clean_(payload.message),
+      documentsFolderUrl,
     ];
 
     sheet.appendRow(row);
@@ -93,9 +117,48 @@ function doGet() {
   });
 }
 
+/**
+ * Uploads base64-encoded documents into a new subfolder of
+ * DRIVE_PARENT_FOLDER_ID and returns the folder's URL, or '' if there is
+ * nothing to save (no documents, or DRIVE_PARENT_FOLDER_ID is unset).
+ */
+function saveDocuments_(documents, applicantName) {
+  if (!documents || !documents.length || !DRIVE_PARENT_FOLDER_ID) {
+    return '';
+  }
+
+  var parent = DriveApp.getFolderById(DRIVE_PARENT_FOLDER_ID);
+  var stamp = Utilities.formatDate(
+    new Date(),
+    Session.getScriptTimeZone(),
+    'yyyy-MM-dd HH:mm:ss',
+  );
+  var folder = parent.createFolder(applicantName + ' - ' + stamp);
+
+  documents.forEach(function (doc) {
+    if (!doc || !doc.base64) {
+      return;
+    }
+
+    var bytes = Utilities.base64Decode(doc.base64);
+    var blob = Utilities.newBlob(
+      bytes,
+      doc.mimeType || 'application/octet-stream',
+      doc.filename || doc.label || 'document',
+    );
+    folder.createFile(blob);
+  });
+
+  return folder.getUrl();
+}
+
 function getSheet_() {
   var spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
-  var sheet = spreadsheet.getSheetById(SHEET_GID);
+  var sheet = null;
+
+  if (SHEET_GID) {
+    sheet = spreadsheet.getSheetById(SHEET_GID);
+  }
 
   if (!sheet) {
     sheet = spreadsheet.getSheetByName(SHEET_NAME);

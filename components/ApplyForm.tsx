@@ -2,15 +2,30 @@
 
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { programmeOptions } from '@/lib/data/apply-options';
+import {
+  applicationDocumentFields,
+  genderOptions,
+  programmeOptions,
+} from '@/lib/data/apply-options';
 
 const formEndpoint = process.env.NEXT_PUBLIC_NIMTA_FORM_URL ?? '';
+
+const MAX_DOCUMENT_SIZE_BYTES = 5 * 1024 * 1024;
+const ACCEPTED_DOCUMENT_TYPES = ['application/pdf', 'image/jpeg', 'image/png'];
+const ACCEPTED_DOCUMENT_EXTENSIONS = '.pdf,.jpg,.jpeg,.png';
 
 type ToastState = {
   type: 'success' | 'error';
   title: string;
   message: string;
 } | null;
+
+type DocumentPayload = {
+  label: string;
+  filename: string;
+  mimeType: string;
+  base64: string;
+};
 
 function parseSubmissionResponse(raw: string) {
   const trimmed = raw.trim();
@@ -23,6 +38,22 @@ function parseSubmissionResponse(raw: string) {
   } catch {
     return null;
   }
+}
+
+function readFileAsBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result;
+      if (typeof result === 'string') {
+        resolve(result.split(',').pop() ?? '');
+      } else {
+        reject(new Error(`Unable to read ${file.name}.`));
+      }
+    };
+    reader.onerror = () => reject(reader.error ?? new Error(`Unable to read ${file.name}.`));
+    reader.readAsDataURL(file);
+  });
 }
 
 export default function ApplyForm() {
@@ -108,16 +139,65 @@ export default function ApplyForm() {
     }
 
     const formData = new FormData(form);
+
+    const documentEntries = applicationDocumentFields
+      .map((field) => ({ field, file: formData.get(field.key) as File | null }))
+      .filter(
+        (entry): entry is { field: (typeof applicationDocumentFields)[number]; file: File } =>
+          !!entry.file && entry.file.size > 0,
+      );
+
+    for (const { file } of documentEntries) {
+      if (file.size > MAX_DOCUMENT_SIZE_BYTES) {
+        showToast({
+          type: 'error',
+          title: 'File too large',
+          message: `${file.name} is larger than 5MB. Please upload a smaller file.`,
+        });
+        return;
+      }
+
+      if (!ACCEPTED_DOCUMENT_TYPES.includes(file.type)) {
+        showToast({
+          type: 'error',
+          title: 'Unsupported file type',
+          message: `${file.name} must be a PDF or image (JPG/PNG).`,
+        });
+        return;
+      }
+    }
+
+    let documents: DocumentPayload[] = [];
+
+    try {
+      documents = await Promise.all(
+        documentEntries.map(async ({ field, file }) => ({
+          label: field.label,
+          filename: file.name,
+          mimeType: file.type || 'application/octet-stream',
+          base64: await readFileAsBase64(file),
+        })),
+      );
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : 'Unable to read one of your files.';
+      showToast({ type: 'error', title: 'File upload failed', message });
+      return;
+    }
+
     const payload = {
       firstName: String(formData.get('firstName') ?? ''),
       lastName: String(formData.get('lastName') ?? ''),
       email: String(formData.get('email') ?? ''),
       phone: String(formData.get('phone') ?? ''),
+      gender: String(formData.get('gender') ?? ''),
+      location: String(formData.get('location') ?? ''),
       category: String(formData.get('category') ?? ''),
       programme: String(formData.get('programme') ?? ''),
       deliveryMode: programmeOptions.deliveryMode,
       qualification: String(formData.get('qualification') ?? ''),
       message: String(formData.get('message') ?? ''),
+      documents,
     };
 
     setIsSubmitting(true);
@@ -226,6 +306,25 @@ export default function ApplyForm() {
                   required
                 />
               </div>
+              <div className="fld">
+                <label htmlFor="gen">Gender *</label>
+                <select id="gen" name="gender" required defaultValue="">
+                  <option value="">Select gender</option>
+                  {genderOptions.map((option) => (
+                    <option key={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+              <div className="fld">
+                <label htmlFor="loc">Location *</label>
+                <input
+                  id="loc"
+                  name="location"
+                  type="text"
+                  placeholder="e.g. Abuja, FCT"
+                  required
+                />
+              </div>
               <div className="fld full">
                 <label htmlFor="cat">Applicant Category *</label>
                 <select id="cat" name="category" required defaultValue="">
@@ -258,13 +357,33 @@ export default function ApplyForm() {
                 </select>
               </div>
               <div className="fld full">
-                <label htmlFor="msg">
-                  Anything you would like us to know? (Optional)
-                </label>
+                <label>Supporting Documents (Optional)</label>
+                <p className="fdocs-note">
+                  Only needed if you are claiming a scholarship category above. Accepted
+                  formats: PDF, JPG, PNG. Max 5MB each.
+                </p>
+                <div className="fdocs">
+                  {applicationDocumentFields.map((field) => (
+                    <div key={field.key} className="fdoc">
+                      <label htmlFor={field.key}>{field.label}</label>
+                      <input
+                        id={field.key}
+                        name={field.key}
+                        type="file"
+                        accept={ACCEPTED_DOCUMENT_EXTENSIONS}
+                      />
+                      <span className="fdoc-hint">{field.hint}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="fld full">
+                <label htmlFor="msg">Why do you need this scholarship? *</label>
                 <textarea
                   id="msg"
                   name="message"
-                  placeholder="Tell us a little about yourself, or ask a question."
+                  placeholder="Tell us about your circumstances and why the scholarship matters to you."
+                  required
                 />
               </div>
             </div>

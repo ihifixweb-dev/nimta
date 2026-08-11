@@ -48,12 +48,12 @@ export default function HomePage() {
                 leave with work you are proud to put your name on.
               </p>
               <div className="hero-cta">
-                <Link href="/programmes" className="btn btn-ink">
-                  Explore Programmes
+                <Link href="/apply" className="btn btn-ink">
+                  Apply for Scholarship
                 </Link>
-                <ApplyLink href="/apply" className="btn btn-ghost-w">
-                  Apply Now
-                </ApplyLink>
+                <Link href="/programmes" className="btn btn-ghost-w">
+                  Explore Courses
+                </Link>
               </div>
               <div className="hero-facts">
                 {heroFacts.map((fact) => {

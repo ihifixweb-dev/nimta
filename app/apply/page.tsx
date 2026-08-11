@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ApplyForm from '@/components/ApplyForm';
+import {
+  scholarshipEligibility,
+  scholarshipEligibilityNote,
+} from '@/lib/data/apply-options';
 
 export const metadata: Metadata = {
   title: 'Apply',
@@ -16,25 +20,23 @@ export default function ApplyPage() {
   return (
     <section className="apply-dark">
       <div className="wrap">
-        <div className="apply-g">
+        <div className="apply-g apply-g-stack">
           <div className="apply-left">
-            <div className="pcrumb">
+            <div className="pcrumb mt-5">
               <Link href="/">Home</Link> &nbsp;/&nbsp; Apply
             </div>
-            <div className="kicker">Admissions Now Open</div>
+            {/* <div className="kicker">Admissions Now Open</div> */}
             <h2>
-              Start something
-              <br />
-              <em>you will be proud of.</em>
+              Scholarship Application now Open
             </h2>
-            <p>
+            {/* <p>
               This part is easy. Tell us who you are and what you would like to
               learn. It takes about ten minutes, and there is nothing to pay
               right now. Within five working days, our admissions team will send
               you your full application pack, and if a scholarship applies to
               you, we will confirm it in writing.
-            </p>
-            <div className="apply-points">
+            </p> */}
+            {/* <div className="apply-points">
               {applyPoints.map((point) => (
                 <div key={point} className="apply-pt">
                   <div className="apply-pt-i">
@@ -45,6 +47,24 @@ export default function ApplyPage() {
                   <span>{point}</span>
                 </div>
               ))}
+            </div> */}
+            <div className="felig">
+              <div className="felig-h">Who qualifies for a scholarship?</div>
+              {scholarshipEligibility.map((tier) => (
+                <div key={tier.title} className="felig-tier">
+                  <div className="felig-top">
+                    <span className="felig-pc">{tier.percent}</span>
+                    <span className="felig-name">{tier.title}</span>
+                  </div>
+                  <ul className="felig-list">
+                    {tier.who.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                  <p className="felig-proof">{tier.proof}</p>
+                </div>
+              ))}
+              <p className="felig-note">{scholarshipEligibilityNote}</p>
             </div>
           </div>
           <ApplyForm />
