@@ -180,7 +180,7 @@ function CourseItem({
               </svg>
               Download Curriculum
             </button>
-            <ApplyLink href="/apply" className="btn-ap">
+            <ApplyLink href="/apply/standard" className="btn-ap">
               Apply for This Programme
             </ApplyLink>
           </div>

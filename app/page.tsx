@@ -353,7 +353,7 @@ export default function HomePage() {
           </>
         }
         description="The application takes about ten minutes, and there is nothing to pay at this stage."
-        primaryHref="/apply"
+        primaryHref="/apply/standard"
         primaryLabel="Start Your Application"
       />
     </>

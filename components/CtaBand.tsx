@@ -18,7 +18,7 @@ type CtaBandProps = {
 export default function CtaBand({
   title,
   description,
-  primaryHref = '/apply',
+  primaryHref = '/apply/standard',
   primaryLabel = 'Apply Now',
   secondaryHref,
   secondaryLabel,

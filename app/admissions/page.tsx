@@ -136,7 +136,7 @@ export default function AdmissionsPage() {
       <CtaBand
         title="Documents ready? Then you are closer than you think."
         description="Send in your application and you will hear from us within five working days."
-        primaryHref="/apply"
+        primaryHref="/apply/standard"
         primaryLabel="Start Your Application"
       />
     </>

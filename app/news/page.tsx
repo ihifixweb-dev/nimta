@@ -34,7 +34,7 @@ export default function NewsPage() {
       <CtaBand
         title="Want your own story on this page?"
         description="It starts with one application."
-        primaryHref="/apply"
+        primaryHref="/apply/standard"
         primaryLabel="Apply Now"
       />
     </>

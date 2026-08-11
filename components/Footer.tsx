@@ -1,4 +1,5 @@
 import ApplyLink from '@/components/ApplyLink';
+import { isApplyHref } from '@/lib/is-apply-href';
 import Link from 'next/link';
 import Brand from '@/components/Brand';
 import { images } from '@/lib/data/images';
@@ -64,7 +65,7 @@ export default function Footer() {
                       >
                         {link.label}
                       </a>
-                    ) : link.href === '/apply' ? (
+                    ) : isApplyHref(link.href) ? (
                       <ApplyLink href={link.href}>{link.label}</ApplyLink>
                     ) : (
                       <Link href={link.href}>{link.label}</Link>

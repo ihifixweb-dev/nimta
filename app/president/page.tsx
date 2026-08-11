@@ -106,7 +106,7 @@ export default function PresidentPage() {
           </Reveal>
 
           <div style={{ textAlign: 'center', marginTop: 56 }}>
-            <ApplyLink href="/apply" className="btn btn-ink">
+            <ApplyLink href="/apply/standard" className="btn btn-ink">
               Begin Your Application
             </ApplyLink>
           </div>

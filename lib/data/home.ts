@@ -109,7 +109,7 @@ export const guidanceCard: GuidanceCard = {
   description:
     'Tell us what you enjoy and where you want your life to go. We will give you an honest recommendation, even if it means telling you to start smaller.',
   ctaLabel: 'Get Guidance',
-  href: '/apply',
+  href: '/apply/standard',
 };
 
 export const testimonials: Testimonial[] = [

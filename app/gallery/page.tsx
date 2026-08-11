@@ -30,7 +30,7 @@ export default function GalleryPage() {
       <CtaBand
         title="Picture yourself here. Then make it real."
         description="The next set of photos on this page could include you."
-        primaryHref="/apply"
+        primaryHref="/apply/standard"
         primaryLabel="Start Your Application"
       />
     </>

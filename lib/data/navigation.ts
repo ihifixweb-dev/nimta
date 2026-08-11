@@ -44,7 +44,7 @@ export const announceBar: AnnounceBar = {
   headline: 'Admissions Now Open',
   detail: 'July 2026 Cohort · Scholarships available for children of serving personnel',
   ctaLabel: 'Begin your application',
-  ctaHref: '/apply',
+  ctaHref: '/apply/standard',
 };
 
 const allNavLinks: NavLink[] = [
@@ -56,7 +56,7 @@ const allNavLinks: NavLink[] = [
   { label: 'Our People', href: '/team' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'News', href: '/news' },
-  { label: 'Apply Now', href: '/apply', variant: 'apply' },
+  { label: 'Apply Now', href: '/apply/standard', variant: 'apply' },
 ];
 
 export const navLinks = allNavLinks.filter((link) => !hiddenHrefs.has(link.href));
@@ -104,7 +104,7 @@ export const footerColumns: FooterColumn[] = [
       { label: 'Scholarship Tiers', href: '/admissions#tiers' },
       { label: 'Required Documents', href: '/admissions#documents' },
       { label: 'How to Apply', href: '/admissions#process' },
-      { label: 'Apply Now', href: '/apply' },
+      { label: 'Apply Now', href: '/apply/standard' },
       { label: 'Programme Policy', href: '/policy' },
     ],
   },
@@ -152,5 +152,5 @@ export const mobileSticky = {
   headline: 'Admissions Now Open',
   detail: 'Scholarships available for children of serving personnel',
   ctaLabel: 'Apply Now',
-  ctaHref: '/apply',
+  ctaHref: '/apply/standard',
 };

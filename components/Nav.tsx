@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Brand from '@/components/Brand';
 import { navLinks } from '@/lib/data/navigation';
 import { images } from '@/lib/data/images';
+import { isApplyHref } from '@/lib/is-apply-href';
 
 export default function Nav() {
   const pathname = usePathname();
@@ -23,7 +24,7 @@ export default function Nav() {
         <Brand logoSrc={images.navLogo} />
         <div className={`nav-l${open ? ' open' : ''}`} id="navL">
           {navLinks.map((link) => {
-            const LinkComponent = link.href === '/apply' ? ApplyLink : Link;
+            const LinkComponent = isApplyHref(link.href) ? ApplyLink : Link;
 
             return (
               <LinkComponent
