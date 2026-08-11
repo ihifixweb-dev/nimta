@@ -183,6 +183,9 @@ function CourseItem({
             <ApplyLink href="/apply/standard" className="btn-ap">
               Apply for This Programme
             </ApplyLink>
+            <ApplyLink href="/apply" className="btn-scholarship">
+              Apply for Scholarship
+            </ApplyLink>
           </div>
         </div>
       </div>

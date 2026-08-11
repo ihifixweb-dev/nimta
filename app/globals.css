@@ -281,6 +281,8 @@ img,video{max-width:100%;height:auto}
 .btn-dl svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .btn-ap{display:inline-flex;align-items:center;padding:12px 24px;background:var(--ink);font-size:0.8rem;font-weight:600;color:var(--white);text-decoration:none;transition:var(--tr)}
 .btn-ap:hover{background:var(--red)}
+.btn-scholarship{display:inline-flex;align-items:center;padding:12px 4px;font-size:0.8rem;font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:3px;transition:var(--tr)}
+.btn-scholarship:hover{color:var(--red)}
 @media(max-width:700px){.cnum{display:none}}
 
 /* TIERS */
@@ -440,7 +442,7 @@ img,video{max-width:100%;height:auto}
 .apply-link-spinner{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-top-color:transparent;border-radius:50%;animation:form-spin 0.7s linear infinite;flex-shrink:0}
 .apply-nav-overlay-in .apply-link-spinner{width:20px;height:20px;border-color:rgba(10,10,10,0.18);border-top-color:var(--ink)}
 a.is-loading{pointer-events:none;cursor:wait}
-.nav-apply.is-loading,.btn.is-loading,.btn-ap.is-loading,.cta-card-btn.is-loading,.mstick-b.is-loading{display:inline-flex;align-items:center;gap:10px;justify-content:center}
+.nav-apply.is-loading,.btn.is-loading,.btn-ap.is-loading,.btn-scholarship.is-loading,.cta-card-btn.is-loading,.mstick-b.is-loading{display:inline-flex;align-items:center;gap:10px;justify-content:center}
 .announce a.is-loading{display:inline-flex;align-items:center;gap:8px}
 .form-toast{position:fixed;right:24px;bottom:24px;z-index:5000;max-width:min(420px,calc(100vw - 32px));padding:16px 18px;background:var(--ink);color:var(--white);box-shadow:var(--sh-lg);border-left:4px solid var(--red);transform:translateY(16px);opacity:0;pointer-events:none;transition:opacity 0.25s ease,transform 0.25s ease}
 .form-toast.show{opacity:1;transform:translateY(0);pointer-events:auto}
