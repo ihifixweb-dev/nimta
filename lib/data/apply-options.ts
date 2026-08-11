@@ -19,7 +19,7 @@ export const scholarshipEligibility: ScholarshipEligibility[] = [
   },
   {
     percent: '50%',
-    title: 'Children of Officers including Nigerian Army Officers',
+    title: 'Children of Nigerian Army Officers',
     who: [
       'You are the biological or legally adopted child of a commissioned officer of the Nigerian Army, serving or retired.',
       'Your first programme is fully covered. Tuition on one programme of your choosing, at no cost to you.',
@@ -61,8 +61,8 @@ export const applicationDocumentFields: ApplicationDocumentField[] = [
 
 export const programmeOptions = {
   categories: [
-    'Child of Soldiers or Other Ranks Personnel (100% Scholarship, First Application)',
-    'Child of Officers including Nigerian Army Officers (50% Scholarship, First Programme)',
+    'Children of Soldiers or Other Ranks Personnel (100% Scholarship, First Application)',
+    'Children of Nigerian Army Officers (50% Scholarship, First Programme)',
   ],
   programmeGroups: [
     {

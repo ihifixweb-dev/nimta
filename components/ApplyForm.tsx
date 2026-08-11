@@ -13,6 +13,9 @@ const formEndpoint = process.env.NEXT_PUBLIC_NIMTA_FORM_URL ?? '';
 const MAX_DOCUMENT_SIZE_BYTES = 5 * 1024 * 1024;
 const ACCEPTED_DOCUMENT_TYPES = ['application/pdf', 'image/jpeg', 'image/png'];
 const ACCEPTED_DOCUMENT_EXTENSIONS = '.pdf,.jpg,.jpeg,.png';
+const STANDARD_APPLICANT_CATEGORY = 'Standard Admission (No Scholarship)';
+
+export type ApplyFormVariant = 'scholarship' | 'standard';
 
 type ToastState = {
   type: 'success' | 'error';
@@ -56,7 +59,12 @@ function readFileAsBase64(file: File): Promise<string> {
   });
 }
 
-export default function ApplyForm() {
+export default function ApplyForm({
+  variant = 'scholarship',
+}: {
+  variant?: ApplyFormVariant;
+}) {
+  const isScholarship = variant === 'scholarship';
   const [showModal, setShowModal] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
@@ -140,12 +148,14 @@ export default function ApplyForm() {
 
     const formData = new FormData(form);
 
-    const documentEntries = applicationDocumentFields
-      .map((field) => ({ field, file: formData.get(field.key) as File | null }))
-      .filter(
-        (entry): entry is { field: (typeof applicationDocumentFields)[number]; file: File } =>
-          !!entry.file && entry.file.size > 0,
-      );
+    const documentEntries = isScholarship
+      ? applicationDocumentFields
+          .map((field) => ({ field, file: formData.get(field.key) as File | null }))
+          .filter(
+            (entry): entry is { field: (typeof applicationDocumentFields)[number]; file: File } =>
+              !!entry.file && entry.file.size > 0,
+          )
+      : [];
 
     for (const { file } of documentEntries) {
       if (file.size > MAX_DOCUMENT_SIZE_BYTES) {
@@ -186,17 +196,20 @@ export default function ApplyForm() {
     }
 
     const payload = {
+      applicationType: variant,
       firstName: String(formData.get('firstName') ?? ''),
       lastName: String(formData.get('lastName') ?? ''),
       email: String(formData.get('email') ?? ''),
       phone: String(formData.get('phone') ?? ''),
       gender: String(formData.get('gender') ?? ''),
       location: String(formData.get('location') ?? ''),
-      category: String(formData.get('category') ?? ''),
+      category: isScholarship
+        ? String(formData.get('category') ?? '')
+        : STANDARD_APPLICANT_CATEGORY,
       programme: String(formData.get('programme') ?? ''),
       deliveryMode: programmeOptions.deliveryMode,
       qualification: String(formData.get('qualification') ?? ''),
-      message: String(formData.get('message') ?? ''),
+      message: isScholarship ? String(formData.get('message') ?? '') : '',
       documents,
     };
 
@@ -325,15 +338,17 @@ export default function ApplyForm() {
                   required
                 />
               </div>
-              <div className="fld full">
-                <label htmlFor="cat">Applicant Category *</label>
-                <select id="cat" name="category" required defaultValue="">
-                  <option value="">Select your category</option>
-                  {programmeOptions.categories.map((option) => (
-                    <option key={option}>{option}</option>
-                  ))}
-                </select>
-              </div>
+              {isScholarship ? (
+                <div className="fld full">
+                  <label htmlFor="cat">Applicant Category *</label>
+                  <select id="cat" name="category" required defaultValue="">
+                    <option value="">Select your category</option>
+                    {programmeOptions.categories.map((option) => (
+                      <option key={option}>{option}</option>
+                    ))}
+                  </select>
+                </div>
+              ) : null}
               <div className="fld full">
                 <label htmlFor="crs">Programme of Interest *</label>
                 <select id="crs" name="programme" required defaultValue="">
@@ -356,36 +371,40 @@ export default function ApplyForm() {
                   ))}
                 </select>
               </div>
-              <div className="fld full">
-                <label>Supporting Documents (Optional)</label>
-                <p className="fdocs-note">
-                  Only needed if you are claiming a scholarship category above. Accepted
-                  formats: PDF, JPG, PNG. Max 5MB each.
-                </p>
-                <div className="fdocs">
-                  {applicationDocumentFields.map((field) => (
-                    <div key={field.key} className="fdoc">
-                      <label htmlFor={field.key}>{field.label}</label>
-                      <input
-                        id={field.key}
-                        name={field.key}
-                        type="file"
-                        accept={ACCEPTED_DOCUMENT_EXTENSIONS}
-                      />
-                      <span className="fdoc-hint">{field.hint}</span>
+              {isScholarship ? (
+                <>
+                  <div className="fld full">
+                    <label>Supporting Documents (Optional)</label>
+                    <p className="fdocs-note">
+                      Only needed if you are claiming a scholarship category above. Accepted
+                      formats: PDF, JPG, PNG. Max 5MB each.
+                    </p>
+                    <div className="fdocs">
+                      {applicationDocumentFields.map((field) => (
+                        <div key={field.key} className="fdoc">
+                          <label htmlFor={field.key}>{field.label}</label>
+                          <input
+                            id={field.key}
+                            name={field.key}
+                            type="file"
+                            accept={ACCEPTED_DOCUMENT_EXTENSIONS}
+                          />
+                          <span className="fdoc-hint">{field.hint}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-              <div className="fld full">
-                <label htmlFor="msg">Why do you need this scholarship? *</label>
-                <textarea
-                  id="msg"
-                  name="message"
-                  placeholder="Tell us about your circumstances and why the scholarship matters to you."
-                  required
-                />
-              </div>
+                  </div>
+                  <div className="fld full">
+                    <label htmlFor="msg">Why do you need this scholarship? *</label>
+                    <textarea
+                      id="msg"
+                      name="message"
+                      placeholder="Tell us about your circumstances and why the scholarship matters to you."
+                      required
+                    />
+                  </div>
+                </>
+              ) : null}
             </div>
             <div className="fnote">
               By submitting, you confirm that you have read and accept the{' '}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import ApplyForm from '@/components/ApplyForm';
+import ApplyLink from '@/components/ApplyLink';
 import {
   scholarshipEligibility,
   scholarshipEligibilityNote,
@@ -66,6 +67,10 @@ export default function ApplyPage() {
               ))}
               <p className="felig-note">{scholarshipEligibilityNote}</p>
             </div>
+            <p className="apply-switch">
+              Not applying under a scholarship category?{' '}
+              <ApplyLink href="/apply/standard">Apply as a standard applicant</ApplyLink>.
+            </p>
           </div>
           <ApplyForm />
         </div>

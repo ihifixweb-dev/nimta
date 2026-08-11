@@ -8,6 +8,7 @@ import {
   useState,
 } from 'react';
 import { usePathname } from 'next/navigation';
+import { isApplyHref } from '@/lib/is-apply-href';
 
 type ApplyNavigationContextValue = {
   isNavigating: boolean;
@@ -32,7 +33,7 @@ export function ApplyNavigationProvider({
   }, []);
 
   useEffect(() => {
-    if (pathname === '/apply') {
+    if (isApplyHref(pathname)) {
       setIsNavigating(false);
     }
   }, [pathname]);

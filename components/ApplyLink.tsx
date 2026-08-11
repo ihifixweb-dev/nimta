@@ -38,7 +38,7 @@ export default function ApplyLink({
   const handleClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     onClick?.(event);
 
-    if (event.defaultPrevented || !appliesLoader || pathname === '/apply') {
+    if (event.defaultPrevented || !appliesLoader || pathname === hrefString) {
       return;
     }
 

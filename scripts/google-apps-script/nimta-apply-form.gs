@@ -17,22 +17,26 @@
  *
  * Sheet: https://docs.google.com/spreadsheets/d/1K2nOHztgdTXtVQlsbNewq9Jcbc_S_rB85jNKFr9F6r4/edit
  *
- * Responses are written to a tab named "Scholarship", created automatically
- * on first run if it doesn't already exist (leaves any other tabs untouched).
+ * The site posts two kinds of applications, routed to separate tabs by
+ * payload.applicationType (see SHEET_NAMES_BY_TYPE below):
+ *   - "scholarship" (the /apply page)          -> "Scholarship" tab
+ *   - "standard"    (the /apply/standard page) -> "Applications" tab
+ * Both tabs are created automatically on first run if they don't already
+ * exist (leaves any other tabs untouched).
  *
- * NOTE: if that tab already has data, ensureHeaders_ will NOT retrofit new
+ * NOTE: if a tab already has data, ensureHeaders_ will NOT retrofit new
  * columns (it only writes headers on an empty sheet). Add "Gender",
- * "Location", and "Documents Folder" to the existing header row by hand.
+ * "Location", and "Documents Folder" to its existing header row by hand.
  */
 
 /** NIMTA applications spreadsheet */
 var SPREADSHEET_ID = '1K2nOHztgdTXtVQlsbNewq9Jcbc_S_rB85jNKFr9F6r4';
 
-/** Tab gid from the sheet URL (fallback if name lookup fails). Leave blank to always resolve by name below. */
-var SHEET_GID = null;
-
-/** Responses are written to this tab, created automatically if it doesn't exist yet */
-var SHEET_NAME = 'Scholarship';
+/** Which tab each application type is written to */
+var SHEET_NAMES_BY_TYPE = {
+  scholarship: 'Scholarship',
+  standard: 'Applications',
+};
 
 /** Drive folder ID that per-applicant document folders are created inside. Leave blank to skip uploads. */
 var DRIVE_PARENT_FOLDER_ID = '1fObM7eo_TfHJzmy-i3-RbqklwUu_GAlX';
@@ -55,12 +59,14 @@ var HEADERS = [
 ];
 
 /**
- * Run once from the Apps Script editor to create headers.
+ * Run once from the Apps Script editor to create both tabs and their headers.
  */
 function setupSheet() {
-  var sheet = getSheet_();
-  ensureHeaders_(sheet);
-  Logger.log('Sheet ready: ' + sheet.getName());
+  Object.keys(SHEET_NAMES_BY_TYPE).forEach(function (type) {
+    var sheet = getSheet_(SHEET_NAMES_BY_TYPE[type]);
+    ensureHeaders_(sheet);
+    Logger.log('Sheet ready: ' + sheet.getName());
+  });
 }
 
 /**
@@ -73,7 +79,9 @@ function doPost(e) {
     }
 
     var payload = JSON.parse(e.postData.contents);
-    var sheet = getSheet_();
+    var sheetName =
+      SHEET_NAMES_BY_TYPE[payload.applicationType] || SHEET_NAMES_BY_TYPE.standard;
+    var sheet = getSheet_(sheetName);
     ensureHeaders_(sheet);
 
     var applicantName =
@@ -108,12 +116,14 @@ function doPost(e) {
  * Optional health check. Open the deployment URL in a browser to verify it works.
  */
 function doGet() {
-  var sheet = getSheet_();
-  ensureHeaders_(sheet);
+  var summary = Object.keys(SHEET_NAMES_BY_TYPE).map(function (type) {
+    var sheet = getSheet_(SHEET_NAMES_BY_TYPE[type]);
+    ensureHeaders_(sheet);
+    return { type: type, sheetName: sheet.getName(), rowCount: sheet.getLastRow() };
+  });
 
   return jsonResponse_(true, 'NIMTA apply form endpoint is active.', {
-    sheetName: sheet.getName(),
-    rowCount: sheet.getLastRow(),
+    sheets: summary,
   });
 }
 
@@ -152,20 +162,12 @@ function saveDocuments_(documents, applicantName) {
   return folder.getUrl();
 }
 
-function getSheet_() {
+function getSheet_(sheetName) {
   var spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
-  var sheet = null;
-
-  if (SHEET_GID) {
-    sheet = spreadsheet.getSheetById(SHEET_GID);
-  }
+  var sheet = spreadsheet.getSheetByName(sheetName);
 
   if (!sheet) {
-    sheet = spreadsheet.getSheetByName(SHEET_NAME);
-  }
-
-  if (!sheet) {
-    sheet = spreadsheet.insertSheet(SHEET_NAME);
+    sheet = spreadsheet.insertSheet(sheetName);
   }
 
   return sheet;
