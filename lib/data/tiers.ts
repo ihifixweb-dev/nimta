@@ -10,18 +10,18 @@ export type ScholarshipTier = {
 export const scholarshipTiers: ScholarshipTier[] = [
   {
     variant: 'a',
-    tag: 'Children of Soldiers & Other Ranks',
+    tag: 'Children of Soldiers',
     percent: '100%',
-    name: 'Soldiers and other ranks',
+    name: 'Children of Soldiers',
     description:
       'If your parent is a Soldier and other ranks, your first programme here is completely covered. Tuition, training, materials access. All of it. Choose your programme well, because this one is on us.',
     note: 'One full scholarship per person, on your first programme only. Anything after that is at the standard fee.',
   },
   {
     variant: 'b',
-    tag: 'Children of Army Officers',
+    tag: 'Children of Officers',
     percent: '50%',
-    name: 'Nigerian Army',
+    name: 'Children of Officers',
     description:
       'If your parent serves or has served in the Nigerian Army, in any of the nation\'s uniformed services, half your tuition is covered on your first application.',
     note: '50% off your first application only. From your second application onward, the standard fee applies.',
